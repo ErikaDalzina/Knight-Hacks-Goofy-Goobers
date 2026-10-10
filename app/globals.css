@@ -1,0 +1,6 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0; padding: 3rem 1.5rem; background: #0b1223; color: #e9f1ff; }
+main { max-width: 860px; margin: auto; }
+a { color: #a1c4ff; }
+pre { overflow: auto; padding: 1rem; background: #142442; border-radius: 8px; }
