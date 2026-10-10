@@ -1,17 +1,25 @@
-/**
- * TEMPORARY integration-friendly rating engine.
- * Person 2 owns this entire folder: replace or improve this file during the
- * hackathon, keeping `rateSpot(spot, date, hourly)` and the shared output type.
- * This baseline implements the documented weights and uses SunCalc for darkness
- * and moon; no network requests here. Moonrise/set fields mean events during
- * the dark window, not necessarily the complete calendar day.
- */
 import SunCalc from 'suncalc';
 import type { HourlyForecast, RateSpot, Spot, SpotRating } from '@/lib/types';
+
+/** Every tunable number lives here, so scoring can change without touching the logic. */
+export const SCORING_CONFIG = {
+  // score = 100 * (clouds * w.clouds + darkness * w.darkness + moon * w.moon)
+  weights: { clouds: 0.40, darkness: 0.35, moon: 0.25 },
+  // darkness factor = (worstBortle - spot.bortle) / range, clamped to 0-1
+  darkness: { worstBortle: 9, range: 8 },
+  // "Not tonight" gate: average cloud cover (%) above this
+  gates: { maxAverageCloud: 75 },
+  // An hour counts toward the best window when cloud cover (%) is below this
+  bestWindow: { maxCloud: 30 },
+  // Minimum score for each label (anything lower is "Poor")
+  labels: { excellent: 80, good: 60, fair: 40 },
+};
 
 const FIFTEEN_MINUTES = 15 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
+const darknessScore = (bortle: number) =>
+    clamp((SCORING_CONFIG.darkness.worstBortle - bortle) / SCORING_CONFIG.darkness.range);
 
 function offsetFromForecast(hourly: HourlyForecast[]): number {
   const match = hourly[0]?.time.match(/([+-])(\d{2}):(\d{2})$/);
@@ -38,7 +46,7 @@ function gateResult(spot: Spot, date: string, reason: string, factors: SpotRatin
 
 export const rateSpot: RateSpot = (spot, date, forecast) => {
   const defaultMoon = { illumination: 0, rise: null, set: null };
-  const defaultFactors = { clouds: 0, darkness: clamp((9 - spot.bortle) / 8), moon: 0 };
+  const defaultFactors = { clouds: 0, darkness: darknessScore(spot.bortle), moon: 0 };
   const offset = offsetFromForecast(forecast);
   // SunCalc's astronomical night is the -18 degree solar crossing.
   const utcNoon = new Date(`${date}T12:00:00Z`);
@@ -60,7 +68,7 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
 
   const averageCloud = sampledHours.reduce((sum, h) => sum + h.cloudCover, 0) / sampledHours.length;
   const illumination = clamp(SunCalc.getMoonIllumination(
-    new Date((start.getTime() + end.getTime()) / 2)).fraction);
+      new Date((start.getTime() + end.getTime()) / 2)).fraction);
   let moonSamples = 0, moonUpSamples = 0;
   let rise: string | null = null, set: string | null = null;
   let previousUp = moonUpAt(start, spot);
@@ -75,7 +83,7 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
   }
   const factors = {
     clouds: clamp(1 - averageCloud / 100),
-    darkness: clamp((9 - spot.bortle) / 8),
+    darkness: darknessScore(spot.bortle),
     moon: clamp(1 - illumination * (moonSamples ? moonUpSamples / moonSamples : 0)),
   };
   const moon = { illumination, rise, set };
@@ -86,8 +94,8 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
   if (!spot.openAtNight) {
     return gateResult(spot, date, 'Spot is closed at night', factors, darkWindow, moon, hourly);
   }
-  if (averageCloud > 75) {
-    return gateResult(spot, date, 'Cloud cover above 75%', factors, darkWindow, moon, hourly);
+  if (averageCloud > SCORING_CONFIG.gates.maxAverageCloud) {
+    return gateResult(spot, date, `Cloud cover above ${SCORING_CONFIG.gates.maxAverageCloud}%`, factors, darkWindow, moon, hourly);
   }
   if (sampledHours.some(h => h.precipitation > 0)) {
     return gateResult(spot, date, 'Precipitation forecast during dark hours', factors, darkWindow, moon, hourly);
@@ -98,7 +106,7 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
   let bestStart: number | null = null, bestEnd: number | null = null;
   for (const h of hourly) {
     const t = new Date(h.time).getTime();
-    if (h.cloudCover < 30 && !h.moonUp) {
+    if (h.cloudCover < SCORING_CONFIG.bestWindow.maxCloud && !h.moonUp) {
       if (currentStart === null || currentEnd !== t) currentStart = t;
       currentEnd = Math.min(t + HOUR, end.getTime());
       if (bestStart === null || bestEnd === null ||
@@ -114,8 +122,11 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
   const bestWindow = bestStart === null || bestEnd === null ? null : {
     start: offsetISO(new Date(bestStart), offset), end: offsetISO(new Date(bestEnd), offset),
   };
-  const score = Math.round(100 * (0.40 * factors.clouds + 0.35 * factors.darkness + 0.25 * factors.moon));
-  const label: SpotRating['label'] = score >= 80 ? 'Excellent' : score >= 60 ? 'Good'
-    : score >= 40 ? 'Fair' : 'Poor';
+  const { weights } = SCORING_CONFIG;
+  const score = Math.round(100 * (weights.clouds * factors.clouds +
+      weights.darkness * factors.darkness + weights.moon * factors.moon));
+  const { excellent, good, fair } = SCORING_CONFIG.labels;
+  const label: SpotRating['label'] = score >= excellent ? 'Excellent' : score >= good ? 'Good'
+      : score >= fair ? 'Fair' : 'Poor';
   return { spot, date, score, label, factors, darkWindow, bestWindow, moon, hourly };
 };
