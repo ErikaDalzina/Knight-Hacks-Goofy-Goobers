@@ -1,0 +1,91 @@
+{
+  "spot": {
+    "id": "kissimmee-prairie",
+    "name": "Kissimmee Prairie Preserve",
+    "region": "Okeechobee County",
+    "lat": 27.582,
+    "lon": -81.0436,
+    "bortle": 3,
+    "openAtNight": true,
+    "darkSkyCertified": true,
+    "notes": "Florida's first DarkSky park. The gate closes 15 minutes after sunset, so reserve a campsite or astronomy pad and check in with the ranger before dark; red lights only on the pads.",
+    "sources": [
+      "https://www.floridastateparks.org/learn/dark-sky-designation",
+      "https://www.floridastateparks.org/parks-and-trails/kissimmee-prairie-preserve-state-park/experiences-amenities",
+      "https://clearoutside.com/forecast/27.58/-81.04"
+    ]
+  },
+  "date": "2026-10-23",
+  "score": 62,
+  "label": "Good",
+  "factors": {
+    "clouds": 0.835,
+    "darkness": 0.75,
+    "moon": 0.09603051180344035
+  },
+  "darkWindow": {
+    "start": "2026-10-23T20:07:36-04:00",
+    "end": "2026-10-24T06:12:16-04:00"
+  },
+  "bestWindow": {
+    "start": "2026-10-24T06:00:00-04:00",
+    "end": "2026-10-24T06:12:16-04:00"
+  },
+  "moon": {
+    "illumination": 0.9503268978476653,
+    "rise": null,
+    "set": "2026-10-24T05:52:36-04:00"
+  },
+  "hourly": [
+    {
+      "time": "2026-10-23T21:00:00-04:00",
+      "cloudCover": 20,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-23T22:00:00-04:00",
+      "cloudCover": 25,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-23T23:00:00-04:00",
+      "cloudCover": 15,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T00:00:00-04:00",
+      "cloudCover": 10,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T01:00:00-04:00",
+      "cloudCover": 10,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T02:00:00-04:00",
+      "cloudCover": 15,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T03:00:00-04:00",
+      "cloudCover": 20,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T04:00:00-04:00",
+      "cloudCover": 25,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T05:00:00-04:00",
+      "cloudCover": 15,
+      "moonUp": true
+    },
+    {
+      "time": "2026-10-24T06:00:00-04:00",
+      "cloudCover": 10,
+      "moonUp": false
+    }
+  ]
+}

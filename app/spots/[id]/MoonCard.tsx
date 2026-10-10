@@ -4,7 +4,7 @@ import styles from './spot.module.css';
 import { moonPhaseName, moonUpShare } from './timeline';
 
 export default function MoonCard({ rating }: { rating: SpotRating }) {
-  const { moon, factors, darkWindow } = rating;
+  const { moon, factors, darkWindow, hourly } = rating;
   const lit = moon.illumination;
 
   // The engine only reports a rise or set when it happens during the dark hours.
@@ -34,7 +34,8 @@ export default function MoonCard({ rating }: { rating: SpotRating }) {
             </div>
           </div>
           <p className={styles.moonEvents}>
-            {events.length ? events.map((e) => e.text).join(' · ') : 'No moonrise or moonset during dark hours'}
+            {/* No rise or set while it's dark means the moon is up or down the whole time, as in BestTime. */}
+            {events.length ? events.map((e) => e.text).join(' · ') : hourly[0]?.moonUp ? 'Up all night' : 'Down all night'}
           </p>
           <p className={styles.reason} style={{ textAlign: 'left' }}>
             Up for {Math.round(moonUpShare(factors.moon, lit) * 100)}% of dark hours → moon factor {factors.moon.toFixed(2)}
