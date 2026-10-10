@@ -5,8 +5,10 @@ import { useEffect, useState } from 'react';
 import ScoreBadge, { labelColor } from '@/components/ScoreBadge';
 import { tonightDate } from '@/components/time';
 import type { Spot, SpotRating } from '@/lib/types';
+import AboutSpot from './AboutSpot';
 import BestTime from './BestTime';
 import FactorBreakdown from './FactorBreakdown';
+import MoonCard from './MoonCard';
 import styles from './spot.module.css';
 
 // Stand-in with the same signature as Person 3's getRating() in /lib/apiClient.ts.
@@ -65,16 +67,28 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
     <main className={styles.page}>
       <Link href="/" className={styles.back}>← All spots</Link>
       <header className={styles.header}>
-        <h1 className={styles.name}>{spot.name}</h1>
-        <div className={styles.chips}>
-          {spot.region && <span className={styles.chip}>{spot.region}</span>}
-          <span className={`${styles.chip} ${styles.mono}`}>{formatCoords(spot)}</span>
-          <span className={styles.chip}>Bortle {spot.bortle}</span>
-          <span className={styles.chip} style={{ color: labelColor(spot.openAtNight ? 'Excellent' : 'Poor') }}>
-            ● {spot.openAtNight ? 'Open at night' : 'Closed at night'}
-          </span>
-          {spot.darkSkyCertified && <span className={styles.chip}>DarkSky certified</span>}
+        <div className={styles.headerText}>
+          <h1 className={styles.name}>{spot.name}</h1>
+          <div className={styles.chips}>
+            {spot.region && <span className={styles.chip}>{spot.region}</span>}
+            <span className={`${styles.chip} ${styles.mono}`}>{formatCoords(spot)}</span>
+            <span className={styles.chip}>Bortle {spot.bortle}</span>
+            <span className={styles.chip} style={{ color: labelColor(spot.openAtNight ? 'Excellent' : 'Poor') }}>
+              ● {spot.openAtNight ? 'Open at night' : 'Closed at night'}
+            </span>
+            {spot.darkSkyCertified && <span className={styles.chip}>DarkSky certified</span>}
+          </div>
         </div>
+        {/* In the header so it works even when the ratings API is down. On phones it becomes a sticky bottom bar. */}
+        <a
+          className={`${styles.button} ${styles.directions}`}
+          href={`https://www.google.com/maps/dir/?api=1&destination=${spot.lat},${spot.lon}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Directions to ${spot.name} in Google Maps (opens in a new tab)`}
+        >
+          Directions ↗
+        </a>
       </header>
 
       <div className={styles.grid}>
@@ -132,6 +146,10 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
             </section>
           )}
           {state.status === 'ready' && <BestTime rating={state.rating} />}
+          <div className={styles.infoRow}>
+            {state.status === 'ready' && <MoonCard rating={state.rating} />}
+            <AboutSpot spot={spot} />
+          </div>
         </div>
       </div>
     </main>

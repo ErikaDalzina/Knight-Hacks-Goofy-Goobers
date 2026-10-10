@@ -3,6 +3,7 @@ import { formatLocalTime } from '@/components/time';
 import { DEFAULT_WEIGHTS } from '@/lib/constants';
 import type { SpotRating } from '@/lib/types';
 import styles from './spot.module.css';
+import { moonUpShare } from './timeline';
 
 type Factor = { name: string; value: number; weight: number; measured: boolean; explain: string };
 
@@ -12,9 +13,7 @@ function explainFactors({ factors, darkWindow, moon, spot }: SpotRating): Factor
   const night = darkWindow && `${formatLocalTime(darkWindow.start)}–${formatLocalTime(darkWindow.end)}`;
   const notMeasured = 'Not measured, no true darkness tonight';
   const lit = Math.round(moon.illumination * 100);
-  // moon factor = 1 − illumination × share of dark hours up, so the share can be worked back
-  // exactly instead of re-counting the hourly samples.
-  const upShare = moon.illumination > 0 ? Math.round(Math.min(1, (1 - factors.moon) / moon.illumination) * 100) : 0;
+  const upShare = Math.round(moonUpShare(factors.moon, moon.illumination) * 100);
 
   return [
     {

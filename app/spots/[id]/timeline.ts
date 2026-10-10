@@ -56,6 +56,23 @@ export function bestSpan(dark: Window, best: Window): Span {
   return axis(dark).span(Date.parse(best.start), Date.parse(best.end));
 }
 
+/**
+ * Share of dark hours the moon is up, 0–1. The engine's moon factor is
+ * 1 − illumination × share, so the share can be worked back exactly.
+ */
+export function moonUpShare(moonFactor: number, illumination: number): number {
+  return illumination > 0 ? Math.max(0, Math.min(1, (1 - moonFactor) / illumination)) : 0;
+}
+
+/** A phase name from the lit fraction alone; the contract doesn't say waxing or waning. */
+export function moonPhaseName(illumination: number): string {
+  if (illumination < 0.03) return 'New moon';
+  if (illumination < 0.35) return 'Crescent';
+  if (illumination < 0.65) return 'Half moon';
+  if (illumination < 0.97) return 'Gibbous';
+  return 'Full moon';
+}
+
 /** "5 h 58 m", "6 h" or "45 m". */
 export function formatDuration(ms: number): string {
   const total = Math.round(ms / 60000);

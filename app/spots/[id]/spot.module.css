@@ -17,7 +17,9 @@
   font: 400 12px var(--font-mono, ui-monospace, monospace);
 }
 
-.header { display: flex; flex-direction: column; gap: 10px; }
+.header { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 24px; }
+.headerText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.directions { flex: none; }
 
 .name {
   margin: 0;
@@ -172,6 +174,32 @@
 .skeletonBar { height: 10px; border-radius: 5px; background: rgba(255, 255, 255, .07); }
 .skeletonChart { width: 100%; height: 250px; border-radius: 12px; background: rgba(255, 255, 255, .04); }
 
+/* Moon and About sit side by side under the night chart on desktop. */
+.infoRow { display: flex; gap: 18px; align-items: flex-start; }
+.infoPanel { padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; }
+.moonPanel { flex: 1 1 0; min-width: 0; }
+.aboutPanel { flex: 1.6 1 0; min-width: 0; }
+
+.moonRow { display: flex; align-items: center; gap: 16px; }
+.moonDisc { width: 64px; height: 64px; flex: none; border-radius: 50%; border: 1px solid rgba(233, 226, 200, .25); }
+.moonText { display: flex; flex-direction: column; gap: 2px; }
+.moonLit { font: 500 30px/1 var(--font-sans, system-ui, sans-serif); }
+.moonPhase { font-size: 13px; color: var(--muted); }
+.moonEvents { margin: 0; font: 500 14px var(--font-mono, ui-monospace, monospace); }
+
+.notes { margin: 0; font-size: 14px; line-height: 1.55; color: #c4c5d6; text-wrap: pretty; }
+.facts {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.facts dt { font-size: 12px; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-size: 14px; color: var(--text); }
+.sources { margin: 0; font-size: 12px; color: var(--faint); }
+
 @keyframes pulse { 50% { opacity: .45; } }
 
 @media (prefers-reduced-motion: reduce) {
@@ -181,14 +209,29 @@
 /* One column: the two column wrappers dissolve so cards can be reordered to match frame 1d. */
 @media (max-width: 900px) {
   .grid { grid-template-columns: minmax(0, 1fr); }
-  .column { display: contents; }
+  .column, .infoRow { display: contents; }
   .orderScore { order: 1; }
   .orderBest { order: 2; }
   .orderFactors { order: 3; }
+  .orderMoon { order: 4; }
+  .orderAbout { order: 5; }
 }
 
 @media (max-width: 600px) {
-  .page { padding: 12px 16px 24px; }
+  /* Extra bottom padding so the sticky Directions bar never covers the last card. */
+  .page { padding: 12px 16px 104px; }
+  .directions {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 20;
+    height: 52px;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 16px;
+    box-shadow: 0 -16px 32px 12px rgba(5, 7, 13, .85);
+  }
   .name { font-size: 30px; }
   .desktopOnly { display: none; }
   .phoneOnly { display: inline; }
