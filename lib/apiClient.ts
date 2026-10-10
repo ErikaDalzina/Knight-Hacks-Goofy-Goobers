@@ -1,12 +1,13 @@
 import type { SpotRating } from '@/lib/types';
 
 // Flip to false at the hour 12 checkpoint.
-export const USE_MOCKS = true;
+export const USE_MOCKS = false;
 
 async function getJson<T>(url: string): Promise<T> {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Request failed (${res.status})`);
-  return res.json() as Promise<T>;
+  const body = await res.json().catch(() => null);
+  if (!res.ok) throw new Error(body?.error ?? `Request failed (${res.status})`);
+  return body as T;
 }
 
 // GET /api/ratings?date=YYYY-MM-DD  (date must be inside the forecast window)

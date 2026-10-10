@@ -30,7 +30,7 @@ function FitToSpots({ spots }: { spots: RatedSpot[] }) {
   return null;
 }
 
-export default function SpotMap({ spots, center }: { spots: RatedSpot[]; center: LatLon }) {
+export default function SpotMap({ spots, center, date }: { spots: RatedSpot[]; center: LatLon; date: string }) {
   const router = useRouter();
 
   return (
@@ -47,7 +47,7 @@ export default function SpotMap({ spots, center }: { spots: RatedSpot[]; center:
             key={s.spot.id}
             position={[s.spot.lat, s.spot.lon]}
             icon={pinIcon(LABEL_COLORS[s.label])}
-            eventHandlers={{ click: () => router.push(`/spots/${s.spot.id}`) }}
+            eventHandlers={{ click: () => router.push(`/spots/${s.spot.id}?date=${date}`) }}
           >
             <Tooltip>{s.spot.name}</Tooltip>
           </Marker>

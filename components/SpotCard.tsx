@@ -6,12 +6,12 @@ import styles from './SpotsExplorer.module.css';
 
 export type RatedSpot = SpotRating & { distanceMi: number };
 
-export default function SpotCard({ item }: { item: RatedSpot }) {
+export default function SpotCard({ item, date }: { item: RatedSpot; date: string }) {
   const color = LABEL_COLORS[item.label];
   const best = formatWindow(item.bestWindow);
 
   return (
-    <Link href={`/spots/${item.spot.id}`} className={styles.card} style={{ borderLeftColor: color }}>
+    <Link href={`/spots/${item.spot.id}?date=${date}`} className={styles.card} style={{ borderLeftColor: color }}>
       <div className={styles.cardTop}>
         <span className={styles.name}>{item.spot.name}</span>
         <span className={styles.score}>{item.score ?? '—'}</span>

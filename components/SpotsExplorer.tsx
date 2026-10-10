@@ -7,6 +7,7 @@ import { distanceMiles, useUserLocation } from '@/lib/geo';
 import type { SpotRating } from '@/lib/types';
 import SpotCard, { type RatedSpot } from './SpotCard';
 import styles from './SpotsExplorer.module.css';
+import { tonightDate } from './time';
 
 // Leaflet touches `window`, so the map only loads in the browser.
 const SpotMap = dynamic(() => import('./SpotMap'), {
@@ -15,18 +16,18 @@ const SpotMap = dynamic(() => import('./SpotMap'), {
 });
 
 type Sort = 'score' | 'distance';
-const todayISO = () => new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
 
 export default function SpotsExplorer() {
   const { location } = useUserLocation();
   const [ratings, setRatings] = useState<SpotRating[]>([]);
   const [status, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
   const [sort, setSort] = useState<Sort>('score');
+  const [date] = useState(tonightDate);
   const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
-    getRatings(todayISO())
+    getRatings(date)
       .then((data) => {
         if (cancelled) return;
         setRatings(data);
@@ -38,7 +39,7 @@ export default function SpotsExplorer() {
     return () => {
       cancelled = true;
     };
-  }, [reloadKey]);
+  }, [reloadKey, date]);
 
   const retry = () => {
     setStatus('loading');
@@ -58,7 +59,7 @@ export default function SpotsExplorer() {
   return (
     <div className={styles.page}>
       <div className={styles.mapPane}>
-        <SpotMap spots={items} center={location} />
+        <SpotMap spots={items} center={location} date={date} />
       </div>
 
       <aside className={styles.listPane}>
@@ -95,7 +96,7 @@ export default function SpotsExplorer() {
         {status === 'ready' && items.length > 0 && (
           <div className={styles.cards}>
             {items.map((item) => (
-              <SpotCard key={item.spot.id} item={item} />
+                <SpotCard key={item.spot.id} item={item} date={date} />
             ))}
           </div>
         )}
