@@ -4,21 +4,13 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ScoreBadge, { labelColor } from '@/components/ScoreBadge';
 import { tonightDate } from '@/components/time';
+import { getRating } from '@/lib/apiClient';
 import type { Spot, SpotRating } from '@/lib/types';
 import AboutSpot from './AboutSpot';
 import BestTime from './BestTime';
 import FactorBreakdown from './FactorBreakdown';
 import MoonCard from './MoonCard';
 import styles from './spot.module.css';
-
-// Stand-in with the same signature as Person 3's getRating() in /lib/apiClient.ts.
-// At the hour 12 switch, import getRating from there instead.
-async function fetchRating(spotId: string, date: string): Promise<SpotRating> {
-  const res = await fetch(`/api/ratings/${encodeURIComponent(spotId)}?date=${encodeURIComponent(date)}`);
-  const body = await res.json().catch(() => null);
-  if (!res.ok) throw new Error(body?.error ?? `Request failed (${res.status}).`);
-  return body as SpotRating;
-}
 
 // Development only (see page.tsx): ?mock=closed and friends load one of Person 2's mock
 // ratings to check each page state. The header still shows this spot; the mock keeps its
@@ -54,7 +46,7 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
     const loadMock = mock ? MOCKS[mock] : undefined;
     const request = loadMock
       ? loadMock().then((m) => m.default as SpotRating)
-      : fetchRating(spot.id, date ?? tonightDate());
+      : getRating(spot.id, date ?? tonightDate());
     request
       .then((rating) => { if (!cancelled) setState({ status: 'ready', rating }); })
       .catch((e: unknown) => {
