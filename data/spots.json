@@ -72,5 +72,231 @@
       "https://ww2.aaa.com/tripcanvas/attraction/lake-eola-park-VA16894",
       "https://clearoutside.com/forecast/28.54/-81.37"
     ]
+  },
+  {
+    "id": "alexander-springs",
+    "name": "Alexander Springs Recreation Area",
+    "region": "Ocala National Forest",
+    "lat": 29.0789,
+    "lon": -81.5801,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Forest Service campground beside the spring. Campers get 24-hour gate access with a code; day-use hours vary by season.",
+    "sources": [
+      "https://www.fs.usda.gov/r08/florida/recreation/alexander-springs-recreation-area",
+      "https://www.recreation.gov/camping/campgrounds/234032",
+      "https://clearoutside.com/forecast/29.08/-81.58"
+    ]
+  },
+  {
+    "id": "juniper-springs",
+    "name": "Juniper Springs Recreation Area",
+    "region": "Ocala National Forest",
+    "lat": 29.1822,
+    "lon": -81.7103,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Forest Service campground around the spring. Campers get 24-hour gate access with a code; the boardwalk is closed for renovation.",
+    "sources": [
+      "https://www.fs.usda.gov/r08/florida/recreation/juniper-springs-recreation-area",
+      "https://www.recreation.gov/camping/campgrounds/234031",
+      "https://clearoutside.com/forecast/29.18/-81.71"
+    ]
+  },
+  {
+    "id": "silver-springs",
+    "name": "Silver Springs State Park",
+    "region": "Ocala · Marion County",
+    "lat": 29.201,
+    "lon": -82.0508,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Campers only after dark: the park closes at sundown, and the campground has its own entrance at 1425 NE 58th Ave. Campers arriving after sunset must call before 5 PM for the gate combination.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/silver-springs-state-park/hours-fees",
+      "https://www.floridastateparks.org/parks-and-trails/silver-springs-state-park/entrances",
+      "https://www.floridastateparks.org/reservation-information",
+      "https://clearoutside.com/forecast/29.20/-82.05"
+    ]
+  },
+  {
+    "id": "wekiwa-springs",
+    "name": "Wekiwa Springs State Park",
+    "region": "Apopka · Orange County",
+    "lat": 28.7088,
+    "lon": -81.4745,
+    "bortle": 6,
+    "openAtNight": true,
+    "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset call 407-553-4383 for the gate combination. Day visitors need an entry reservation.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/wekiwa-springs-state-park/hours-fees",
+      "https://clearoutside.com/forecast/28.71/-81.47"
+    ]
+  },
+  {
+    "id": "ucf-reflecting-pond",
+    "name": "UCF Reflecting Pond",
+    "region": "UCF · East Orlando",
+    "lat": 28.5996,
+    "lon": -81.202,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Campus lawn by Millican Hall where UCF's Planetary Sciences Group has set up telescopes for Moon viewing; good for the Moon and planets, not the Milky Way. Visitors need an $8 virtual daily parking permit.",
+    "sources": [
+      "https://www.ucf.edu/news/ucf-host-moon-viewing-thursday-reflecting-pond/",
+      "https://parking.ucf.edu/resources/faqs/",
+      "https://clearoutside.com/forecast/28.60/-81.20"
+    ]
+  },
+  {
+    "id": "moss-park",
+    "name": "Moss Park",
+    "region": "Orange County · near Lake Nona",
+    "lat": 28.3722,
+    "lon": -81.1885,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "County campground between Lake Hart and Lake Mary Jane. Campers only after dark: check in and set up before the park closes.",
+    "sources": [
+      "https://ocfl.net/Portals/0/Library/Culture-Recreation/docs/Camping%20at%20Orange%20County%20Parks%202024.pdf",
+      "https://www.floridarambler.com/florida-camping/moss-park/",
+      "https://clearoutside.com/forecast/28.37/-81.19"
+    ]
+  },
+  {
+    "id": "lake-apopka-wildlife-drive",
+    "name": "Lake Apopka Wildlife Drive",
+    "region": "Lake Apopka North Shore",
+    "lat": 28.6692,
+    "lon": -81.5611,
+    "bortle": 5,
+    "openAtNight": false,
+    "notes": "One-way 11-mile drive open to cars Friday to Sunday and federal holidays. The gate takes vehicles 7 AM to 3 PM and everyone must be out by 5 PM, so there is no night access.",
+    "sources": [
+      "https://www.sjrwmd.com/lands/recreation/lake-apopka/",
+      "https://clearoutside.com/forecast/28.67/-81.56"
+    ]
+  },
+  {
+    "id": "blue-spring",
+    "name": "Blue Spring State Park",
+    "region": "Orange City · Volusia County",
+    "lat": 28.9457,
+    "lon": -81.3346,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset call 386-775-3663 for the gate combination. A camping reservation doubles as the entry reservation.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/blue-spring-state-park/hours-fees",
+      "https://clearoutside.com/forecast/28.95/-81.33"
+    ]
+  },
+  {
+    "id": "playalinda-beach",
+    "name": "Playalinda Beach",
+    "region": "Canaveral National Seashore",
+    "lat": 28.6773,
+    "lon": -80.6472,
+    "bortle": 4,
+    "openAtNight": false,
+    "notes": "The seashore is open 6 AM to 6 PM under normal hours and closes for some rocket launches, so there is no night access.",
+    "sources": [
+      "https://www.nps.gov/cana/learn/news/playalinda-district-hours-change-for-artemis-ii-launch.htm",
+      "https://www.nps.gov/cana/learn/news/launch-closure.htm",
+      "https://clearoutside.com/forecast/28.68/-80.65"
+    ]
+  },
+  {
+    "id": "jetty-park",
+    "name": "Jetty Park",
+    "region": "Port Canaveral · Brevard County",
+    "lat": 28.407,
+    "lon": -80.5939,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "The park closes at 9 PM except to campground guests, who keep beach access and 24-hour pier access. Campers can stay overnight to watch launches from the beach or pier.",
+    "sources": [
+      "https://www.portcanaveral.com/park-services/jetty-park/rules-regulations",
+      "https://www.portcanaveral.com/park-services/jetty-park/beach-and-pier/what-time-does-the-beach--park--and-pier-close",
+      "https://clearoutside.com/forecast/28.41/-80.59"
+    ]
+  },
+  {
+    "id": "sebastian-inlet",
+    "name": "Sebastian Inlet State Park",
+    "region": "Melbourne Beach · Brevard County",
+    "lat": 27.8634,
+    "lon": -80.4494,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Open 24 hours with a staffed north ranger station, so no campsite is needed. Use the north-side lots; south-side beach access is closed during bridge construction.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/sebastian-inlet-state-park/hours-fees",
+      "https://www.floridastateparks.org/parks-and-trails/sebastian-inlet-state-park",
+      "https://clearoutside.com/forecast/27.86/-80.45"
+    ]
+  },
+  {
+    "id": "three-lakes-prairie-lakes",
+    "name": "Three Lakes WMA, Prairie Lakes Unit",
+    "region": "Osceola County",
+    "lat": 27.9103,
+    "lon": -81.1498,
+    "bortle": 4,
+    "openAtNight": true,
+    "seasonalNote": "No camping during Prairie Lakes quota hunts",
+    "notes": "Primitive campsites by Lake Jackson need a free FWC camping permit, plus a daily-use permit to enter. Come in from CR 523 via Prairie Lakes Rd, since the route from SR 60 doesn't go through.",
+    "sources": [
+      "https://myfwc.com/recreation/lead/three-lakes/things-to-do/",
+      "https://myfwc.com/recreation/lead/three-lakes/three-lakes-wma/",
+      "https://www.campendium.com/lake-jackson-campsites",
+      "https://clearoutside.com/forecast/27.91/-81.15"
+    ]
+  },
+  {
+    "id": "colt-creek",
+    "name": "Colt Creek State Park",
+    "region": "Lakeland · Polk County",
+    "lat": 28.2901,
+    "lon": -82.0426,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset must call before 5 PM for the gate combination.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/colt-creek-state-park/hours-fees",
+      "https://www.floridastateparks.org/reservation-information",
+      "https://clearoutside.com/forecast/28.29/-82.04"
+    ]
+  },
+  {
+    "id": "withlacoochee-river-park",
+    "name": "Withlacoochee River Park",
+    "region": "Dade City · Pasco County",
+    "lat": 28.3516,
+    "lon": -82.1277,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "The St. Petersburg Astronomy Club's dark-sky site: astronomers camp on the open activity field on new-moon weekends, since the campground is shaded by oaks. The park is open dawn to dusk, so stay with a campsite.",
+    "sources": [
+      "https://www.pascocountyfl.gov/_T22_R84.php",
+      "https://www.floridarambler.com/florida-camping/withlacoochee-river-park/",
+      "https://nightsky.jpl.nasa.gov/clubs/spac/",
+      "https://clearoutside.com/forecast/28.35/-82.13"
+    ]
+  },
+  {
+    "id": "hillsborough-river",
+    "name": "Hillsborough River State Park",
+    "region": "Thonotosassa · Hillsborough County",
+    "lat": 28.1448,
+    "lon": -82.2392,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset must call before 5 PM for the gate combination.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/hillsborough-river-state-park/hours-fees",
+      "https://www.floridastateparks.org/reservation-information",
+      "https://clearoutside.com/forecast/28.14/-82.24"
+    ]
   }
 ]

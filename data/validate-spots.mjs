@@ -6,6 +6,7 @@ const raw = readFileSync(new URL('./spots.json', import.meta.url), 'utf8').repla
 const spots = JSON.parse(raw);
 const errors = [];
 const seen = new Set();
+const places = new Map();
 
 spots.forEach((s, i) => {
   const at = `spot ${i} (${s.id ?? 'no id'})`;
@@ -17,9 +18,15 @@ spots.forEach((s, i) => {
   if (!(Math.abs(s.lon) <= 180)) errors.push(`${at}: lon out of range`);
   if (!Number.isInteger(s.bortle) || s.bortle < 1 || s.bortle > 9) errors.push(`${at}: bortle must be an integer 1-9`);
   if (typeof s.openAtNight !== 'boolean') errors.push(`${at}: openAtNight must be true or false`);
-  if (s.sources !== undefined && !(Array.isArray(s.sources) && s.sources.every(u => /^https?:\/\//.test(u)))) {
-    errors.push(`${at}: sources must be a list of URLs`);
+  if (typeof s.notes !== 'string' || !s.notes.trim()) errors.push(`${at}: notes are empty`);
+  // Every fact needs a source (see the per-spot checklist).
+  if (!(Array.isArray(s.sources) && s.sources.length && s.sources.every(u => /^https?:\/\//.test(u)))) {
+    errors.push(`${at}: sources must be a non-empty list of URLs`);
   }
+  // Same coordinates twice usually means a copy-paste slip, but it isn't always wrong.
+  const place = `${s.lat},${s.lon}`;
+  if (places.has(place)) console.warn(`warning: ${at} has the same coordinates as ${places.get(place)}`);
+  places.set(place, s.id);
 });
 
 if (errors.length) {
