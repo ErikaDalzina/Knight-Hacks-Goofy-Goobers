@@ -1,29 +1,76 @@
 [
   {
-    "id": "demo-city",
-    "name": "Demo City Coordinates (replace me)",
-    "lat": 35.4676,
-    "lon": -97.5164,
-    "bortle": 8,
-    "openAtNight": true,
-    "notes": "DEMO ONLY: not a verified public observing location or access status."
-  },
-  {
-    "id": "demo-rural",
-    "name": "Demo Rural Coordinates (replace me)",
-    "lat": 35.88,
-    "lon": -98.8,
+    "id": "kissimmee-prairie",
+    "name": "Kissimmee Prairie Preserve",
+    "region": "Okeechobee County",
+    "lat": 27.582,
+    "lon": -81.0436,
     "bortle": 3,
     "openAtNight": true,
-    "notes": "DEMO ONLY: invented light-pollution/access values. Replace with verified site data."
+    "darkSkyCertified": true,
+    "notes": "Florida's first DarkSky park. The gate closes 15 minutes after sunset, so reserve a campsite or astronomy pad and check in with the ranger before dark; red lights only on the pads.",
+    "sources": [
+      "https://www.floridastateparks.org/learn/dark-sky-designation",
+      "https://www.floridastateparks.org/parks-and-trails/kissimmee-prairie-preserve-state-park/experiences-amenities",
+      "https://clearoutside.com/forecast/27.58/-81.04"
+    ]
   },
   {
-    "id": "demo-closed",
-    "name": "Demo Closed Coordinates (replace me)",
-    "lat": 35.7,
-    "lon": -97.6,
+    "id": "hopkins-prairie",
+    "name": "Hopkins Prairie",
+    "region": "Ocala National Forest",
+    "lat": 29.2755,
+    "lon": -81.6931,
+    "bortle": 4,
+    "openAtNight": true,
+    "seasonalNote": "Campground open October through June",
+    "notes": "Small Forest Service campground overlooking an open prairie, with vault toilets and no electricity. Come in from SR 19 via FR 86 and FR 111, since Google Maps' northern route doesn't work.",
+    "sources": [
+      "https://www.floridarambler.com/florida-camping/florida-dark-skies-campgrounds-for-stargazing/",
+      "https://campendium.com/hopkins-prairie-campground",
+      "https://clearoutside.com/forecast/29.28/-81.69"
+    ]
+  },
+  {
+    "id": "lake-louisa",
+    "name": "Lake Louisa State Park",
+    "region": "Clermont · Lake County",
+    "lat": 28.4535,
+    "lon": -81.7389,
     "bortle": 5,
+    "openAtNight": true,
+    "notes": "Campers only after dark: the park closes at sundown, and campers arriving late must call 352-394-3969 for the gate code before closing.",
+    "sources": [
+      "https://www.floridastateparks.org/parks-and-trails/lake-louisa-state-park/hours-fees",
+      "https://clearoutside.com/forecast/28.45/-81.74"
+    ]
+  },
+  {
+    "id": "merritt-island-black-point",
+    "name": "Black Point Wildlife Drive",
+    "region": "Merritt Island National Wildlife Refuge",
+    "lat": 28.6769,
+    "lon": -80.7695,
+    "bortle": 4,
     "openAtNight": false,
-    "notes": "DEMO ONLY: use this sample to test the closed-at-night gate."
+    "notes": "Wide marsh views over the Indian River, but refuge roads are open sunrise to sunset only, so there is no night access.",
+    "sources": [
+      "https://www.fws.gov/refuge/merritt-island/visit-us",
+      "https://clearoutside.com/forecast/28.68/-80.77"
+    ]
+  },
+  {
+    "id": "lake-eola",
+    "name": "Lake Eola Park",
+    "region": "Downtown Orlando",
+    "lat": 28.544,
+    "lon": -81.3704,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "City park that stays open until midnight. Good for the Moon, planets and bright satellite passes; the Milky Way is washed out.",
+    "sources": [
+      "https://ww2.aaa.com/tripcanvas/attraction/lake-eola-park-VA16894",
+      "https://clearoutside.com/forecast/28.54/-81.37"
+    ]
   }
 ]
