@@ -85,6 +85,81 @@
 .totalValue { margin-left: auto; font: 600 15px var(--font-mono, ui-monospace, monospace); }
 .phoneOnly { display: none; }
 
+/* Best time tonight: headline, legend and the dusk-to-dawn chart. */
+.bestPanel { padding: 22px 24px 20px; display: flex; flex-direction: column; gap: 22px; }
+.bestHead { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 24px; }
+.bestText { display: flex; flex-direction: column; gap: 6px; }
+.bestTime { font: 500 36px/1.05 var(--font-sans, system-ui, sans-serif); letter-spacing: -.025em; }
+.bestWhy { font-size: 14px; color: var(--muted); text-wrap: pretty; }
+.legend { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 11.5px; color: var(--muted); }
+.legend > span { display: flex; align-items: center; gap: 6px; }
+.legendCloud { width: 10px; height: 10px; border-radius: 2px; background: rgba(205, 210, 240, .6); }
+.legendMoon { width: 14px; height: 3px; border-radius: 2px; background: #e9e2c8; }
+.legendBest { width: 12px; height: 10px; border-top: 2px solid; }
+
+.chart {
+  position: relative;
+  height: 250px;
+  border-radius: 12px;
+  border: 1px solid rgba(190, 195, 235, .08);
+  background: #070914;
+  overflow: hidden;
+}
+.edgeLeft, .edgeRight {
+  position: absolute;
+  top: 10px;
+  font: 400 10.5px var(--font-mono, ui-monospace, monospace);
+  color: #a9abc6;
+  white-space: nowrap;
+}
+.edgeLeft { left: 10px; }
+.edgeRight { right: 10px; }
+.moonLine {
+  position: absolute;
+  top: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: #e9e2c8;
+  box-shadow: 0 0 8px rgba(233, 226, 200, .6);
+}
+.bestBand { position: absolute; top: 44px; bottom: 24px; border-top: 2px solid; }
+.bestBand > span {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font: 600 10.5px var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .08em;
+}
+.bars { position: absolute; left: 0; right: 0; top: 52px; bottom: 24px; }
+.barSlot {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+.barValue { font: 400 10px var(--font-mono, ui-monospace, monospace); color: var(--faint); }
+.bar { width: 100%; border-radius: 4px 4px 0 0; }
+.ticks { position: absolute; left: 0; right: 0; bottom: 0; height: 18px; }
+.tick {
+  position: absolute;
+  padding-left: 4px;
+  font: 400 10.5px var(--font-mono, ui-monospace, monospace);
+  color: var(--faint);
+}
+.notice {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .skeleton {
   width: 100%;
   display: flex;
@@ -95,6 +170,7 @@
 }
 .skeletonRing { width: 184px; height: 184px; border-radius: 50%; border: 8px solid rgba(255, 255, 255, .08); }
 .skeletonBar { height: 10px; border-radius: 5px; background: rgba(255, 255, 255, .07); }
+.skeletonChart { width: 100%; height: 250px; border-radius: 12px; background: rgba(255, 255, 255, .04); }
 
 @keyframes pulse { 50% { opacity: .45; } }
 
@@ -102,8 +178,13 @@
   .skeleton { animation: none; }
 }
 
+/* One column: the two column wrappers dissolve so cards can be reordered to match frame 1d. */
 @media (max-width: 900px) {
   .grid { grid-template-columns: minmax(0, 1fr); }
+  .column { display: contents; }
+  .orderScore { order: 1; }
+  .orderBest { order: 2; }
+  .orderFactors { order: 3; }
 }
 
 @media (max-width: 600px) {
@@ -111,4 +192,12 @@
   .name { font-size: 30px; }
   .desktopOnly { display: none; }
   .phoneOnly { display: inline; }
+  .bestPanel { padding: 16px; gap: 14px; }
+  .bestTime { font-size: 24px; }
+  .bestWhy { font-size: 12.5px; }
+  .legend { margin-left: 0; }
+  .chart, .skeletonChart { height: 130px; }
+  .barValue { display: none; }
+  .bars { top: 46px; }
+  .tick:nth-child(even) { display: none; }
 }

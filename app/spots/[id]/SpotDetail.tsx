@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import ScoreBadge, { labelColor } from '@/components/ScoreBadge';
 import { tonightDate } from '@/components/time';
 import type { Spot, SpotRating } from '@/lib/types';
+import BestTime from './BestTime';
 import FactorBreakdown from './FactorBreakdown';
 import styles from './spot.module.css';
 
@@ -78,7 +79,7 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
 
       <div className={styles.grid}>
         <div className={styles.column}>
-          <section className={`panel ${styles.scorePanel}`} aria-live="polite">
+          <section className={`panel ${styles.scorePanel} ${styles.orderScore}`} aria-live="polite">
             {state.status === 'loading' && (
               <div className={styles.skeleton} role="status" aria-label="Loading tonight's rating">
                 <div className={styles.skeletonRing} />
@@ -110,7 +111,7 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
           </section>
 
           {state.status === 'loading' && (
-            <section className={`panel ${styles.factorPanel}`} aria-hidden="true">
+            <section className={`panel ${styles.factorPanel} ${styles.orderFactors}`} aria-hidden="true">
               <div className={styles.skeleton}>
                 <div className={styles.skeletonBar} style={{ width: '70%' }} />
                 <div className={styles.skeletonBar} style={{ width: '55%' }} />
@@ -119,6 +120,18 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
             </section>
           )}
           {state.status === 'ready' && <FactorBreakdown rating={state.rating} />}
+        </div>
+
+        <div className={styles.column}>
+          {state.status === 'loading' && (
+            <section className={`panel ${styles.bestPanel} ${styles.orderBest}`} aria-hidden="true">
+              <div className={styles.skeleton}>
+                <div className={styles.skeletonBar} style={{ width: '40%' }} />
+                <div className={styles.skeletonChart} />
+              </div>
+            </section>
+          )}
+          {state.status === 'ready' && <BestTime rating={state.rating} />}
         </div>
       </div>
     </main>

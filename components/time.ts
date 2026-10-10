@@ -19,3 +19,11 @@ export function formatLocalTime(iso: string): string {
   const hour = Number(match[1]);
   return `${hour % 12 || 12}:${match[2]} ${hour < 12 ? 'AM' : 'PM'}`;
 }
+
+/** "9p" or "12a" for chart ticks, in the spot's local time like formatLocalTime. */
+export function formatHourShort(iso: string): string {
+  const match = /T(\d{2}):/.exec(iso);
+  if (!match) return '';
+  const hour = Number(match[1]);
+  return `${hour % 12 || 12}${hour < 12 ? 'a' : 'p'}`;
+}

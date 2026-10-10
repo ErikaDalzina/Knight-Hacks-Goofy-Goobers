@@ -36,7 +36,7 @@ export default function FactorBreakdown({ rating }: { rating: SpotRating }) {
   // Gated spots still show the bars so people see why, but there is no score for points to add up to.
   const scored = rating.score !== null;
   return (
-    <section className={`panel ${styles.factorPanel}`}>
+    <section className={`panel ${styles.factorPanel} ${styles.orderFactors}`}>
       <h2 className="kicker" style={{ margin: 0 }}>
         <span className={styles.desktopOnly}>Factor breakdown</span>
         <span className={styles.phoneOnly}>Why it scored{scored ? ` ${rating.score}` : ''}</span>
