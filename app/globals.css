@@ -1,6 +1,58 @@
-:root { color-scheme: dark; }
+/* Umbra night theme. Values come from the Umbra mockup; Person 4 owns this file. */
+:root {
+  color-scheme: dark;
+  --bg: #05070d;
+  --panel: rgba(10, 13, 24, .74);
+  --line: rgba(190, 195, 235, .12);
+  --text: #ecebf3;
+  --muted: #9a9cb3;
+  --faint: #8487a3;
+  --accent: #b9aef0;
+  --link: #c9c2f2;
+}
+
 * { box-sizing: border-box; }
-body { font-family: system-ui, sans-serif; margin: 0; padding: 3rem 1.5rem; background: #0b1223; color: #e9f1ff; }
-main { max-width: 860px; margin: auto; }
-a { color: #a1c4ff; }
-pre { overflow: auto; padding: 1rem; background: #142442; border-radius: 8px; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  /* --font-sans and --font-mono are set on <html> by app/fonts.ts. */
+  font-family: var(--font-sans, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The mockup's two soft glows, fixed behind the page so they don't scroll away. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1100px 560px at 78% -12%, rgba(92, 72, 170, .34), transparent 62%),
+    radial-gradient(900px 520px at 6% 112%, rgba(26, 92, 124, .28), transparent 60%);
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { color: #fff; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Glass card used for the panels on the list and detail pages. */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Small uppercase label above a section, such as "BEST TIME TONIGHT". */
+.kicker {
+  font: 500 11px/1.2 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
