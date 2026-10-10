@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { HourlyForecast, Spot } from '@/lib/types';
-import { rateSpot, SCORING_CONFIG } from '../../../../Downloads';
+import { rateSpot, SCORING_CONFIG } from './index';
 
 // ---------------------------------------------------------------------------
 // A controllable stand-in for SunCalc, so these tests don't depend on real
