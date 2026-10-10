@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import ScoreBadge, { labelColor } from '@/components/ScoreBadge';
 import { tonightDate } from '@/components/time';
 import type { Spot, SpotRating } from '@/lib/types';
+import FactorBreakdown from './FactorBreakdown';
 import styles from './spot.module.css';
 
 // Stand-in with the same signature as Person 3's getRating() in /lib/apiClient.ts.
@@ -16,8 +17,9 @@ async function fetchRating(spotId: string, date: string): Promise<SpotRating> {
   return body as SpotRating;
 }
 
-// Development only (see page.tsx): ?mock=closed and friends load one of Person 2's
-// mock ratings with this spot swapped in, to check each page state.
+// Development only (see page.tsx): ?mock=closed and friends load one of Person 2's mock
+// ratings to check each page state. The header still shows this spot; the mock keeps its
+// own spot so its factor numbers and explanations stay consistent.
 const MOCKS: Record<string, () => Promise<{ default: unknown }>> = {
   excellent: () => import('@/mocks/rating-excellent.json'),
   fair: () => import('@/mocks/rating-fair.json'),
@@ -43,7 +45,7 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
     let cancelled = false;
     const loadMock = mock ? MOCKS[mock] : undefined;
     const request = loadMock
-      ? loadMock().then((m) => ({ ...(m.default as SpotRating), spot }))
+      ? loadMock().then((m) => m.default as SpotRating)
       : fetchRating(spot.id, date ?? tonightDate());
     request
       .then((rating) => { if (!cancelled) setState({ status: 'ready', rating }); })
@@ -74,39 +76,51 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
         </div>
       </header>
 
-      <section className={`panel ${styles.scorePanel}`} aria-live="polite">
-        {state.status === 'loading' && (
-          <div className={styles.skeleton} role="status" aria-label="Loading tonight's rating">
-            <div className={styles.skeletonRing} />
-            <div className={styles.skeletonBar} style={{ width: '70%' }} />
-            <div className={styles.skeletonBar} style={{ width: '55%' }} />
-            <div className={styles.skeletonBar} style={{ width: '62%' }} />
-          </div>
-        )}
-
-        {state.status === 'error' && (
-          <div role="alert" className={styles.stack}>
-            <span className="kicker">Couldn&apos;t load tonight&apos;s rating</span>
-            <p className={styles.reason}>{state.message}</p>
-            <button type="button" className={styles.button} onClick={retry}>Retry</button>
-          </div>
-        )}
-
-        {state.status === 'ready' && (
-          <>
-            <ScoreBadge score={state.rating.score} label={state.rating.label} size="xl" />
-            <span className={styles.label} style={{ color: labelColor(state.rating.label) }}>{state.rating.label}</span>
-            {state.rating.score === null ? (
-              <>
-                <p className={styles.reason}>{state.rating.gateReason ?? 'Conditions rule this spot out tonight.'}</p>
-                <Link href="/" className={styles.link}>See the best spots tonight →</Link>
-              </>
-            ) : (
-              <p className={styles.reason}>Weighted for naked-eye viewing · clouds count most</p>
+      <div className={styles.grid}>
+        <div className={styles.column}>
+          <section className={`panel ${styles.scorePanel}`} aria-live="polite">
+            {state.status === 'loading' && (
+              <div className={styles.skeleton} role="status" aria-label="Loading tonight's rating">
+                <div className={styles.skeletonRing} />
+              </div>
             )}
-          </>
-        )}
-      </section>
+
+            {state.status === 'error' && (
+              <div role="alert" className={styles.stack}>
+                <span className="kicker">Couldn&apos;t load tonight&apos;s rating</span>
+                <p className={styles.reason}>{state.message}</p>
+                <button type="button" className={styles.button} onClick={retry}>Retry</button>
+              </div>
+            )}
+
+            {state.status === 'ready' && (
+              <>
+                <ScoreBadge score={state.rating.score} label={state.rating.label} size="xl" />
+                <span className={styles.label} style={{ color: labelColor(state.rating.label) }}>{state.rating.label}</span>
+                {state.rating.score === null ? (
+                  <>
+                    <p className={styles.reason}>{state.rating.gateReason ?? 'Conditions rule this spot out tonight.'}</p>
+                    <Link href="/" className={styles.link}>See the best spots tonight →</Link>
+                  </>
+                ) : (
+                  <p className={styles.reason}>Weighted for naked-eye viewing · clouds count most</p>
+                )}
+              </>
+            )}
+          </section>
+
+          {state.status === 'loading' && (
+            <section className={`panel ${styles.factorPanel}`} aria-hidden="true">
+              <div className={styles.skeleton}>
+                <div className={styles.skeletonBar} style={{ width: '70%' }} />
+                <div className={styles.skeletonBar} style={{ width: '55%' }} />
+                <div className={styles.skeletonBar} style={{ width: '62%' }} />
+              </div>
+            </section>
+          )}
+          {state.status === 'ready' && <FactorBreakdown rating={state.rating} />}
+        </div>
+      </div>
     </main>
   );
 }

@@ -8,3 +8,14 @@ export function tonightDate(now: Date = new Date()): string {
   const pad = (n: number) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
+
+/**
+ * "8:25 PM" from an API time like "2026-10-17T20:25:00-04:00". Reads the clock time from
+ * the string itself, so it stays in the spot's local time whatever the viewer's time zone.
+ */
+export function formatLocalTime(iso: string): string {
+  const match = /T(\d{2}):(\d{2})/.exec(iso);
+  if (!match) return iso;
+  const hour = Number(match[1]);
+  return `${hour % 12 || 12}:${match[2]} ${hour < 12 ? 'AM' : 'PM'}`;
+}

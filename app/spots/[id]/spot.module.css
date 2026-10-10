@@ -30,9 +30,12 @@
 .chip { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); color: #c4c5d6; }
 .mono { font-family: var(--font-mono, ui-monospace, monospace); }
 
+/* Desktop: score and factors on the left (370px), the night timeline on the right. */
+.grid { display: grid; grid-template-columns: 370px minmax(0, 1fr); gap: 18px; align-items: start; }
+.column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.narrow { width: 370px; max-width: 100%; }
+
 .scorePanel {
-  width: 370px;
-  max-width: 100%;
   padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
@@ -62,6 +65,26 @@
 }
 .button:hover { color: #0b0e19; background: #fff; }
 
+.factorPanel { padding: 20px 22px; display: flex; flex-direction: column; gap: 16px; }
+.factor { display: flex; flex-direction: column; gap: 7px; }
+.factorRow { display: flex; align-items: baseline; gap: 8px; }
+.factorName { font-size: 15px; font-weight: 600; }
+.factorValue { margin-left: auto; font: 500 13px var(--font-mono, ui-monospace, monospace); }
+.track { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .07); overflow: hidden; }
+.fill { height: 100%; border-radius: 3px; background: #c9c2f2; }
+.factorNote { font-size: 12px; color: var(--muted); }
+.factorMath { margin-left: auto; white-space: nowrap; font-family: var(--font-mono, ui-monospace, monospace); color: var(--faint); }
+.total {
+  display: flex;
+  align-items: baseline;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+.totalValue { margin-left: auto; font: 600 15px var(--font-mono, ui-monospace, monospace); }
+.phoneOnly { display: none; }
+
 .skeleton {
   width: 100%;
   display: flex;
@@ -79,8 +102,13 @@
   .skeleton { animation: none; }
 }
 
+@media (max-width: 900px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 600px) {
   .page { padding: 12px 16px 24px; }
   .name { font-size: 30px; }
-  .scorePanel { width: 100%; }
+  .desktopOnly { display: none; }
+  .phoneOnly { display: inline; }
 }
