@@ -8,6 +8,9 @@ const errors = [];
 const seen = new Set();
 const places = new Map();
 
+// lib/openMeteo.ts fetches every spot in one request, which allows at most 40 locations.
+if (spots.length > 40) errors.push(`${spots.length} spots: the forecast request allows at most 40`);
+
 spots.forEach((s, i) => {
   const at = `spot ${i} (${s.id ?? 'no id'})`;
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(s.id ?? '')) errors.push(`${at}: id must be a lowercase slug`);
