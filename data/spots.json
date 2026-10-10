@@ -1,0 +1,29 @@
+[
+  {
+    "id": "demo-city",
+    "name": "Demo City Coordinates (replace me)",
+    "lat": 35.4676,
+    "lon": -97.5164,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "DEMO ONLY: not a verified public observing location or access status."
+  },
+  {
+    "id": "demo-rural",
+    "name": "Demo Rural Coordinates (replace me)",
+    "lat": 35.88,
+    "lon": -98.8,
+    "bortle": 3,
+    "openAtNight": true,
+    "notes": "DEMO ONLY: invented light-pollution/access values. Replace with verified site data."
+  },
+  {
+    "id": "demo-closed",
+    "name": "Demo Closed Coordinates (replace me)",
+    "lat": 35.7,
+    "lon": -97.6,
+    "bortle": 5,
+    "openAtNight": false,
+    "notes": "DEMO ONLY: use this sample to test the closed-at-night gate."
+  }
+]
