@@ -7,12 +7,12 @@
   position: relative;
   flex: 2;
   min-width: 0;
-  background: #10162f;
+  background: #0a0d17;
 }
 
 .mapLoading {
   padding: 24px;
-  color: #9aa4d0;
+  color: var(--muted);
 }
 
 .listPane {
@@ -20,39 +20,43 @@
   min-width: 320px;
   max-width: 440px;
   overflow-y: auto;
-  background: #0f1530;
-  border-left: 1px solid #232b52;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .toolbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px;
-  color: #9aa4d0;
+  padding: 14px 16px;
+  color: var(--faint);
+  font-size: 12px;
 }
 
 .toggle,
 .toggleActive {
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid #3a4478;
+  border: 1px solid var(--line);
   background: transparent;
-  color: #e8ecff;
+  color: var(--muted);
   cursor: pointer;
   font: inherit;
+  font-size: 12px;
 }
 
 .toggleActive {
-  background: #e8ecff;
-  border-color: #e8ecff;
-  color: #0b1026;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(190, 195, 235, 0.25);
+  color: var(--text);
 }
 
 .state {
   padding: 24px;
   text-align: center;
-  color: #9aa4d0;
+  color: var(--muted);
 }
 
 .cards {
@@ -63,50 +67,91 @@
 }
 
 .card {
-  display: block;
-  padding: 12px;
-  border-radius: 8px;
-  border-left: 6px solid #8c92a8;
-  background: #171e42;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 13px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
   color: inherit;
   text-decoration: none;
 }
 
 .card:hover {
-  background: #1d2550;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(190, 195, 235, 0.25);
+  color: inherit;
 }
 
-.cardTop {
+.cardBody {
+  min-width: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cardTitleRow {
+  display: flex;
   align-items: baseline;
+  gap: 8px;
 }
 
 .name {
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dist {
+  font: 400 11px var(--font-mono, ui-monospace, monospace);
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.sub {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta2 {
+  font: 400 11.5px var(--font-mono, ui-monospace, monospace);
+}
+
+.labelText {
+  align-self: start;
+  font-size: 12px;
   font-weight: 600;
 }
 
-.score {
-  font-size: 20px;
-  font-weight: 700;
+/* Dark map chrome to match the Umbra mockup */
+.mapPane :global(.leaflet-container) {
+  background: #0a0d17;
+  font-family: inherit;
 }
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 12px;
-  margin-top: 6px;
-  font-size: 13px;
-  color: #9aa4d0;
+.mapPane :global(.leaflet-control-attribution) {
+  background: rgba(5, 7, 13, 0.7) !important;
+  color: #8487a3 !important;
+  font-size: 10px;
 }
-
-.pill {
-  padding: 2px 8px;
-  border-radius: 999px;
-  color: #0b1026;
-  font-weight: 600;
+.mapPane :global(.leaflet-control-attribution a) {
+  color: #a9abc6 !important;
+}
+.mapPane :global(.leaflet-bar a) {
+  background: #121626 !important;
+  color: #ecebf3 !important;
+  border-color: rgba(190, 195, 235, 0.15) !important;
+}
+.mapPane :global(.leaflet-tooltip) {
+  background: #0b0e19;
+  color: #ecebf3;
+  border: 1px solid rgba(190, 195, 235, 0.2);
 }
 
 /* Phones: stack the map above the list */
