@@ -7,24 +7,37 @@ type Three = typeof import('three');
 // Port of the Umbra mockup's night-stars.js: a slowly turning sky of twinkling stars with a
 // Milky Way band and the odd meteor. It sits behind every page (see app/layout.tsx).
 
+// Stars a pixel or two wide flicker as the sky turns: each frame their sharp core lands at a
+// different spot inside a pixel, so they blink several times a second. Below MIN_PX they're drawn
+// in a bigger sprite as a soft dot about a pixel wide, which spreads over neighbouring pixels and
+// glides instead. Stars from 2 px up to MIN_PX blend between the two looks; bigger ones are unchanged.
 const VERTEX = `
 attribute float aSize; attribute float aPhase; attribute vec3 aColor;
 uniform float uTime; uniform float uPR; uniform float uTw;
-varying vec3 vC; varying float vA;
+varying vec3 vC; varying float vA; varying float vPx; varying float vDrawn; varying float vSoft;
+const float MIN_PX = 4.0;
 void main() {
   vec4 mv = modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * mv;
   vA = 1.0 - uTw * (0.5 + 0.5 * sin(uTime * (0.6 + aPhase * 2.4) + aPhase * 61.0)) * 0.55;
   vC = aColor;
-  gl_PointSize = aSize * uPR;
+  vPx = aSize * uPR;
+  vDrawn = max(vPx, MIN_PX);
+  vSoft = 1.0 - smoothstep(2.0, MIN_PX, vPx);
+  gl_PointSize = vDrawn;
 }`;
 
 const FRAGMENT = `
-varying vec3 vC; varying float vA;
+varying vec3 vC; varying float vA; varying float vPx; varying float vDrawn; varying float vSoft;
+const float SIGMA = 0.6;     // soft dot's width, in pixels
+const float SOFT_PEAK = 0.35; // soft dot's brightness; higher makes the faint stars stand out more
 void main() {
   float d = length(gl_PointCoord - 0.5);
-  float a = pow(smoothstep(0.5, 0.0, d), 2.4) + 0.5 * smoothstep(0.16, 0.0, d);
-  gl_FragColor = vec4(vC, a * vA);
+  float dt = d * vDrawn / vPx; // the original shape, at the star's real size
+  float sharp = pow(smoothstep(0.5, 0.0, dt), 2.4) + 0.5 * smoothstep(0.16, 0.0, dt);
+  float dp = d * vDrawn;       // distance from the center, in pixels
+  float soft = SOFT_PEAK * exp(-dp * dp / (2.0 * SIGMA * SIGMA));
+  gl_FragColor = vec4(vC, mix(sharp, soft, vSoft) * vA);
 }`;
 
 // Star tints: warm, blue-white and white.
