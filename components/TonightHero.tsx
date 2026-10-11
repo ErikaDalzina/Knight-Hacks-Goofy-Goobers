@@ -16,16 +16,18 @@ function StatItem({ label, stat, className }: { label: string; stat: Stat; class
 }
 
 // The "Tonight" summary above the map and list (mockup frame 1a; 1c on phones).
-export default function TonightHero({ status, summary, date }: {
+export default function TonightHero({ status, summary, date, aside }: {
   status: 'loading' | 'error' | 'ready';
   summary: NightSummary | null;
   date: string | null;
+  aside?: React.ReactNode; // the night strip, shown beside the headline (below it on phones)
 }) {
   const labels = date ? nightLabels(date) : null;
   const top = summary?.top;
 
   return (
-    <section className={styles.hero} aria-live="polite">
+    <section className={styles.hero}>
+      <div className={styles.heroMain} aria-live="polite">
       <p className={styles.kicker}>
         {labels && (
           <>
@@ -74,6 +76,8 @@ export default function TonightHero({ status, summary, date }: {
           <div className={styles.skeletonBlock} style={{ width: '38%', height: 44 }} />
         </div>
       )}
+      </div>
+      {aside}
     </section>
   );
 }

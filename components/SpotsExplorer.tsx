@@ -13,9 +13,10 @@ import styles from './SpotsExplorer.module.css';
 import TonightHero from './TonightHero';
 import TopBar from './TopBar';
 import { useDismiss } from './useDismiss';
-import NightPicker from './NightPicker';
+import NightStrip, { STRIP_NIGHTS } from './NightStrip';
 import { formatHourShort, nightOptions, tonightDate } from './time';
-import { summarizeNight } from './tonight';
+import { nightLabels, summarizeNight } from './tonight';
+import { useNightGlances } from './useNightGlances';
 
 // Leaflet touches `window`, so the map only loads in the browser.
 const SpotMap = dynamic(() => import('./SpotMap'), {
@@ -129,7 +130,7 @@ export default function SpotsExplorer() {
     const today = tonightDate();
     const asked = new URLSearchParams(window.location.search).get('date');
     setTonight(today);
-    setDate(asked && nightOptions(today).includes(asked) ? asked : today);
+    setDate(asked && nightOptions(today, STRIP_NIGHTS).includes(asked) ? asked : today);
   }, []);
 
   useEffect(() => {
@@ -158,7 +159,8 @@ export default function SpotsExplorer() {
     setReloadKey((k) => k + 1);
   };
 
-  const nights = useMemo(() => (tonight ? nightOptions(tonight) : []), [tonight]);
+  const nights = useMemo(() => (tonight ? nightOptions(tonight, STRIP_NIGHTS) : []), [tonight]);
+  const glances = useNightGlances(nights, reloadKey);
 
   const selectNight = (next: string) => {
     if (next === date) return;
@@ -210,12 +212,20 @@ export default function SpotsExplorer() {
           onChoose={home.choosePlace}
           onLocate={home.locateMe}
         />
-        {date && tonight && (
-            <NightPicker nights={nights} selected={date} tonight={tonight} onSelect={selectNight} />
-        )}      </TopBar>
+        {date && <span className={controls.pill}>{nightLabels(date).short}</span>}
+      </TopBar>
 
       <main className={styles.page}>
-        <TonightHero status={status} summary={summary} date={date} />
+        <TonightHero
+          status={status}
+          summary={summary}
+          date={date}
+          aside={
+            date && nights.length > 0 ? (
+              <NightStrip nights={nights} selected={date} glances={glances} onSelect={selectNight} />
+            ) : null
+          }
+        />
 
         <div className={`${styles.phoneBar} ${styles.phoneOnly}`}>
           <div className={`${controls.segmented} ${styles.phoneTabs}`}>
