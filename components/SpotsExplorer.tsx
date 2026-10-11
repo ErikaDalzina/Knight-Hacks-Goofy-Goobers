@@ -113,6 +113,7 @@ export default function SpotsExplorer() {
   const home = useUserLocation();
   const [ratings, setRatings] = useState<SpotRating[]>([]);
   const [status, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
   const [tonight, setTonight] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
@@ -135,14 +136,18 @@ export default function SpotsExplorer() {
     if (!date) return;
     let cancelled = false;
     getRatings(date)
-      .then((data) => {
-        if (cancelled) return;
-        setRatings(data);
-        setStatus('ready');
-      })
-      .catch(() => {
-        if (!cancelled) setStatus('error');
-      });
+        .then((data) => {
+          if (cancelled) return;
+          setRatings(data);
+          setErrorMessage(null);
+          setStatus('ready');
+        })
+        .catch((err) => {
+          if (cancelled) return;
+          // fetch() rejects with a TypeError when the network is down. Keep the generic text for that.
+          setErrorMessage(err instanceof Error && !(err instanceof TypeError) ? err.message : null);
+          setStatus('error');
+        });
     return () => {
       cancelled = true;
     };
@@ -288,7 +293,7 @@ export default function SpotsExplorer() {
 
               {status === 'error' && (
                 <div className={styles.state} role="alert">
-                  <p>Couldn&apos;t load spots. Check your connection and try again.</p>
+                  <p>{errorMessage ?? "Couldn't load spots. Check your connection and try again."}</p>
                   <button type="button" className={controls.chip} onClick={retry}>Retry</button>
                 </div>
               )}
