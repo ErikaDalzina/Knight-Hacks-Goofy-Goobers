@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidDate } from '@/lib/date';
 import { findSpot } from '@/lib/spots';
-import { rateSpots } from '@/lib/ratingsService';
+import { rateOneSpot } from '@/lib/ratingsService';
 import { WeatherServiceError } from '@/lib/openMeteo';
 
 export async function GET(
@@ -16,8 +16,7 @@ export async function GET(
   const spot = findSpot(spotId);
   if (!spot) return NextResponse.json({ error: 'Spot not found.' }, { status: 404 });
   try {
-    const [rating] = await rateSpots([spot], date);
-    return NextResponse.json(rating);
+    return NextResponse.json(await rateOneSpot(spot, date));
   } catch (error) {
     console.error('GET /api/ratings/[spotId] failed:', error);
     const message = error instanceof WeatherServiceError ? error.message : 'Could not calculate spot rating.';
