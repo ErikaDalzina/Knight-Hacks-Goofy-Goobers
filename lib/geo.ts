@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 export type LatLon = { lat: number; lon: number };
 export type Place = LatLon & { name: string };
 
-// Default city if location is denied. TODO: change to your hackathon city if needed.
+// Default city if location is denied: UCF in Orlando, home of Knight Hacks.
 export const DEFAULT_LOCATION: LatLon = { lat: 28.6024, lon: -81.2001 }; // Orlando, FL
 
 // Towns for the location picker. Orlando is DEFAULT_LOCATION (UCF), so the default and the

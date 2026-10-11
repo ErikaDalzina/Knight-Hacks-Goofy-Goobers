@@ -257,8 +257,15 @@ export default function SpotsExplorer() {
 
         <div className={styles.grid} data-view={phoneView}>
           <section className={styles.mapPane} aria-label="Map of spots">
+            {/* Pins only for a loaded night, so switching nights or an error never leaves old scores up. */}
             {date && (
-              <SpotMap spots={shown} home={home.location} date={date} activeId={activeId} onHover={setActiveId} />
+              <SpotMap
+                spots={status === 'ready' ? shown : []}
+                home={home.location}
+                date={date}
+                activeId={activeId}
+                onHover={setActiveId}
+              />
             )}
             <MapLegend title={`Rated for ${forNight}`} />
           </section>
