@@ -10,6 +10,8 @@
  * Moon and dark-window numbers come from the real SunCalc, so they are real for
  * the date you pick. Cloud cover and rain are invented, cycling through
  * clear / mixed / overcast / rainy nights so the frontend sees every label.
+ * Temperature (F), dew point (F) and wind (km/h) are invented too, cycling through mild,
+ * cold, windy and dewy nights so the comfort warnings show up on some spots.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import type { HourlyForecast, Spot, SpotRating } from '@/lib/types';
@@ -54,6 +56,20 @@ type Kind = 'clear' | 'clearish' | 'mixed' | 'overcast' | 'rain';
 const KINDS: Kind[] = ['clear', 'clearish', 'mixed', 'clear', 'overcast', 'clearish', 'mixed', 'rain', 'clear', 'mixed'];
 const BASE_CLOUD: Record<Kind, number> = { clear: 8, clearish: 20, mixed: 45, overcast: 88, rain: 25 };
 
+// Overnight weather: temperature at 6pm (F), how far it falls by 6am (F), the gap between
+// temperature and dew point (F, small = dew), and the wind in km/h. Cycles on a different period than KINDS.
+type Profile = { temp: number; drop: number; spread: number; wind: number };
+const PROFILES: Profile[] = [
+  { temp: 70, drop: 5, spread: 11, wind: 8 }, // mild
+  { temp: 57, drop: 11, spread: 9, wind: 10 }, // cold
+  { temp: 68, drop: 5, spread: 11, wind: 28 }, // windy
+  { temp: 66, drop: 5, spread: 3, wind: 6 }, // dewy
+  { temp: 55, drop: 13, spread: 2, wind: 24 }, // cold, dewy and windy
+  { temp: 64, drop: 7, spread: 9, wind: 14 }, // comfortable
+  { temp: 59, drop: 11, spread: 4, wind: 12 }, // cold and dewy
+];
+const round1 = (n: number) => Math.round(n * 10) / 10;
+
 // small seeded random generator (mulberry32) so every run gives the same file
 function seeded(seed: number) {
   let a = seed;
@@ -66,16 +82,24 @@ function seeded(seed: number) {
 }
 
 // 24 hourly points starting 6pm local on DATE
-function forecastFor(kind: Kind, seed: number): HourlyForecast[] {
+function forecastFor(kind: Kind, seed: number, profile: Profile): HourlyForecast[] {
   const next = seeded(seed);
+  const weather = seeded(1000 + seed); // its own random stream, so the cloud values are unchanged
   const start = Date.parse(`${DATE}T18:00:00${OFFSET}`);
   return Array.from({ length: 24 }, (_, i) => {
     const t = start + i * 3600e3;
     const cloud = Math.round(Math.min(100, Math.max(0, BASE_CLOUD[kind] + (next() - 0.5) * 16)));
+    // temperature falls overnight, reaching its low around 6am
+    const temperatureF = round1(profile.temp - (profile.drop * Math.min(i, 12)) / 12 + (weather() - 0.5) * 2);
+    const dewPointF = round1(temperatureF - (profile.spread + weather() - 0.5));
+    const windSpeedKmh = round1(Math.max(0, profile.wind + (weather() - 0.5) * 6));
     return {
       time: new Date(t + offsetSeconds * 1000).toISOString().slice(0, 19) + OFFSET,
       cloudCover: cloud,
       precipitation: kind === 'rain' && (i === 6 || i === 7) ? 0.4 : 0, // around midnight
+      temperatureF,
+      dewPointF,
+      windSpeedKmh,
     };
   });
 }
@@ -84,7 +108,7 @@ function forecastFor(kind: Kind, seed: number): HourlyForecast[] {
 const ratings: SpotRating[] = [];
 spots.forEach((spot, i) => {
   try {
-    ratings.push(rateSpot(spot, DATE, forecastFor(KINDS[i % KINDS.length], i + 1)));
+    ratings.push(rateSpot(spot, DATE, forecastFor(KINDS[i % KINDS.length], i + 1, PROFILES[i % PROFILES.length])));
   } catch (err) {
     console.warn(`Skipped ${spot.name}: ${(err as Error).message}`);
   }

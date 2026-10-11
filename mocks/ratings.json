@@ -88,7 +88,14 @@
         "cloudCover": 2,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 65,
+      "maxWindKmh": 10.1,
+      "minDewSpreadF": 10.6,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -178,7 +185,23 @@
         "cloudCover": 10,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 48.4,
+      "maxWindKmh": 14.7,
+      "minDewSpreadF": 3.6,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 48°F"
+        },
+        {
+          "kind": "dew",
+          "message": "Dew likely: temperature within 3.6°F of the dew point"
+        }
+      ],
+      "advice": "Cold and dewy: pack warm layers and a dew shield."
+    }
   },
   {
     "spot": {
@@ -269,7 +292,27 @@
         "cloudCover": 9,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 42.2,
+      "maxWindKmh": 26.6,
+      "minDewSpreadF": 1.6,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 42°F"
+        },
+        {
+          "kind": "wind",
+          "message": "Windy: up to 27 km/h (17 mph)"
+        },
+        {
+          "kind": "dew",
+          "message": "Dew likely: temperature within 1.6°F of the dew point"
+        }
+      ],
+      "advice": "Cold, windy and dewy: pack warm layers, a windbreak and a dew shield."
+    }
   },
   {
     "spot": {
@@ -359,7 +402,14 @@
         "cloudCover": 12,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 56.5,
+      "maxWindKmh": 16.8,
+      "minDewSpreadF": 8.5,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -448,7 +498,14 @@
         "cloudCover": 15,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 65.3,
+      "maxWindKmh": 10.7,
+      "minDewSpreadF": 10.7,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -538,7 +595,19 @@
         "cloudCover": 1,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 63.1,
+      "maxWindKmh": 28.9,
+      "minDewSpreadF": 10.6,
+      "warnings": [
+        {
+          "kind": "wind",
+          "message": "Windy: up to 29 km/h (18 mph)"
+        }
+      ],
+      "advice": "Windy: pack a windbreak."
+    }
   },
   {
     "spot": {
@@ -628,7 +697,14 @@
         "cloudCover": 0,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 57.3,
+      "maxWindKmh": 16.7,
+      "minDewSpreadF": 8.6,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -718,7 +794,19 @@
         "cloudCover": 9,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 62.7,
+      "maxWindKmh": 30.4,
+      "minDewSpreadF": 10.5,
+      "warnings": [
+        {
+          "kind": "wind",
+          "message": "Windy: up to 30 km/h (19 mph)"
+        }
+      ],
+      "advice": "Windy: pack a windbreak."
+    }
   },
   {
     "spot": {
@@ -808,7 +896,19 @@
         "cloudCover": 16,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 45.5,
+      "maxWindKmh": 12.7,
+      "minDewSpreadF": 8.7,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 46°F"
+        }
+      ],
+      "advice": "Cold: pack warm layers."
+    }
   },
   {
     "spot": {
@@ -899,7 +999,19 @@
         "cloudCover": 19,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 45.6,
+      "maxWindKmh": 12.1,
+      "minDewSpreadF": 8.6,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 46°F"
+        }
+      ],
+      "advice": "Cold: pack warm layers."
+    }
   },
   {
     "spot": {
@@ -989,7 +1101,19 @@
         "cloudCover": 7,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 61.1,
+      "maxWindKmh": 8.9,
+      "minDewSpreadF": 2.6,
+      "warnings": [
+        {
+          "kind": "dew",
+          "message": "Dew likely: temperature within 2.6°F of the dew point"
+        }
+      ],
+      "advice": "Dewy: pack a dew shield."
+    }
   },
   {
     "spot": {
@@ -1078,7 +1202,19 @@
         "cloudCover": 5,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 46,
+      "maxWindKmh": 12.3,
+      "minDewSpreadF": 8.8,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 46°F"
+        }
+      ],
+      "advice": "Cold: pack warm layers."
+    }
   },
   {
     "spot": {
@@ -1168,7 +1304,27 @@
         "cloudCover": 26,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 41,
+      "maxWindKmh": 25.7,
+      "minDewSpreadF": 1.5,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 41°F"
+        },
+        {
+          "kind": "wind",
+          "message": "Windy: up to 26 km/h (16 mph)"
+        },
+        {
+          "kind": "dew",
+          "message": "Dew likely: temperature within 1.5°F of the dew point"
+        }
+      ],
+      "advice": "Cold, windy and dewy: pack warm layers, a windbreak and a dew shield."
+    }
   },
   {
     "spot": {
@@ -1257,7 +1413,14 @@
         "cloudCover": 10,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 64.5,
+      "maxWindKmh": 10.7,
+      "minDewSpreadF": 10.5,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -1344,7 +1507,19 @@
         "cloudCover": 38,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 45.6,
+      "maxWindKmh": 12.6,
+      "minDewSpreadF": 8.6,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 46°F"
+        }
+      ],
+      "advice": "Cold: pack warm layers."
+    }
   },
   {
     "spot": {
@@ -1433,7 +1608,19 @@
         "cloudCover": 41,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 62.3,
+      "maxWindKmh": 30.6,
+      "minDewSpreadF": 10.5,
+      "warnings": [
+        {
+          "kind": "wind",
+          "message": "Windy: up to 31 km/h (19 mph)"
+        }
+      ],
+      "advice": "Windy: pack a windbreak."
+    }
   },
   {
     "spot": {
@@ -1521,7 +1708,27 @@
         "cloudCover": 41,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 42.3,
+      "maxWindKmh": 27,
+      "minDewSpreadF": 1.5,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 42°F"
+        },
+        {
+          "kind": "wind",
+          "message": "Windy: up to 27 km/h (17 mph)"
+        },
+        {
+          "kind": "dew",
+          "message": "Dew likely: temperature within 1.5°F of the dew point"
+        }
+      ],
+      "advice": "Cold, windy and dewy: pack warm layers, a windbreak and a dew shield."
+    }
   },
   {
     "spot": {
@@ -1608,7 +1815,23 @@
         "cloudCover": 49,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 47.8,
+      "maxWindKmh": 13.4,
+      "minDewSpreadF": 3.5,
+      "warnings": [
+        {
+          "kind": "cold",
+          "message": "Cold: low of 48°F"
+        },
+        {
+          "kind": "dew",
+          "message": "Dew likely: temperature within 3.5°F of the dew point"
+        }
+      ],
+      "advice": "Cold and dewy: pack warm layers and a dew shield."
+    }
   },
   {
     "spot": {
@@ -1694,7 +1917,14 @@
         "cloudCover": 42,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 56.1,
+      "maxWindKmh": 16.8,
+      "minDewSpreadF": 8.6,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -1780,7 +2010,19 @@
         "cloudCover": 48,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 62.9,
+      "maxWindKmh": 30.8,
+      "minDewSpreadF": 10.7,
+      "warnings": [
+        {
+          "kind": "wind",
+          "message": "Windy: up to 31 km/h (19 mph)"
+        }
+      ],
+      "advice": "Windy: pack a windbreak."
+    }
   },
   {
     "spot": {
@@ -1867,7 +2109,14 @@
         "cloudCover": 41,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 57.3,
+      "maxWindKmh": 16.6,
+      "minDewSpreadF": 8.6,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
@@ -1954,7 +2203,19 @@
         "cloudCover": 43,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 62.9,
+      "maxWindKmh": 29.8,
+      "minDewSpreadF": 10.6,
+      "warnings": [
+        {
+          "kind": "wind",
+          "message": "Windy: up to 30 km/h (19 mph)"
+        }
+      ],
+      "advice": "Windy: pack a windbreak."
+    }
   },
   {
     "spot": {
@@ -2041,7 +2302,14 @@
         "cloudCover": 44,
         "moonUp": false
       }
-    ]
+    ],
+    "comfort": {
+      "minTempF": 56.9,
+      "maxWindKmh": 17,
+      "minDewSpreadF": 8.6,
+      "warnings": [],
+      "advice": null
+    }
   },
   {
     "spot": {
