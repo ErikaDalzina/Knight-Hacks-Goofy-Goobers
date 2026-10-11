@@ -76,3 +76,12 @@ body .leaflet-tooltip {
   box-shadow: 0 8px 20px rgba(0, 0, 0, .45);
 }
 body .leaflet-tooltip-top::before { border-top-color: rgba(12, 15, 28, .95); }
+
+/* Map score pins (badgeHtml in ScoreBadge.tsx). The active class goes on Leaflet's icon wrapper,
+   whose own transform positions the marker, so the scale is applied to the pin inside it.
+   38 / 30 = 1.267; the shadows are divided by it so they render at the mockup's 26px and 4px. */
+.umbra-pin { box-shadow: 0 0 14px var(--pin-glow); transition: transform .12s ease-out; }
+.umbra-pin-active .umbra-pin {
+  transform: scale(1.267);
+  box-shadow: 0 0 20.5px var(--pin-glow), 0 0 0 3.2px rgba(185, 174, 240, .35);
+}

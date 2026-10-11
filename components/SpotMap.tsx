@@ -17,13 +17,14 @@ const LABEL_TILES = `${ESRI}/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x
 
 // Score pins from ScoreBadge. divIcon also avoids Leaflet's broken default marker images in
 // bundlers. Icons are cached so an unchanged pin keeps its element when the map re-renders.
+// Being active is not part of the icon (see SpotPin).
 const pins = new Map<string, L.DivIcon>();
-function pinIcon(score: number | null, label: RatingLabel, active: boolean) {
-  const key = `${score}|${label}|${active}`;
+function pinIcon(score: number | null, label: RatingLabel) {
+  const key = `${score}|${label}`;
   let icon = pins.get(key);
   if (!icon) {
-    const px = active ? PIN_SIZE.active : PIN_SIZE.normal;
-    icon = L.divIcon({ className: '', html: badgeHtml(score, label, active), iconSize: [px, px], iconAnchor: [px / 2, px / 2] });
+    const px = PIN_SIZE.normal;
+    icon = L.divIcon({ className: '', html: badgeHtml(score, label), iconSize: [px, px], iconAnchor: [px / 2, px / 2] });
     pins.set(key, icon);
   }
   return icon;
@@ -65,6 +66,41 @@ function FitView({ spots, home }: { spots: RatedSpot[]; home: LatLon }) {
   return null;
 }
 
+// One spot's pin. Hovering it makes it active, and a new icon would make Leaflet replace the
+// element under the cursor. The removed element never fires mouseout, so a fast swipe left the
+// tooltip stuck open. Instead the active look is a class on the same element. The effect also
+// runs when the icon changes (a new score), since that element is new.
+function SpotPin({ item, active, date, onHover }: {
+  item: RatedSpot;
+  active: boolean;
+  date: string;
+  onHover: (id: string | null) => void;
+}) {
+  const router = useRouter();
+  const marker = useRef<L.Marker>(null);
+  const icon = pinIcon(item.score, item.label);
+
+  useEffect(() => {
+    marker.current?.getElement()?.classList.toggle('umbra-pin-active', active);
+  }, [active, icon]);
+
+  return (
+    <Marker
+      ref={marker}
+      position={[item.spot.lat, item.spot.lon]}
+      icon={icon}
+      zIndexOffset={active ? 1000 : item.score ?? 0}
+      eventHandlers={{
+        click: () => router.push(`/spots/${item.spot.id}?date=${date}`),
+        mouseover: () => onHover(item.spot.id),
+        mouseout: () => onHover(null),
+      }}
+    >
+      <Tooltip direction="top" offset={[0, -18]}>{item.spot.name}</Tooltip>
+    </Marker>
+  );
+}
+
 export default function SpotMap({ spots, home, date, activeId, onHover }: {
   spots: RatedSpot[];
   home: LatLon;
@@ -72,8 +108,6 @@ export default function SpotMap({ spots, home, date, activeId, onHover }: {
   activeId: string | null;
   onHover: (id: string | null) => void;
 }) {
-  const router = useRouter();
-
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
       {/* Half-step zoom lets the fit hug the spots instead of jumping a whole level out. */}
@@ -89,24 +123,9 @@ export default function SpotMap({ spots, home, date, activeId, onHover }: {
         <ZoomControl position="bottomright" />
         <FitView spots={spots} home={home} />
         <Marker position={[home.lat, home.lon]} icon={homeIcon} interactive={false} keyboard={false} />
-        {spots.map((s) => {
-          const active = s.spot.id === activeId;
-          return (
-            <Marker
-              key={s.spot.id}
-              position={[s.spot.lat, s.spot.lon]}
-              icon={pinIcon(s.score, s.label, active)}
-              zIndexOffset={active ? 1000 : s.score ?? 0}
-              eventHandlers={{
-                click: () => router.push(`/spots/${s.spot.id}?date=${date}`),
-                mouseover: () => onHover(s.spot.id),
-                mouseout: () => onHover(null),
-              }}
-            >
-              <Tooltip direction="top" offset={[0, -18]}>{s.spot.name}</Tooltip>
-            </Marker>
-          );
-        })}
+        {spots.map((s) => (
+          <SpotPin key={s.spot.id} item={s} active={s.spot.id === activeId} date={date} onHover={onHover} />
+        ))}
       </MapContainer>
     </div>
   );
