@@ -219,8 +219,10 @@ export default function SpotsExplorer() {
 
   return (
     <>
+      {/* Phones show only the location here: the night is in the kicker right below, and the
+          next event moves to a row under the hero. */}
       <TopBar>
-        <NextEventLink />
+        <NextEventLink className={styles.desktopOnly} />
         <LocationPicker
           label={home.label}
           subLabel={home.subLabel}
@@ -228,7 +230,7 @@ export default function SpotsExplorer() {
           onChoose={home.choosePlace}
           onLocate={home.locateMe}
         />
-        {date && <span className={controls.pill}>{nightLabels(date).short}</span>}
+        {date && <span className={`${controls.pill} ${styles.desktopOnly}`}>{nightLabels(date).short}</span>}
       </TopBar>
 
       <main className={styles.page}>
@@ -243,6 +245,8 @@ export default function SpotsExplorer() {
             ) : null
           }
         />
+
+        <NextEventLink variant="row" className={`${styles.nextRow} ${styles.phoneOnly}`} />
 
         <div className={`${styles.phoneBar} ${styles.phoneOnly}`}>
           <div className={`${controls.segmented} ${styles.phoneTabs}`}>

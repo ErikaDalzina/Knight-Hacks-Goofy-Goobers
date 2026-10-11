@@ -1,27 +1,41 @@
-/* "Next event" pill in the top bar (frame 1a of the Umbra Current Site mockup). */
-.pill {
+/* "Next event" link (Umbra Current Site mockup). .pill sits in the top bar (frame 1a); .row is
+   the full-width card phones show under the hero instead, styled like the phone's stat cards. */
+.pill, .row {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0;
-  padding: 5px 5px 5px 14px;
-  border-radius: 999px;
   border: 1px solid rgba(190, 195, 235, .14);
-  background: rgba(10, 13, 24, .5);
-  font-size: 13.5px;
   color: var(--text);
   white-space: nowrap;
 }
-.pill:hover { color: var(--text); border-color: rgba(185, 174, 240, .5); }
+.pill:hover, .row:hover { color: var(--text); border-color: rgba(185, 174, 240, .5); }
+
+/* flex: none so the pill never gets squeezed into its neighbors; the location chip gives way. */
+.pill {
+  flex: none;
+  padding: 5px 5px 5px 14px;
+  border-radius: 999px;
+  background: rgba(10, 13, 24, .5);
+  font-size: 13.5px;
+}
+
+.row {
+  min-width: 0;
+  padding: 8px 8px 8px 14px;
+  border-radius: 14px;
+  background: rgba(10, 13, 24, .7);
+  font-size: 14px;
+}
 
 .kicker {
+  flex: none;
   font: 500 10px var(--font-mono, ui-monospace, monospace);
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--faint);
 }
-.name { overflow: hidden; text-overflow: ellipsis; }
-.when { font: 400 11.5px var(--font-mono, ui-monospace, monospace); color: var(--muted); }
+.name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.when { flex: none; font: 400 11.5px var(--font-mono, ui-monospace, monospace); color: var(--muted); }
 
 .cta {
   display: flex;
@@ -34,13 +48,10 @@
   color: #d9d3fa;
   font-size: 12.5px;
 }
-.pill:hover .cta { background: rgba(185, 174, 240, .24); }
+.row .cta { margin-left: auto; }
+.pill:hover .cta, .row:hover .cta { background: rgba(185, 174, 240, .24); }
 
-/* Narrower desktops drop the label; phones keep just the button so the location picker fits. */
+/* Narrower desktops drop the pill's label so the top bar still fits. */
 @media (max-width: 1100px) {
-  .kicker { display: none; }
-}
-@media (max-width: 767px) {
-  .pill { padding: 4px; gap: 0; }
-  .name, .when { display: none; }
+  .pill .kicker { display: none; }
 }

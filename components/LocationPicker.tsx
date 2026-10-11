@@ -43,7 +43,7 @@ export default function LocationPicker({ label, subLabel, current, onChoose, onL
   };
 
   return (
-    <div ref={anchor} className={controls.anchor}>
+    <div ref={anchor} className={styles.anchor}>
       <button
         ref={button}
         type="button"

@@ -15,16 +15,20 @@ function nextEvent(tonight: string): Next | null {
   return event ? { name: event.shortName ?? event.name, when: whenText(tonight, event.startDate) } : null;
 }
 
-// Top bar pill from the mockup (frame 1a): the next sky event and a way into the events page.
+// The next sky event and a way into the events page. 'pill' is the top bar pill from the mockup
+// (frame 1a); phones have no room for it there, so they show the 'row' card under the hero.
 // The event depends on the viewer's clock, so it fills in after mount; the server can't know it.
-export default function NextEventLink() {
+export default function NextEventLink({ variant = 'pill', className = '' }: {
+  variant?: 'pill' | 'row';
+  className?: string;
+}) {
   const [next, setNext] = useState<Next | null>(null);
   useEffect(() => setNext(nextEvent(tonightDate())), []);
 
   return (
     <Link
       href="/events"
-      className={styles.pill}
+      className={`${styles[variant]} ${className}`}
       aria-label={next ? `Sky events. Next: ${next.name}, ${next.when}` : 'Sky events'}
     >
       {next && (

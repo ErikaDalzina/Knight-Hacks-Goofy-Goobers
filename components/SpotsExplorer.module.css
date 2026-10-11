@@ -177,6 +177,7 @@
 .cardBars > span { width: 4px; border-radius: 1px; }
 
 /* ---- Phone controls (hidden on desktop by .phoneOnly) ---- */
+.nextRow { margin: 12px 20px 0; }
 .phoneBar { display: flex; align-items: center; gap: 10px; padding: 18px 20px 0; }
 .phoneTabs { font-size: 13px; background: rgba(255, 255, 255, .07); }
 .phoneTabs button { padding: 7px 16px; }
@@ -242,9 +243,11 @@
   .mapPane { flex: none; height: 65dvh; }
   .legend { left: 10px; top: 10px; gap: 6px; padding: 10px 12px; font-size: 11px; }
 
-  /* Filters sit above the map in map view; cards sit straight on the starfield. */
-  .listPane { order: -1; border: 0; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
-  .filters { padding: 0 6px; }
+  /* Filters sit above the map in map view; cards sit straight on the starfield. The gap spaces the
+     filters from the first card (none in map view, where the list is hidden), and the filters line
+     up with the cards' edge. */
+  .listPane { order: -1; gap: 12px; border: 0; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .filters { padding: 0; }
   .list { overflow: visible; padding: 0; }
   .card { gap: 12px; padding: 12px; border-radius: 16px; background: rgba(10, 13, 24, .72); }
   .cardSide { gap: 4px; }
