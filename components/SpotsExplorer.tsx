@@ -15,7 +15,7 @@ import TopBar from './TopBar';
 import { useDismiss } from './useDismiss';
 import NightStrip, { STRIP_NIGHTS } from './NightStrip';
 import { formatHourShort, nightOptions, tonightDate } from './time';
-import { nightLabels, summarizeNight } from './tonight';
+import { nightLabels, nightName, summarizeNight } from './tonight';
 import { useNightGlances } from './useNightGlances';
 
 // Leaflet touches `window`, so the map only loads in the browser.
@@ -37,10 +37,10 @@ const LEGEND: { label: RatingLabel; range: string }[] = [
   { label: 'Poor', range: `0–${LABEL_THRESHOLDS.fair - 1}` },
 ];
 
-function MapLegend() {
+function MapLegend({ title }: { title: string }) {
   return (
     <div className={styles.legend}>
-      <span className={styles.legendTitle}>Rated for tonight</span>
+      <span className={styles.legendTitle}>{title}</span>
       {LEGEND.map(({ label, range }) => (
         <div key={label} className={styles.legendRow}>
           <span className={styles.legendDot} style={{ background: LABEL_COLORS[label] }} />
@@ -197,6 +197,10 @@ export default function SpotsExplorer() {
   const hours = ratings.find((r) => r.hourly.length)?.hourly;
   const cloudSpan = hours && `clouds ${formatHourShort(hours[0].time)} → ${formatHourShort(hours[hours.length - 1].time)}`;
 
+  // "tonight", or the picked night's short label ("Tue · Oct 13") for the list and legend.
+  const night = date && tonight ? nightName(date, tonight) : null;
+  const forNight = !night || night.isTonight ? 'tonight' : night.label;
+
   const clearFilters = () => {
     setOpenOnly(false);
     setMaxMiles(null);
@@ -220,6 +224,7 @@ export default function SpotsExplorer() {
           status={status}
           summary={summary}
           date={date}
+          tonight={tonight}
           aside={
             date && nights.length > 0 ? (
               <NightStrip nights={nights} selected={date} glances={glances} onSelect={selectNight} />
@@ -255,14 +260,14 @@ export default function SpotsExplorer() {
             {date && (
               <SpotMap spots={shown} home={home.location} date={date} activeId={activeId} onHover={setActiveId} />
             )}
-            <MapLegend />
+            <MapLegend title={`Rated for ${forNight}`} />
           </section>
 
-          <section className={styles.listPane} aria-label="Spots ranked for tonight">
+          <section className={styles.listPane} aria-label={`Spots ranked for ${forNight}`}>
             <div className={`${styles.listHead} ${styles.desktopOnly}`}>
               <span className={styles.count}>
                 {status === 'ready'
-                  ? `${spotsText(shown.length)} · ${sort === 'score' ? 'ranked for tonight' : 'nearest first'}`
+                  ? `${spotsText(shown.length)} · ${sort === 'score' ? `ranked for ${forNight}` : 'nearest first'}`
                   : 'Spots'}
               </span>
               <div className={`${controls.segmented} ${styles.pushRight}`}>
@@ -309,7 +314,7 @@ export default function SpotsExplorer() {
               )}
 
               {status === 'ready' && items.length === 0 && (
-                <p className={styles.state}>No spots found for tonight.</p>
+                <p className={styles.state}>No spots found for {forNight}.</p>
               )}
 
               {status === 'ready' && items.length > 0 && shown.length === 0 && (
