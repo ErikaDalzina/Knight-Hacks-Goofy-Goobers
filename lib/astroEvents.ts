@@ -2,6 +2,8 @@
 export type AstroEvent = {
     id: string;
     name: string;
+    /** Compact name for tight spots, such as the top bar's Next event pill. */
+    shortName?: string;
     category: 'Meteor Shower' | 'Moon Phase';
     startDate: string;
     endDate: string;
@@ -21,6 +23,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'orionids-2026',
         name: 'Orionid Meteor Shower',
+        shortName: 'Orionids',
         category: 'Meteor Shower',
         startDate: '2026-10-21',
         endDate: '2026-10-22',
@@ -35,6 +38,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'southern-taurids-2026',
         name: 'Southern Taurids',
+        shortName: 'S. Taurids',
         category: 'Meteor Shower',
         startDate: '2026-11-04',
         endDate: '2026-11-05',
@@ -49,6 +53,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'november-new-moon-2026',
         name: 'November New Moon',
+        shortName: 'New Moon',
         category: 'Moon Phase',
         startDate: '2026-11-09',
         endDate: '2026-11-09',
@@ -63,6 +68,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'leonids-2026',
         name: 'Leonid Meteor Shower',
+        shortName: 'Leonids',
         category: 'Meteor Shower',
         startDate: '2026-11-16',
         endDate: '2026-11-17',
@@ -77,6 +83,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'december-new-moon-2026',
         name: 'December New Moon',
+        shortName: 'New Moon',
         category: 'Moon Phase',
         startDate: '2026-12-08',
         endDate: '2026-12-08',
@@ -91,6 +98,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'geminids-2026',
         name: 'Geminid Meteor Shower',
+        shortName: 'Geminids',
         category: 'Meteor Shower',
         startDate: '2026-12-13',
         endDate: '2026-12-14',
@@ -105,6 +113,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'ursids-2026',
         name: 'Ursid Meteor Shower',
+        shortName: 'Ursids',
         category: 'Meteor Shower',
         startDate: '2026-12-21',
         endDate: '2026-12-22',
@@ -119,6 +128,7 @@ export const astroEvents: AstroEvent[] = [
     {
         id: 'quadrantids-2027',
         name: 'Quadrantid Meteor Shower',
+        shortName: 'Quadrantids',
         category: 'Meteor Shower',
         startDate: '2027-01-03',
         endDate: '2027-01-04',

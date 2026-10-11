@@ -11,6 +11,7 @@ import LocationPicker, { Chevron } from './LocationPicker';
 import SpotCard, { type RatedSpot } from './SpotCard';
 import styles from './SpotsExplorer.module.css';
 import TonightHero from './TonightHero';
+import NextEventLink from './NextEventLink';
 import TopBar from './TopBar';
 import { useDismiss } from './useDismiss';
 import NightStrip, { STRIP_NIGHTS } from './NightStrip';
@@ -219,6 +220,7 @@ export default function SpotsExplorer() {
   return (
     <>
       <TopBar>
+        <NextEventLink />
         <LocationPicker
           label={home.label}
           subLabel={home.subLabel}
