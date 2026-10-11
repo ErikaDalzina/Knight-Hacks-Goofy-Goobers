@@ -45,3 +45,19 @@ export function moonPhaseName(illumination: number): string {
   if (illumination < 0.97) return 'Gibbous';
   return 'Full moon';
 }
+
+/** How many nights the picker offers, starting tonight. Open-Meteo forecasts about 16 days out. */
+export const NIGHT_COUNT = 14;
+
+/** YYYY-MM-DD plus `days`, using calendar math so the viewer's time zone can't shift it. */
+export function addDays(date: string, days: number): string {
+  const [y, m, d] = date.split('-').map(Number);
+  const next = new Date(y, m - 1, d + days);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${next.getFullYear()}-${pad(next.getMonth() + 1)}-${pad(next.getDate())}`;
+}
+
+/** The nights the picker offers: `start`, then each following night. */
+export function nightOptions(start: string, count: number = NIGHT_COUNT): string[] {
+  return Array.from({ length: count }, (_, i) => addDays(start, i));
+}

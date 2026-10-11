@@ -10,11 +10,12 @@ import controls from './controls.module.css';
 import LocationPicker, { Chevron } from './LocationPicker';
 import SpotCard, { type RatedSpot } from './SpotCard';
 import styles from './SpotsExplorer.module.css';
-import { formatHourShort, tonightDate } from './time';
 import TonightHero from './TonightHero';
-import { nightLabels, summarizeNight } from './tonight';
 import TopBar from './TopBar';
 import { useDismiss } from './useDismiss';
+import NightPicker from './NightPicker';
+import { formatHourShort, nightOptions, tonightDate } from './time';
+import { summarizeNight } from './tonight';
 
 // Leaflet touches `window`, so the map only loads in the browser.
 const SpotMap = dynamic(() => import('./SpotMap'), {
@@ -113,6 +114,7 @@ export default function SpotsExplorer() {
   const [ratings, setRatings] = useState<SpotRating[]>([]);
   const [status, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
   const [date, setDate] = useState<string | null>(null);
+  const [tonight, setTonight] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const [sort, setSort] = useState<Sort>('score');
   const [openOnly, setOpenOnly] = useState(false);
@@ -121,8 +123,12 @@ export default function SpotsExplorer() {
   const [phoneView, setPhoneView] = useState<'list' | 'map'>('list');
 
   // Set after mount: "tonight" depends on the viewer's clock, which the server can't know.
+  // A valid ?date= in the URL picks another night, so shared links and the detail page agree.
   useEffect(() => {
-    setDate(tonightDate());
+    const today = tonightDate();
+    const asked = new URLSearchParams(window.location.search).get('date');
+    setTonight(today);
+    setDate(asked && nightOptions(today).includes(asked) ? asked : today);
   }, []);
 
   useEffect(() => {
@@ -145,6 +151,17 @@ export default function SpotsExplorer() {
   const retry = () => {
     setStatus('loading');
     setReloadKey((k) => k + 1);
+  };
+
+  const nights = useMemo(() => (tonight ? nightOptions(tonight) : []), [tonight]);
+
+  const selectNight = (next: string) => {
+    if (next === date) return;
+    setStatus('loading');
+    setDate(next);
+    const url = new URL(window.location.href);
+    url.searchParams.set('date', next);
+    window.history.replaceState(null, '', url); // keeps other params, like a later ?w=
   };
 
   const items: RatedSpot[] = useMemo(() => {
@@ -188,8 +205,9 @@ export default function SpotsExplorer() {
           onChoose={home.choosePlace}
           onLocate={home.locateMe}
         />
-        {date && <span className={`${controls.pill} ${styles.desktopOnly}`}>{nightLabels(date).short}</span>}
-      </TopBar>
+        {date && tonight && (
+            <NightPicker nights={nights} selected={date} tonight={tonight} onSelect={selectNight} />
+        )}      </TopBar>
 
       <main className={styles.page}>
         <TonightHero status={status} summary={summary} date={date} />
