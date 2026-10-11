@@ -38,6 +38,24 @@ const homeIcon = L.divIcon({
     + '<div style="width:8px;height:8px;border-radius:50%;background:#b9aef0;box-shadow:0 0 10px #b9aef0"></div></div>',
 });
 
+// The view that shows every spot plus home, used on load and by the "Show all spots" button.
+const FIT = { padding: [40, 40] as L.PointTuple, maxZoom: 11 };
+
+function spotBounds(spots: RatedSpot[], home: LatLon) {
+  return L.latLngBounds([[home.lat, home.lon], ...spots.map((s): L.LatLngTuple => [s.spot.lat, s.spot.lon])]);
+}
+
+// The whole world, as far as the map's projection goes (it stops at about 85° north and south).
+// Panning stops at its edges, so the world is never repeated beside itself.
+const WORLD = L.latLngBounds([[-85, -180], [85, 180]]);
+
+// The furthest you can zoom out: the world is 256 × 2^zoom px square, so this is the first
+// half-step zoom (the map's zoomSnap) at which one world covers the whole map, edge to edge.
+function minZoomToFill(map: L.Map) {
+  const { x, y } = map.getSize();
+  return Math.ceil(Math.log2(Math.max(x, y) / 256) * 2) / 2;
+}
+
 // Fits every spot plus home on first load and whenever home moves; filtering leaves the view
 // alone. Leaflet can't see CSS size changes (such as the phone's Map tab showing a hidden
 // map), so a ResizeObserver tells it, and the first fit waits until the map has a size.
@@ -46,22 +64,67 @@ function FitView({ spots, home }: { spots: RatedSpot[]; home: LatLon }) {
   const fittedFor = useRef<string | null>(null);
 
   useEffect(() => {
+    const capZoom = () => {
+      const { x, y } = map.getSize();
+      if (x && y) map.setMinZoom(minZoomToFill(map));
+    };
     const fit = () => {
       const key = `${home.lat},${home.lon}`;
       const { x, y } = map.getSize();
       if (!x || !y || spots.length === 0 || fittedFor.current === key) return;
       fittedFor.current = key;
-      const points: [number, number][] = [[home.lat, home.lon], ...spots.map((s): [number, number] => [s.spot.lat, s.spot.lon])];
-      map.fitBounds(L.latLngBounds(points), { padding: [40, 40], maxZoom: 11 });
+      map.fitBounds(spotBounds(spots, home), FIT);
     };
+    capZoom();
     fit();
     const observer = new ResizeObserver(() => {
       map.invalidateSize();
+      capZoom(); // a bigger map needs a bigger world to fill it
       fit();
     });
     observer.observe(map.getContainer());
     return () => observer.disconnect();
   }, [map, spots, home]);
+
+  return null;
+}
+
+const FIT_ICON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" '
+  + 'stroke-linecap="round" aria-hidden="true" style="display:inline-block;vertical-align:middle">'
+  + '<path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9"/></svg>';
+
+// A "Show all spots" button under the zoom buttons that returns to the fitted view, for the
+// spots the filters currently show. A plain Leaflet control so it matches +/−.
+function FitControl({ spots, home }: { spots: RatedSpot[]; home: LatLon }) {
+  const map = useMap();
+  const latest = useRef({ spots, home });
+  useEffect(() => {
+    latest.current = { spots, home };
+  }, [spots, home]);
+
+  useEffect(() => {
+    const control = new L.Control({ position: 'bottomright' });
+    control.onAdd = () => {
+      const bar = L.DomUtil.create('div', 'leaflet-bar');
+      const button = L.DomUtil.create('a', '', bar);
+      button.href = '#';
+      button.setAttribute('role', 'button');
+      button.title = 'Show all spots';
+      button.setAttribute('aria-label', 'Show all spots');
+      button.innerHTML = FIT_ICON;
+      L.DomEvent.disableClickPropagation(bar);
+      L.DomEvent.on(button, 'click', (e) => {
+        L.DomEvent.preventDefault(e);
+        const { spots, home } = latest.current;
+        if (spots.length) map.fitBounds(spotBounds(spots, home), FIT);
+      });
+      return bar;
+    };
+    control.addTo(map);
+    return () => {
+      control.remove();
+    };
+  }, [map]);
 
   return null;
 }
@@ -115,11 +178,15 @@ export default function SpotMap({ spots, home, date, activeId, onHover }: {
         center={[home.lat, home.lon]}
         zoom={8}
         zoomSnap={0.5}
+        maxBounds={WORLD}
+        maxBoundsViscosity={1}
         zoomControl={false}
         style={{ height: '100%', width: '100%' }}
       >
         <TileLayer url={BASE_TILES} maxZoom={16} attribution="Tiles &copy; Esri — Esri, DeLorme, NAVTEQ" />
         <TileLayer url={LABEL_TILES} maxZoom={16} />
+        {/* Before ZoomControl: Leaflet stacks later bottom-corner controls above earlier ones. */}
+        <FitControl spots={spots} home={home} />
         <ZoomControl position="bottomright" />
         <FitView spots={spots} home={home} />
         <Marker position={[home.lat, home.lon]} icon={homeIcon} interactive={false} keyboard={false} />
