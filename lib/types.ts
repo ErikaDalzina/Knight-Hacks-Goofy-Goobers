@@ -22,6 +22,15 @@ export type HourlyForecast = {
   temperatureF?: number;   // 2 m above ground, in F
   dewPointF?: number;      // in F
   windSpeedKmh?: number;   // 10 m above ground, in km/h
+  cloudCoverLow?: number;   // %, Open-Meteo cloud_cover_low
+  cloudCoverMid?: number;   // %, cloud_cover_mid
+  cloudCoverHigh?: number;  // %, cloud_cover_high
+};
+
+export type CloudLayers = {
+  low: number | null;   // average % over the dark window
+  mid: number | null;
+  high: number | null;
 };
 
 export type ComfortWarning = { kind: 'cold' | 'wind' | 'dew'; message: string };
@@ -45,5 +54,6 @@ export type SpotRating = {
   moon: { illumination: number; rise: string | null; set: string | null };
   hourly: { time: string; cloudCover: number; moonUp: boolean }[];
   comfort?: Comfort;       // only on rated nights, and only if the forecast has weather data
+  cloudLayers?: CloudLayers;  // only on rated nights, and only if the forecast has layer data
 };
 export type RateSpot = (spot: Spot, date: string, hourly: HourlyForecast[]) => SpotRating;

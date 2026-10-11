@@ -56,6 +56,11 @@ type Kind = 'clear' | 'clearish' | 'mixed' | 'overcast' | 'rain';
 const KINDS: Kind[] = ['clear', 'clearish', 'mixed', 'clear', 'overcast', 'clearish', 'mixed', 'rain', 'clear', 'mixed'];
 const BASE_CLOUD: Record<Kind, number> = { clear: 8, clearish: 20, mixed: 45, overcast: 88, rain: 25 };
 
+const LAYER_SPLIT: Record<Kind, [number, number, number]> = {
+  clear: [0.2, 0.3, 0.6], clearish: [0.1, 0.2, 1.0], mixed: [0.5, 0.7, 0.6],
+  overcast: [0.9, 0.9, 0.8], rain: [0.9, 0.8, 0.5],
+};
+
 // Overnight weather: temperature at 6pm (F), how far it falls by 6am (F), the gap between
 // temperature and dew point (F, small = dew), and the wind in km/h. Cycles on a different period than KINDS.
 type Profile = { temp: number; drop: number; spread: number; wind: number };
@@ -93,6 +98,8 @@ function forecastFor(kind: Kind, seed: number, profile: Profile): HourlyForecast
     const temperatureF = round1(profile.temp - (profile.drop * Math.min(i, 12)) / 12 + (weather() - 0.5) * 2);
     const dewPointF = round1(temperatureF - (profile.spread + weather() - 0.5));
     const windSpeedKmh = round1(Math.max(0, profile.wind + (weather() - 0.5) * 6));
+    const [lo, mi, hi] = LAYER_SPLIT[kind];
+    const layer = (f: number) => Math.round(Math.min(100, cloud * f));
     return {
       time: new Date(t + offsetSeconds * 1000).toISOString().slice(0, 19) + OFFSET,
       cloudCover: cloud,
@@ -100,6 +107,9 @@ function forecastFor(kind: Kind, seed: number, profile: Profile): HourlyForecast
       temperatureF,
       dewPointF,
       windSpeedKmh,
+      cloudCoverLow: layer(lo),
+      cloudCoverMid: layer(mi),
+      cloudCoverHigh: layer(hi),
     };
   });
 }
