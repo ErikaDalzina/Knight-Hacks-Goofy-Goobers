@@ -22,7 +22,6 @@ export default function NightStrip({ nights, selected, glances, onSelect }: {
     <div className={styles.strip}>
       <div className={styles.head}>
         <span>Next {nights.length} nights</span>
-        <span>best score</span>
       </div>
       <div className={styles.tiles} role="group" aria-label="Choose a night">
         {nights.map((night) => {
