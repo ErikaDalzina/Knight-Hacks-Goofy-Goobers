@@ -1,5 +1,6 @@
 'use client';
 
+import TonightsSky from '@/components/TonightsSky';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ScoreBadge, { labelColor } from '@/components/ScoreBadge';
@@ -167,10 +168,14 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
           {state.status === 'ready' && (
             <>
               <BestTime rating={state.rating} night={night} />
+              <BestTime rating={state.rating} night={night} />
+
               <div className={styles.infoRow}>
                 <MoonCard rating={state.rating} />
                 <ComfortCard rating={state.rating} />
               </div>
+
+              <TonightsSky />
             </>
           )}
           <AboutSpot spot={spot} />
