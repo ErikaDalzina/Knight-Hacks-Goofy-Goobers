@@ -1,0 +1,55 @@
+/* Top bar from the Umbra mockup. z-index keeps its menus above the map. */
+.bar {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 64px;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(190, 195, 235, .08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font: 600 18px/1 var(--font-sans, system-ui, sans-serif);
+  letter-spacing: -.02em;
+}
+.brand:hover { color: var(--text); }
+
+/* A crescent: a pale disc with a night-coloured disc laid over most of it. */
+.logo {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 50%;
+  background: #e9e2c8;
+  overflow: hidden;
+}
+.logo::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: -3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #070912;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .bar { padding: 0 16px; border-bottom: none; }
+}

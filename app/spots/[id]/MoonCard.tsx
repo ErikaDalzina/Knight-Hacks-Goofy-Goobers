@@ -1,7 +1,7 @@
-import { formatLocalTime } from '@/components/time';
+import { formatLocalTime, moonPhaseName } from '@/components/time';
 import type { SpotRating } from '@/lib/types';
 import styles from './spot.module.css';
-import { moonPhaseName, moonUpShare } from './timeline';
+import { moonUpShare } from './timeline';
 
 export default function MoonCard({ rating }: { rating: SpotRating }) {
   const { moon, factors, darkWindow, hourly } = rating;

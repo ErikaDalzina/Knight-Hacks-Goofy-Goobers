@@ -63,21 +63,3 @@ export function bestSpan(dark: Window, best: Window): Span {
 export function moonUpShare(moonFactor: number, illumination: number): number {
   return illumination > 0 ? Math.max(0, Math.min(1, (1 - moonFactor) / illumination)) : 0;
 }
-
-/** A phase name from the lit fraction alone; the contract doesn't say waxing or waning. */
-export function moonPhaseName(illumination: number): string {
-  if (illumination < 0.03) return 'New moon';
-  if (illumination < 0.35) return 'Crescent';
-  if (illumination < 0.65) return 'Half moon';
-  if (illumination < 0.97) return 'Gibbous';
-  return 'Full moon';
-}
-
-/** "5 h 58 m", "6 h" or "45 m". */
-export function formatDuration(ms: number): string {
-  const total = Math.round(ms / 60000);
-  const h = Math.floor(total / 60);
-  const m = total % 60;
-  if (!m) return `${h} h`;
-  return h ? `${h} h ${m} m` : `${m} m`;
-}

@@ -56,3 +56,23 @@ a:hover { color: #fff; }
   text-transform: uppercase;
   color: var(--faint);
 }
+
+/* Leaflet, dark (values from the Umbra mockup). 'body' outranks leaflet.css, which loads later. */
+body .leaflet-container { background: #0a0d17; font-family: var(--font-sans, system-ui, sans-serif); }
+body .leaflet-container .leaflet-control-attribution { background: rgba(5, 7, 13, .7); color: var(--faint); font-size: 10px; }
+body .leaflet-container .leaflet-control-attribution a { color: #a9abc6; }
+body .leaflet-bar { border-color: rgba(190, 195, 235, .15); }
+body .leaflet-bar a { background: #121626; color: var(--text); border-bottom-color: rgba(190, 195, 235, .15); }
+body .leaflet-bar a:hover,
+body .leaflet-bar a:focus { background: #1b2036; color: var(--text); }
+body .leaflet-bar a.leaflet-disabled { background: #121626; color: #55586e; }
+body .leaflet-tooltip {
+  padding: 5px 9px;
+  border-radius: 8px;
+  border: 1px solid rgba(190, 195, 235, .16);
+  background: rgba(12, 15, 28, .95);
+  color: var(--text);
+  font-size: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .45);
+}
+body .leaflet-tooltip-top::before { border-top-color: rgba(12, 15, 28, .95); }
