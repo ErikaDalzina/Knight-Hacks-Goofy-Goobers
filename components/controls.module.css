@@ -1,0 +1,90 @@
+/* Pills, segmented toggles and dropdown menus shared by the main page controls (Umbra mockup). */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(190, 195, 235, .14);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.chip:hover { border-color: rgba(185, 174, 240, .5); }
+.chipOn { border-color: rgba(185, 174, 240, .55); background: rgba(185, 174, 240, .12); color: var(--text); }
+
+.dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: #55586e; }
+.chipOn .dot { background: var(--accent); }
+
+/* Glowing dot used for the home location. */
+.homeDot { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+
+/* Read-only pill, such as the night chip in the top bar. */
+.pill {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(190, 195, 235, .14);
+  background: rgba(10, 13, 24, .5);
+  font: 500 12px var(--font-mono, ui-monospace, monospace);
+  white-space: nowrap;
+}
+
+.segmented { display: flex; padding: 3px; border-radius: 999px; background: rgba(255, 255, 255, .06); font-size: 12px; }
+.segment {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.segment[aria-pressed='true'] { background: rgba(255, 255, 255, .14); color: var(--text); }
+
+.anchor { position: relative; min-width: 0; }
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  z-index: 901;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(12, 15, 28, .97);
+  border: 1px solid rgba(190, 195, 235, .16);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .5);
+}
+.menuLabel {
+  padding: 6px 10px 4px;
+  font: 500 10px var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.menuItem {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #c4c5d6;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+.menuItem:hover { background: rgba(255, 255, 255, .06); }
+.menuItem[aria-pressed='true'] { background: rgba(185, 174, 240, .14); color: var(--text); }
+.check { color: var(--accent); font-size: 11px; }
+.count { font: 400 10.5px var(--font-mono, ui-monospace, monospace); color: var(--faint); }

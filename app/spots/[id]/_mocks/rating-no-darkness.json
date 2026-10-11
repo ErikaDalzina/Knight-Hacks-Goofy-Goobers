@@ -1,0 +1,27 @@
+{
+  "spot": {
+    "id": "mock-far-north",
+    "name": "Far-north test spot",
+    "lat": 64.84,
+    "lon": -147.72,
+    "bortle": 2,
+    "openAtNight": true
+  },
+  "date": "2026-06-21",
+  "score": null,
+  "label": "Not tonight",
+  "gateReason": "No true astronomical darkness",
+  "factors": {
+    "clouds": 0,
+    "darkness": 0.875,
+    "moon": 0
+  },
+  "darkWindow": null,
+  "bestWindow": null,
+  "moon": {
+    "illumination": 0,
+    "rise": null,
+    "set": null
+  },
+  "hourly": []
+}

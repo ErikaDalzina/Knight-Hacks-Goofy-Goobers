@@ -13,7 +13,7 @@ async function getJson<T>(url: string): Promise<T> {
 // GET /api/ratings?date=YYYY-MM-DD  (date must be inside the forecast window)
 export async function getRatings(date: string): Promise<SpotRating[]> {
   if (USE_MOCKS) {
-    const mod = await import('@/mocks/ratings-list.json');
+    const mod = await import('@/mocks/ratings.json');
     return mod.default as unknown as SpotRating[];
   }
   return getJson<SpotRating[]>(`/api/ratings?date=${encodeURIComponent(date)}`);

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import TopBar from '@/components/TopBar';
 import { isValidDate } from '@/lib/date';
 import { findSpot } from '@/lib/spots';
 import SpotDetail from './SpotDetail';
@@ -26,5 +27,10 @@ export default async function SpotPage({ params, searchParams }: Props) {
   // ?mock= is a development aid for checking page states; production always uses live data.
   const mock = process.env.NODE_ENV === 'development' && typeof query.mock === 'string' ? query.mock : undefined;
 
-  return <SpotDetail spot={spot} date={date} mock={mock} />;
+  return (
+    <>
+      <TopBar />
+      <SpotDetail spot={spot} date={date} mock={mock} />
+    </>
+  );
 }

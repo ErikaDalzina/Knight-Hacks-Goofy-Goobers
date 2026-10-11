@@ -1,10 +1,17 @@
-import { formatHourShort, formatLocalTime } from '@/components/time';
+import { formatDuration, formatHourShort, formatLocalTime } from '@/components/time';
 import { LABEL_STYLES } from '@/lib/constants';
 import type { SpotRating } from '@/lib/types';
 import styles from './spot.module.css';
-import { bestSpan, cloudBars, formatDuration, moonUpSpans } from './timeline';
+import { bestSpan, cloudBars, moonUpSpans } from './timeline';
 
 const pos = (s: { left: number; width: number }) => ({ left: `${s.left}%`, width: `${s.width}%` });
+
+// Under about an hour on a phone, "BEST" doesn't fit inside its band (a 12 minute dawn
+// window is a sliver), so the label sits beside the band on whichever side has room.
+function bestLabelClass(band: { left: number; width: number }) {
+  if (band.width >= 12) return undefined;
+  return band.left > 50 ? styles.bestLabelBefore : styles.bestLabelAfter;
+}
 
 function moonNote({ rise, set }: SpotRating['moon'], hourly: SpotRating['hourly']) {
   if (rise && set) {
@@ -38,6 +45,7 @@ export default function BestTime({ rating }: { rating: SpotRating }) {
   const { fg, tint } = LABEL_STYLES[rating.label];
   const { headline, why } = summary(rating);
   const bars = dark ? cloudBars(dark, hourly) : [];
+  const band = dark && best ? bestSpan(dark, best) : null;
 
   return (
     <section className={`panel ${styles.bestPanel} ${styles.orderBest}`}>
@@ -67,9 +75,9 @@ export default function BestTime({ rating }: { rating: SpotRating }) {
           {moonUpSpans(dark, moon, hourly).map((s, i) => (
             <div key={i} className={styles.moonLine} style={pos(s)} />
           ))}
-          {best && (
-            <div className={styles.bestBand} style={{ ...pos(bestSpan(dark, best)), borderTopColor: fg, background: tint }}>
-              <span style={{ color: fg }}>BEST</span>
+          {band && (
+            <div className={styles.bestBand} style={{ ...pos(band), borderTopColor: fg, background: tint }}>
+              <span className={bestLabelClass(band)} style={{ color: fg }}>BEST</span>
             </div>
           )}
           <div className={styles.bars}>

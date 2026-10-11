@@ -1,0 +1,48 @@
+/* Location chip and its menu (top bar of the Umbra mockup). */
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-height: 36px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(190, 195, 235, .14);
+  background: rgba(10, 13, 24, .5);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chip:hover, .chipOpen { border-color: rgba(185, 174, 240, .55); }
+.chip svg { flex: none; color: var(--faint); }
+
+.name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sub { font: 400 11px var(--font-mono, ui-monospace, monospace); color: var(--faint); white-space: nowrap; }
+
+.menu { right: 0; width: 300px; padding: 10px; gap: 8px; border-radius: 16px; }
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(185, 174, 240, .4);
+  background: rgba(255, 255, 255, .04);
+  color: var(--text);
+  font: 400 14px var(--font-sans, system-ui, sans-serif);
+  outline: none;
+}
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--faint); }
+
+.locate { color: var(--link); }
+
+.divider { height: 1px; background: rgba(190, 195, 235, .1); }
+.list { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow-y: auto; }
+.empty { padding: 8px 10px; font-size: 12px; color: var(--faint); }
+
+@media (max-width: 767px) {
+  .chip { font-size: 12px; padding: 7px 11px; }
+  .sub { display: none; }
+  .menu { width: min(280px, calc(100vw - 32px)); }
+}

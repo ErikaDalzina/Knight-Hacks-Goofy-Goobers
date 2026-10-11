@@ -131,7 +131,11 @@
   left: 8px;
   font: 600 10.5px var(--font-mono, ui-monospace, monospace);
   letter-spacing: .08em;
+  white-space: nowrap;
 }
+/* Narrow bands: the label goes just outside, before or after the band. */
+.bestBand > .bestLabelBefore { left: auto; right: calc(100% + 6px); }
+.bestBand > .bestLabelAfter { left: calc(100% + 6px); }
 .bars { position: absolute; left: 0; right: 0; top: 52px; bottom: 24px; }
 .barSlot {
   position: absolute;
