@@ -38,10 +38,8 @@ export default function TonightsSky() {
 
     return (
         <section
+            className="panel"
             style={{
-                background: "#0d101d",
-                border: "1px solid #303345",
-                borderRadius: 22,
                 padding: 24,
                 color: "#f3f2fc",
             }}
@@ -57,9 +55,6 @@ export default function TonightsSky() {
             >
         <span style={{ fontSize: 12, letterSpacing: 2, color: "#a6a7be" }}>
           ✦ TONIGHT'S SKY
-        </span>
-                <span style={{ fontSize: 12, color: "#a6a7be" }}>
-          OCTOBER GUIDE
         </span>
             </div>
 
