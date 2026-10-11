@@ -14,6 +14,7 @@ import BestTime from './BestTime';
 import CloudLayersCard from './CloudLayersCard';
 import ComfortCard from './ComfortCard';
 import FactorBreakdown from './FactorBreakdown';
+import LocationCard from './LocationCard';
 import MoonCard from './MoonCard';
 import styles from './spot.module.css';
 
@@ -253,6 +254,8 @@ export default function SpotDetail({
             {state.status === 'ready' && (
                 <FactorBreakdown rating={state.rating} />
             )}
+
+            <LocationCard spot={spot} />
           </div>
 
           <div className={styles.column}>

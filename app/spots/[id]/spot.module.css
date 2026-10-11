@@ -238,6 +238,34 @@
 .facts dd { margin: 2px 0 0; font-size: 14px; color: var(--text); }
 .sources { margin: 0; font-size: 12px; color: var(--faint); }
 
+/* Location: kicker and Google Maps link, the map, then distance and drive time. The dark
+   background shows while the embed loads. */
+.locationHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.mapFrame {
+  height: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0a0d17;
+}
+/* Google's embed has no dark style without an API key, so it's inverted to night colors
+   (the mockup's filter). */
+.mapEmbed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(.92) hue-rotate(185deg) saturate(.6) brightness(.9);
+}
+.locationMeta {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
 @keyframes pulse { 50% { opacity: .45; } }
 
 @media (prefers-reduced-motion: reduce) {
@@ -256,6 +284,7 @@
   .orderComfort { order: 6; }
   .orderSky { order: 7; }
   .orderAbout { order: 8; }
+  .orderLocation { order: 9; }
 }
 
 @media (max-width: 600px) {
@@ -281,6 +310,7 @@
   .bestWhy { font-size: 12.5px; }
   .legend { margin-left: 0; }
   .chart, .skeletonChart { height: 130px; }
+  .mapFrame { height: 220px; }
   .barValue { display: none; }
   .bars { top: 46px; }
   .tick:nth-child(even) { display: none; }
