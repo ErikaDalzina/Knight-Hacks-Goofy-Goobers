@@ -63,15 +63,16 @@ export default function ScoreBadge({ score, label, size = 'md' }: {
 }
 
 // Leaflet divIcon pins take HTML strings, not React elements. Pass the pin's size as
-// iconSize and half of it as iconAnchor so the pin centers on the spot.
+// iconSize and half of it as iconAnchor so the pin centers on the spot. The active pin is the
+// same element grown by CSS (.umbra-pin-active in globals.css, scale = active / normal), so
+// hovering never swaps the element under the cursor.
 export const PIN_SIZE = { normal: 30, active: 38 };
 
-export function badgeHtml(score: number | null, label: RatingLabel, active = false): string {
+export function badgeHtml(score: number | null, label: RatingLabel): string {
   const { fg, glow } = LABEL_STYLES[label];
-  const px = active ? PIN_SIZE.active : PIN_SIZE.normal;
-  const shadow = `0 0 ${active ? 26 : 14}px ${glow}${active ? ',0 0 0 4px rgba(185,174,240,.35)' : ''}`;
-  return `<div role="img" aria-label="${ariaLabel(score, label)}" style="width:${px}px;height:${px}px;`
-    + `box-sizing:border-box;border-radius:50%;background:#0a0d18;border:2px solid ${fg};color:${fg};`
-    + `font:600 ${active ? 13 : 11}px/1 ${MONO};display:flex;align-items:center;justify-content:center;`
-    + `box-shadow:${shadow}">${scoreText(score)}</div>`;
+  const px = PIN_SIZE.normal;
+  return `<div class="umbra-pin" role="img" aria-label="${ariaLabel(score, label)}" style="--pin-glow:${glow};`
+    + `width:${px}px;height:${px}px;box-sizing:border-box;border-radius:50%;background:#0a0d18;`
+    + `border:2px solid ${fg};color:${fg};font:600 11px/1 ${MONO};`
+    + `display:flex;align-items:center;justify-content:center">${scoreText(score)}</div>`;
 }

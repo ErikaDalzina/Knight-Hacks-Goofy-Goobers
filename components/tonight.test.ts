@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { SpotRating } from '../lib/types';
-import { nightLabels, summarizeNight } from './tonight';
+import { nightLabels, nightName, summarizeNight } from './tonight';
 
 const HOME = { lat: 28.6, lon: -81.2 };
 
@@ -29,6 +29,13 @@ describe('nightLabels', () => {
   });
 });
 
+describe('nightName', () => {
+  it('says tonight only for tonight, and names any other night', () => {
+    expect(nightName('2026-10-10', '2026-10-10')).toEqual({ isTonight: true, label: 'Sat · Oct 10' });
+    expect(nightName('2026-10-13', '2026-10-10')).toEqual({ isTonight: false, label: 'Tue · Oct 13' });
+  });
+});
+
 describe('summarizeNight', () => {
   it('calls a clear, moonless night and reads dusk, dawn and the moon', () => {
     const s = summarizeNight([rating()], HOME);
@@ -41,7 +48,8 @@ describe('summarizeNight', () => {
 
   it('says clouds win when every spot is gated', () => {
     const s = summarizeNight([gated('a'), gated('b')], HOME);
-    expect(s.headline).toBe('Clouds win tonight. Try again tomorrow.');
+    expect(s.headline).toBe('Clouds win. Try another night.');
+    expect(s.shortHeadline).toBe('Clouded out.');
     expect(s.top).toBeNull();
     expect(s.dark).not.toBeNull();
   });
@@ -49,6 +57,7 @@ describe('summarizeNight', () => {
   it('calls patchy clouds when the top spot is not clear', () => {
     const s = summarizeNight([rating({ factors: { clouds: 0.5, darkness: 0.6, moon: 1 } })], HOME);
     expect(s.headline).toBe('Patchy clouds. Pick your spot and time.');
+    expect(s.shortHeadline).toBe('Patchy clouds. Pick a spot.');
   });
 
   it('sends people out after moonset', () => {
@@ -86,7 +95,7 @@ describe('summarizeNight', () => {
       moon: { illumination: 0.98, rise: null, set: null },
       hourly: [{ time: '2026-10-10T21:00:00-04:00', cloudCover: 5, moonUp: true }],
     })], HOME);
-    expect(s.headline).toBe('Clear, but the moon is bright. Planets and the Moon tonight.');
+    expect(s.headline).toBe('Clear, but the moon is bright. Good for planets and the Moon.');
     expect(s.moon).toEqual({ text: '98% · Full moon', sub: 'Up all night' });
   });
 

@@ -10,11 +10,13 @@ import controls from './controls.module.css';
 import LocationPicker, { Chevron } from './LocationPicker';
 import SpotCard, { type RatedSpot } from './SpotCard';
 import styles from './SpotsExplorer.module.css';
-import { formatHourShort, tonightDate } from './time';
 import TonightHero from './TonightHero';
-import { nightLabels, summarizeNight } from './tonight';
 import TopBar from './TopBar';
 import { useDismiss } from './useDismiss';
+import NightStrip, { STRIP_NIGHTS } from './NightStrip';
+import { formatHourShort, nightOptions, tonightDate } from './time';
+import { nightLabels, nightName, summarizeNight } from './tonight';
+import { useNightGlances } from './useNightGlances';
 
 // Leaflet touches `window`, so the map only loads in the browser.
 const SpotMap = dynamic(() => import('./SpotMap'), {
@@ -35,10 +37,10 @@ const LEGEND: { label: RatingLabel; range: string }[] = [
   { label: 'Poor', range: `0–${LABEL_THRESHOLDS.fair - 1}` },
 ];
 
-function MapLegend() {
+function MapLegend({ title }: { title: string }) {
   return (
     <div className={styles.legend}>
-      <span className={styles.legendTitle}>Rated for tonight</span>
+      <span className={styles.legendTitle}>{title}</span>
       {LEGEND.map(({ label, range }) => (
         <div key={label} className={styles.legendRow}>
           <span className={styles.legendDot} style={{ background: LABEL_COLORS[label] }} />
@@ -112,7 +114,9 @@ export default function SpotsExplorer() {
   const home = useUserLocation();
   const [ratings, setRatings] = useState<SpotRating[]>([]);
   const [status, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
+  const [tonight, setTonight] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const [sort, setSort] = useState<Sort>('score');
   const [openOnly, setOpenOnly] = useState(false);
@@ -121,22 +125,30 @@ export default function SpotsExplorer() {
   const [phoneView, setPhoneView] = useState<'list' | 'map'>('list');
 
   // Set after mount: "tonight" depends on the viewer's clock, which the server can't know.
+  // A valid ?date= in the URL picks another night, so shared links and the detail page agree.
   useEffect(() => {
-    setDate(tonightDate());
+    const today = tonightDate();
+    const asked = new URLSearchParams(window.location.search).get('date');
+    setTonight(today);
+    setDate(asked && nightOptions(today, STRIP_NIGHTS).includes(asked) ? asked : today);
   }, []);
 
   useEffect(() => {
     if (!date) return;
     let cancelled = false;
     getRatings(date)
-      .then((data) => {
-        if (cancelled) return;
-        setRatings(data);
-        setStatus('ready');
-      })
-      .catch(() => {
-        if (!cancelled) setStatus('error');
-      });
+        .then((data) => {
+          if (cancelled) return;
+          setRatings(data);
+          setErrorMessage(null);
+          setStatus('ready');
+        })
+        .catch((err) => {
+          if (cancelled) return;
+          // fetch() rejects with a TypeError when the network is down. Keep the generic text for that.
+          setErrorMessage(err instanceof Error && !(err instanceof TypeError) ? err.message : null);
+          setStatus('error');
+        });
     return () => {
       cancelled = true;
     };
@@ -145,6 +157,18 @@ export default function SpotsExplorer() {
   const retry = () => {
     setStatus('loading');
     setReloadKey((k) => k + 1);
+  };
+
+  const nights = useMemo(() => (tonight ? nightOptions(tonight, STRIP_NIGHTS) : []), [tonight]);
+  const glances = useNightGlances(nights, reloadKey);
+
+  const selectNight = (next: string) => {
+    if (next === date) return;
+    setStatus('loading');
+    setDate(next);
+    const url = new URL(window.location.href);
+    url.searchParams.set('date', next);
+    window.history.replaceState(null, '', url); // keeps other params, like a later ?w=
   };
 
   const items: RatedSpot[] = useMemo(() => {
@@ -173,6 +197,10 @@ export default function SpotsExplorer() {
   const hours = ratings.find((r) => r.hourly.length)?.hourly;
   const cloudSpan = hours && `clouds ${formatHourShort(hours[0].time)} → ${formatHourShort(hours[hours.length - 1].time)}`;
 
+  // "tonight", or the picked night's short label ("Tue · Oct 13") for the list and legend.
+  const night = date && tonight ? nightName(date, tonight) : null;
+  const forNight = !night || night.isTonight ? 'tonight' : night.label;
+
   const clearFilters = () => {
     setOpenOnly(false);
     setMaxMiles(null);
@@ -188,11 +216,21 @@ export default function SpotsExplorer() {
           onChoose={home.choosePlace}
           onLocate={home.locateMe}
         />
-        {date && <span className={`${controls.pill} ${styles.desktopOnly}`}>{nightLabels(date).short}</span>}
+        {date && <span className={controls.pill}>{nightLabels(date).short}</span>}
       </TopBar>
 
       <main className={styles.page}>
-        <TonightHero status={status} summary={summary} date={date} />
+        <TonightHero
+          status={status}
+          summary={summary}
+          date={date}
+          tonight={tonight}
+          aside={
+            date && nights.length > 0 ? (
+              <NightStrip nights={nights} selected={date} glances={glances} onSelect={selectNight} />
+            ) : null
+          }
+        />
 
         <div className={`${styles.phoneBar} ${styles.phoneOnly}`}>
           <div className={`${controls.segmented} ${styles.phoneTabs}`}>
@@ -222,14 +260,14 @@ export default function SpotsExplorer() {
             {date && (
               <SpotMap spots={shown} home={home.location} date={date} activeId={activeId} onHover={setActiveId} />
             )}
-            <MapLegend />
+            <MapLegend title={`Rated for ${forNight}`} />
           </section>
 
-          <section className={styles.listPane} aria-label="Spots ranked for tonight">
+          <section className={styles.listPane} aria-label={`Spots ranked for ${forNight}`}>
             <div className={`${styles.listHead} ${styles.desktopOnly}`}>
               <span className={styles.count}>
                 {status === 'ready'
-                  ? `${spotsText(shown.length)} · ${sort === 'score' ? 'ranked for tonight' : 'nearest first'}`
+                  ? `${spotsText(shown.length)} · ${sort === 'score' ? `ranked for ${forNight}` : 'nearest first'}`
                   : 'Spots'}
               </span>
               <div className={`${controls.segmented} ${styles.pushRight}`}>
@@ -270,13 +308,13 @@ export default function SpotsExplorer() {
 
               {status === 'error' && (
                 <div className={styles.state} role="alert">
-                  <p>Couldn&apos;t load spots. Check your connection and try again.</p>
+                  <p>{errorMessage ?? "Couldn't load spots. Check your connection and try again."}</p>
                   <button type="button" className={controls.chip} onClick={retry}>Retry</button>
                 </div>
               )}
 
               {status === 'ready' && items.length === 0 && (
-                <p className={styles.state}>No spots found for tonight.</p>
+                <p className={styles.state}>No spots found for {forNight}.</p>
               )}
 
               {status === 'ready' && items.length > 0 && shown.length === 0 && (

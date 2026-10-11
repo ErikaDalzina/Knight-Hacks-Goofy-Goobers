@@ -178,11 +178,12 @@
 .skeletonBar { height: 10px; border-radius: 5px; background: rgba(255, 255, 255, .07); }
 .skeletonChart { width: 100%; height: 250px; border-radius: 12px; background: rgba(255, 255, 255, .04); }
 
-/* Moon and About sit side by side under the night chart on desktop. */
-.infoRow { display: flex; gap: 18px; align-items: flex-start; }
+/* Moon, Cloud layers and Comfort sit side by side under the night chart on desktop, with About
+   below. Narrower desktops wrap them rather than squeeze Comfort's numbers. */
+.infoRow { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
 .infoPanel { padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; }
-.moonPanel { flex: 1 1 0; min-width: 0; }
-.aboutPanel { flex: 1.6 1 0; min-width: 0; }
+.moonPanel, .layersPanel, .comfortPanel { flex: 1 1 250px; min-width: 0; }
+.aboutPanel { min-width: 0; }
 
 .moonRow { display: flex; align-items: center; gap: 16px; }
 .moonDisc { width: 64px; height: 64px; flex: none; border-radius: 50%; border: 1px solid rgba(233, 226, 200, .25); }
@@ -191,13 +192,46 @@
 .moonPhase { font-size: 13px; color: var(--muted); }
 .moonEvents { margin: 0; font: 500 14px var(--font-mono, ui-monospace, monospace); }
 
-.notes { margin: 0; font-size: 14px; line-height: 1.55; color: #c4c5d6; text-wrap: pretty; }
+/* Cloud layers: name, bar and percentage per layer, each bar out of 100. */
+.layers { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.layers > div {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 38px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+.layers dt { color: var(--muted); }
+.layers dd { margin: 0; }
+.layerFill { display: block; height: 100%; border-radius: 3px; background: rgba(205, 210, 240, .7); }
+.layerValue { text-align: right; font-family: var(--font-mono, ui-monospace, monospace); }
+
+/* Comfort and gear: three numbers (value over label), then the amber advice line. */
+.comfortStats { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.comfortStats > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
+.comfortStats dt { font-size: 11px; color: var(--muted); }
+.comfortStats dd { margin: 0; font: 500 20px var(--font-sans, system-ui, sans-serif); white-space: nowrap; }
+.comfortWarn { color: oklch(0.86 0.10 85); }
+.advice {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(240, 190, 90, .10);
+  border: 1px solid rgba(240, 190, 90, .28);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: oklch(0.86 0.10 85);
+  text-wrap: pretty;
+}
+
+/* About spans the column, so the notes keep a readable line length and the facts spread out. */
+.notes { margin: 0; max-width: 75ch; font-size: 14px; line-height: 1.55; color: #c4c5d6; text-wrap: pretty; }
 .facts {
   margin: 0;
   padding-top: 12px;
   border-top: 1px solid var(--line);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
 }
 .facts dt { font-size: 12px; color: var(--muted); }
@@ -218,7 +252,10 @@
   .orderBest { order: 2; }
   .orderFactors { order: 3; }
   .orderMoon { order: 4; }
-  .orderAbout { order: 5; }
+  .orderLayers { order: 5; }
+  .orderComfort { order: 6; }
+  .orderSky { order: 7; }
+  .orderAbout { order: 8; }
 }
 
 @media (max-width: 600px) {

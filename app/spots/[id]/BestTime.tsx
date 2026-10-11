@@ -1,4 +1,5 @@
 import { formatDuration, formatHourShort, formatLocalTime } from '@/components/time';
+import type { NightName } from '@/components/tonight';
 import { LABEL_STYLES } from '@/lib/constants';
 import type { SpotRating } from '@/lib/types';
 import styles from './spot.module.css';
@@ -25,13 +26,16 @@ function moonNote({ rise, set }: SpotRating['moon'], hourly: SpotRating['hourly'
 }
 
 // The headline and its one-line reason, in the order the page decides them.
-function summary(rating: SpotRating) {
+function summary(rating: SpotRating, night: NightName) {
   const { bestWindow: best } = rating;
   if (rating.score === null) {
-    return { headline: 'Not tonight', why: `${rating.gateReason ?? 'Conditions rule this spot out'}. Try another spot or night.` };
+    return {
+      headline: night.isTonight ? 'Not tonight' : 'Not this night',
+      why: `${rating.gateReason ?? 'Conditions rule this spot out'}. Try another spot or night.`,
+    };
   }
   if (!best) {
-    return { headline: 'No clear window', why: 'No hour tonight is both under 30% cloud and moon-free.' };
+    return { headline: 'No clear window', why: 'No dark hour is both under 30% cloud and moon-free.' };
   }
   const length = formatDuration(Date.parse(best.end) - Date.parse(best.start));
   return {
@@ -40,10 +44,10 @@ function summary(rating: SpotRating) {
   };
 }
 
-export default function BestTime({ rating }: { rating: SpotRating }) {
+export default function BestTime({ rating, night }: { rating: SpotRating; night: NightName }) {
   const { darkWindow: dark, bestWindow: best, hourly, moon } = rating;
   const { fg, tint } = LABEL_STYLES[rating.label];
-  const { headline, why } = summary(rating);
+  const { headline, why } = summary(rating, night);
   const bars = dark ? cloudBars(dark, hourly) : [];
   const band = dark && best ? bestSpan(dark, best) : null;
 
@@ -51,7 +55,9 @@ export default function BestTime({ rating }: { rating: SpotRating }) {
     <section className={`panel ${styles.bestPanel} ${styles.orderBest}`}>
       <div className={styles.bestHead}>
         <div className={styles.bestText}>
-          <h2 className="kicker" style={{ margin: 0 }}>Best time tonight</h2>
+          <h2 className="kicker" style={{ margin: 0 }}>
+            {night.isTonight ? 'Best time tonight' : `Best time · ${night.label}`}
+          </h2>
           <span className={styles.bestTime}>{headline}</span>
           <span className={styles.bestWhy}>{why}</span>
         </div>
@@ -101,7 +107,7 @@ export default function BestTime({ rating }: { rating: SpotRating }) {
           </div>
         </div>
       ) : (
-        <p className={styles.notice}>No true darkness tonight: the sun never gets 18° below the horizon.</p>
+        <p className={styles.notice}>No true darkness: the sun never gets 18° below the horizon.</p>
       )}
     </section>
   );

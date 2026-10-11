@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { LABEL_COLORS } from '@/lib/constants';
 import styles from './SpotsExplorer.module.css';
-import { nightLabels, type NightSummary, type Stat } from './tonight';
+import { nightLabels, nightName, type NightSummary, type Stat } from './tonight';
 
 function StatItem({ label, stat, className }: { label: string; stat: Stat; className?: string }) {
   return (
@@ -15,21 +15,26 @@ function StatItem({ label, stat, className }: { label: string; stat: Stat; class
   );
 }
 
-// The "Tonight" summary above the map and list (mockup frame 1a; 1c on phones).
-export default function TonightHero({ status, summary, date }: {
+// The night's summary above the map and list (mockup frame 1a; 1c on phones). It says
+// "Tonight" only for tonight, since the night strip can show other nights.
+export default function TonightHero({ status, summary, date, tonight, aside }: {
   status: 'loading' | 'error' | 'ready';
   summary: NightSummary | null;
   date: string | null;
+  tonight: string | null;
+  aside?: React.ReactNode; // the night strip, shown beside the headline (below it on phones)
 }) {
   const labels = date ? nightLabels(date) : null;
+  const night = date && tonight ? nightName(date, tonight) : null;
   const top = summary?.top;
 
   return (
-    <section className={styles.hero} aria-live="polite">
+    <section className={styles.hero}>
+      <div className={styles.heroMain} aria-live="polite">
       <p className={styles.kicker}>
         {labels && (
           <>
-            <span className={styles.desktopOnly}>Tonight · {labels.long}</span>
+            <span className={styles.desktopOnly}>{night?.isTonight ? `Tonight · ${labels.long}` : labels.long}</span>
             <span className={styles.phoneOnly}>{labels.short}</span>
           </>
         )}
@@ -42,8 +47,8 @@ export default function TonightHero({ status, summary, date }: {
             <span className={styles.phoneOnly}>{summary.shortHeadline}</span>
           </h1>
           <dl className={styles.stats}>
-            <StatItem label="True darkness" stat={summary.dark ?? { text: 'None tonight', sub: 'The sun never gets 18° below' }} />
-            <StatItem label="Moon" stat={summary.moon ?? { text: 'Not measured', sub: 'No true darkness tonight' }} />
+            <StatItem label="True darkness" stat={summary.dark ?? { text: 'None', sub: 'The sun never gets 18° below' }} />
+            <StatItem label="Moon" stat={summary.moon ?? { text: 'Not measured', sub: 'No true darkness' }} />
             <div className={`${styles.stat} ${styles.desktopOnly}`}>
               <dt>Top spot</dt>
               {top ? (
@@ -57,7 +62,7 @@ export default function TonightHero({ status, summary, date }: {
                 </dd>
               ) : (
                 <dd>
-                  <span className={styles.statValue}>None tonight</span>
+                  <span className={styles.statValue}>None</span>
                   <span className={styles.statSub}>Every spot is ruled out</span>
                 </dd>
               )}
@@ -66,14 +71,20 @@ export default function TonightHero({ status, summary, date }: {
         </>
       )}
 
-      {status === 'error' && <h1 className={styles.headline}>Couldn&apos;t load tonight&apos;s forecast.</h1>}
+      {status === 'error' && (
+        <h1 className={styles.headline}>
+          {!night || night.isTonight ? "Couldn't load tonight's forecast." : `Couldn't load the forecast for ${night.label}.`}
+        </h1>
+      )}
 
       {status === 'loading' && (
-        <div className={styles.heroSkeleton} role="status" aria-label="Loading tonight's forecast">
+        <div className={styles.heroSkeleton} role="status" aria-label="Loading the forecast">
           <div className={styles.skeletonBlock} style={{ width: '46%', height: 38 }} />
           <div className={styles.skeletonBlock} style={{ width: '38%', height: 44 }} />
         </div>
       )}
+      </div>
+      {aside}
     </section>
   );
 }

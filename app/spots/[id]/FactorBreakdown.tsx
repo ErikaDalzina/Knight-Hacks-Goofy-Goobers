@@ -11,7 +11,7 @@ type Factor = { name: string; value: number; weight: number; measured: boolean; 
 function explainFactors({ factors, darkWindow, moon, spot }: SpotRating): Factor[] {
   // Without true darkness the engine sends 0 for clouds and moon, which would read as bad weather.
   const night = darkWindow && `${formatLocalTime(darkWindow.start)}–${formatLocalTime(darkWindow.end)}`;
-  const notMeasured = 'Not measured, no true darkness tonight';
+  const notMeasured = 'Not measured, no true darkness';
   const lit = Math.round(moon.illumination * 100);
   const upShare = Math.round(moonUpShare(factors.moon, moon.illumination) * 100);
 
