@@ -89,9 +89,11 @@ function FitView({ spots, home }: { spots: RatedSpot[]; home: LatLon }) {
   return null;
 }
 
-const FIT_ICON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" '
-  + 'stroke-linecap="round" aria-hidden="true" style="display:inline-block;vertical-align:middle">'
-  + '<path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9"/></svg>';
+const FIT_ICON =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block">'
+    + '<line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/>'
+    + '<line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/>'
+    + '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>';
 
 // A "Show all spots" button under the zoom buttons that returns to the fitted view, for the
 // spots the filters currently show. A plain Leaflet control so it matches +/−.
@@ -112,6 +114,9 @@ function FitControl({ spots, home }: { spots: RatedSpot[]; home: LatLon }) {
       button.title = 'Show all spots';
       button.setAttribute('aria-label', 'Show all spots');
       button.innerHTML = FIT_ICON;
+      button.style.display = 'flex';
+      button.style.alignItems = 'center';
+      button.style.justifyContent = 'center';
       L.DomEvent.disableClickPropagation(bar);
       L.DomEvent.on(button, 'click', (e) => {
         L.DomEvent.preventDefault(e);
