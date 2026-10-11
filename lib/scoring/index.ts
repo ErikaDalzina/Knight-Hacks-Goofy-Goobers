@@ -173,7 +173,7 @@ export const rateSpot: RateSpot = (spot, date, forecast, customWeights) => {
   const label: SpotRating['label'] = score >= excellent ? 'Excellent' : score >= good ? 'Good'
       : score >= fair ? 'Fair' : 'Poor';
 
-  // Only rated nights get comfort, and only the dark-window hours are looked at.
+  // Only rated nights get comfort and cloud layers, and only the dark-window hours are looked at.
   const comfort = assessComfort(sampledHours);
   const cloudLayers = assessCloudLayers(sampledHours);
   return { spot, date, score, label, factors, darkWindow, bestWindow, moon, hourly,
