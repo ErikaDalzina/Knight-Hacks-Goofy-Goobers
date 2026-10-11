@@ -253,6 +253,47 @@ describe('best window', () => {
     expect(r.bestWindow!.start).toBe('2026-10-18T00:00:00-04:00');
   });
 
+  it('stops at a mid-hour moonrise instead of running to the end of the hour', () => {
+    const rise = Date.parse('2026-10-18T05:16:00Z'); // moon rises 1:16am local
+    sun.state.illumination = 0.42;
+    sun.state.moonUp = d => d.getTime() >= rise;
+    const r = rateSpot(spot(), DATE, forecast(win(Array(9).fill(5))));
+    expect(r.bestWindow).toEqual({
+      start: '2026-10-17T21:00:00-04:00',
+      end: '2026-10-18T01:15:00-04:00', // not 2:00am
+    });
+  });
+
+  it('starts at the first quarter-hour after a mid-hour moonset instead of the next full hour', () => {
+    const set = Date.parse('2026-10-18T05:16:00Z'); // moon sets 1:16am local
+    sun.state.illumination = 0.42;
+    sun.state.moonUp = d => d.getTime() < set;
+    const r = rateSpot(spot(), DATE, forecast(win(Array(9).fill(5))));
+    expect(r.bestWindow!.start).toBe('2026-10-18T01:30:00-04:00'); // not 2:00am
+  });
+
+  it('never extends past moonrise and stops at most 15 minutes before it', () => {
+    for (const minute of [0, 1, 14, 15, 16, 29, 44, 59]) {
+      const rise = Date.parse('2026-10-18T05:00:00Z') + minute * 60e3; // 1:00am local + minute
+      sun.state.moonUp = d => d.getTime() >= rise;
+      const r = rateSpot(spot(), DATE, forecast(win(Array(9).fill(5))));
+      const end = Date.parse(r.bestWindow!.end);
+      expect(end).toBeLessThanOrEqual(rise);
+      expect(end).toBeGreaterThanOrEqual(rise - 15 * 60e3);
+    }
+  });
+
+  it('never starts before moonset and starts at most 15 minutes after it', () => {
+    for (const minute of [0, 1, 14, 15, 16, 29, 44, 59]) {
+      const set = Date.parse('2026-10-18T05:00:00Z') + minute * 60e3; // 1:00am local + minute
+      sun.state.moonUp = d => d.getTime() < set;
+      const r = rateSpot(spot(), DATE, forecast(win(Array(9).fill(5))));
+      const start = Date.parse(r.bestWindow!.start);
+      expect(start).toBeGreaterThanOrEqual(set);
+      expect(start).toBeLessThanOrEqual(set + 15 * 60e3);
+    }
+  });
+
   it('picks the longest unbroken run of good hours', () => {
     // 9pm..5am: clear, cloudy, then 3 clear hours (11pm-1am), cloudy, 2 clear, cloudy
     const r = rateSpot(spot(), DATE, forecast(win([10, 50, 10, 10, 10, 50, 10, 10, 50])));

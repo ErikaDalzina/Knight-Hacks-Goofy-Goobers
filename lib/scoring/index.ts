@@ -1,3 +1,11 @@
+/**
+ * TEMPORARY integration-friendly rating engine.
+ * Person 2 owns this entire folder: replace or improve this file during the
+ * hackathon, keeping `rateSpot(spot, date, hourly)` and the shared output type.
+ * This baseline implements the documented weights and uses SunCalc for darkness
+ * and moon; no network requests here. Moonrise/set fields mean events during
+ * the dark window, not necessarily the complete calendar day.
+ */
 import SunCalc from 'suncalc';
 import type { HourlyForecast, RateSpot, Spot, SpotRating } from '@/lib/types';
 
@@ -19,7 +27,7 @@ const FIFTEEN_MINUTES = 15 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
 const darknessScore = (bortle: number) =>
-    clamp((SCORING_CONFIG.darkness.worstBortle - bortle) / SCORING_CONFIG.darkness.range);
+  clamp((SCORING_CONFIG.darkness.worstBortle - bortle) / SCORING_CONFIG.darkness.range);
 
 function offsetFromForecast(hourly: HourlyForecast[]): number {
   const match = hourly[0]?.time.match(/([+-])(\d{2}):(\d{2})$/);
@@ -68,7 +76,7 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
 
   const averageCloud = sampledHours.reduce((sum, h) => sum + h.cloudCover, 0) / sampledHours.length;
   const illumination = clamp(SunCalc.getMoonIllumination(
-      new Date((start.getTime() + end.getTime()) / 2)).fraction);
+    new Date((start.getTime() + end.getTime()) / 2)).fraction);
   let moonSamples = 0, moonUpSamples = 0;
   let rise: string | null = null, set: string | null = null;
   let previousUp = moonUpAt(start, spot);
@@ -101,22 +109,32 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
     return gateResult(spot, date, 'Precipitation forecast during dark hours', factors, darkWindow, moon, hourly);
   }
 
-  // Each qualifying forecast hour is treated as a [hour, hour+1h) slot.
+  // Cloud cover is hourly, but the moon can rise or set mid-hour, so each forecast hour is
+  // split into 15-minute slots. A slot counts only if its hour is clear enough AND the moon
+  // is below the horizon at both its start and its end. The window therefore never runs
+  // past a moonrise; it may stop up to 15 minutes early, or start up to 15 minutes late.
   let currentStart: number | null = null, currentEnd: number | null = null;
   let bestStart: number | null = null, bestEnd: number | null = null;
   for (const h of hourly) {
-    const t = new Date(h.time).getTime();
-    if (h.cloudCover < SCORING_CONFIG.bestWindow.maxCloud && !h.moonUp) {
-      if (currentStart === null || currentEnd !== t) currentStart = t;
-      currentEnd = Math.min(t + HOUR, end.getTime());
+    const hourStart = new Date(h.time).getTime();
+    const clearEnough = h.cloudCover < SCORING_CONFIG.bestWindow.maxCloud;
+    for (let slotStart = hourStart; slotStart < hourStart + HOUR; slotStart += FIFTEEN_MINUTES) {
+      if (slotStart >= end.getTime()) break;
+      const slotEnd = Math.min(slotStart + FIFTEEN_MINUTES, end.getTime());
+      const good = clearEnough &&
+        !moonUpAt(new Date(slotStart), spot) && !moonUpAt(new Date(slotEnd), spot);
+      if (!good) {
+        currentStart = null;
+        currentEnd = null;
+        continue;
+      }
+      if (currentStart === null || currentEnd !== slotStart) currentStart = slotStart;
+      currentEnd = slotEnd;
       if (bestStart === null || bestEnd === null ||
           currentEnd - currentStart > bestEnd - bestStart) {
         bestStart = currentStart;
         bestEnd = currentEnd;
       }
-    } else {
-      currentStart = null;
-      currentEnd = null;
     }
   }
   const bestWindow = bestStart === null || bestEnd === null ? null : {
@@ -124,9 +142,9 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
   };
   const { weights } = SCORING_CONFIG;
   const score = Math.round(100 * (weights.clouds * factors.clouds +
-      weights.darkness * factors.darkness + weights.moon * factors.moon));
+    weights.darkness * factors.darkness + weights.moon * factors.moon));
   const { excellent, good, fair } = SCORING_CONFIG.labels;
   const label: SpotRating['label'] = score >= excellent ? 'Excellent' : score >= good ? 'Good'
-      : score >= fair ? 'Fair' : 'Poor';
+    : score >= fair ? 'Fair' : 'Poor';
   return { spot, date, score, label, factors, darkWindow, bestWindow, moon, hourly };
 };
