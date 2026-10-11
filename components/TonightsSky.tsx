@@ -62,19 +62,43 @@ export default function TonightsSky() {
                             alignItems: "center",
                         }}
                     >
-                        <img
-                            src={current.imageUrl}
-                            alt={`${current.name} constellation diagram`}
-                            width={360}
-                            height={270}
+                        <div
                             style={{
+                                position: "relative",
                                 width: "100%",
                                 maxWidth: 320,
-                                height: "auto",
                                 borderRadius: 14,
-                                border: "1px solid var(--line)",
+                                border: "1px solid #30334d",
+                                overflow: "hidden",
+                                isolation: "isolate",
                             }}
-                        />
+                        >
+                            <img
+                                src={current.imageUrl}
+                                alt={`${current.name} constellation diagram`}
+                                width={360}
+                                height={270}
+                                style={{ display: "block", width: "100%", height: "auto" }}
+                            />
+                            {/* A blurred, contrast-boosted copy on top makes the bright stars bloom. */}
+                            <img
+                                src={current.imageUrl}
+                                alt=""
+                                aria-hidden="true"
+                                width={360}
+                                height={270}
+                                style={{
+                                    position: "absolute",
+                                    inset: 0,
+                                    width: "100%",
+                                    height: "100%",
+                                    filter: "contrast(3) blur(5px)",
+                                    mixBlendMode: "screen",
+                                    opacity: 0.9,
+                                    pointerEvents: "none",
+                                }}
+                            />
+                        </div>
 
                         <div style={{ flex: 1, minWidth: 200 }}>
                             <h3 style={{ fontSize: 28, fontWeight: 500, letterSpacing: "-.02em", margin: "0 0 12px" }}>
