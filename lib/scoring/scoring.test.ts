@@ -397,6 +397,65 @@ describe('cloud layers', () => {
   });
 });
 
+// ---------------------------------------------------------------------------
+describe('custom weights', () => {
+  // bortle 3, 40% cloud, moon down: clouds 0.6, darkness 0.75, moon 1 -> 75 with the default weights
+  const night = () => forecast(win(Array(9).fill(40)));
+  const s = () => spot({ bortle: 3 });
+
+  it('gives the same result when no weights or the default weights are passed', () => {
+    expect(rateSpot(s(), DATE, night(), SCORING_CONFIG.weights)).toEqual(rateSpot(s(), DATE, night()));
+  });
+
+  it('scores on one factor when all the weight is on it', () => {
+    const clouds = rateSpot(s(), DATE, night(), { clouds: 1, darkness: 0, moon: 0 });
+    expect(clouds.score).toBe(Math.round(100 * clouds.factors.clouds)); // 60
+    const dark = rateSpot(s(), DATE, night(), { clouds: 0, darkness: 1, moon: 0 });
+    expect(dark.score).toBe(75);
+  });
+
+  it('scales weights that do not add up to 1', () => {
+    const scaled = rateSpot(s(), DATE, night(), { clouds: 2, darkness: 1, moon: 1 });
+    const exact = rateSpot(s(), DATE, night(), { clouds: 0.5, darkness: 0.25, moon: 0.25 });
+    expect(scaled.score).toBe(exact.score);
+  });
+
+  it('fills in missing weights from the defaults', () => {
+    const partial = rateSpot(s(), DATE, night(), { clouds: 1 });
+    const full = rateSpot(s(), DATE, night(), { clouds: 1, darkness: 0.35, moon: 0.25 });
+    expect(partial.score).toBe(full.score);
+  });
+
+  it('falls back to the defaults for weights that are zero, negative or not numbers', () => {
+    const plain = rateSpot(s(), DATE, night()).score;
+    expect(rateSpot(s(), DATE, night(), { clouds: 0, darkness: 0, moon: 0 }).score).toBe(plain);
+    expect(rateSpot(s(), DATE, night(), { clouds: -1, darkness: -2, moon: -3 }).score).toBe(plain);
+    expect(rateSpot(s(), DATE, night(), { clouds: NaN, darkness: Infinity, moon: NaN }).score).toBe(plain);
+  });
+
+  it('changes the label along with the score', () => {
+    // bortle 9 has darkness 0, so putting all the weight on darkness scores 0
+    const r = rateSpot(spot({ bortle: 9 }), DATE, night(), { clouds: 0, darkness: 1, moon: 0 });
+    expect(r.score).toBe(0);
+    expect(r.label).toBe('Poor');
+  });
+
+  it('leaves factors, windows and the default config alone', () => {
+    const plain = rateSpot(s(), DATE, night());
+    const custom = rateSpot(s(), DATE, night(), { clouds: 1, darkness: 0, moon: 0 });
+    expect(custom.factors).toEqual(plain.factors);
+    expect(custom.bestWindow).toEqual(plain.bestWindow);
+    expect(custom.darkWindow).toEqual(plain.darkWindow);
+    expect(SCORING_CONFIG.weights).toEqual({ clouds: 0.40, darkness: 0.35, moon: 0.25 });
+  });
+
+  it('does not rate gated nights, whatever the weights', () => {
+    const r = rateSpot(spot({ openAtNight: false }), DATE, forecast(5), { clouds: 1, darkness: 0, moon: 0 });
+    expect(r.score).toBeNull();
+    expect(r.label).toBe('Not tonight');
+  });
+});
+
 describe('output shape', () => {
   it('returns the spot and date unchanged', () => {
     const s = spot({ notes: 'Bring bug spray' });

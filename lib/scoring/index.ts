@@ -7,14 +7,15 @@
  * the dark window, not necessarily the complete calendar day.
  */
 import SunCalc from 'suncalc';
-import type { HourlyForecast, RateSpot, Spot, SpotRating } from '@/lib/types';
+import type { HourlyForecast, RateSpot, ScoreWeights, Spot, SpotRating } from '@/lib/types';
+import { DEFAULT_WEIGHTS, LABEL_THRESHOLDS } from '../constants';
 import { assessComfort } from './comfort';
 import { assessCloudLayers } from './cloudLayers';
 
 /** Every tunable number lives here, so scoring can change without touching the logic. */
 export const SCORING_CONFIG = {
   // score = 100 * (clouds * w.clouds + darkness * w.darkness + moon * w.moon)
-  weights: { clouds: 0.40, darkness: 0.35, moon: 0.25 },
+  weights: { ...DEFAULT_WEIGHTS },
   // darkness factor = (worstBortle - spot.bortle) / range, clamped to 0-1
   darkness: { worstBortle: 9, range: 8 },
   // "Not tonight" gate: average cloud cover (%) above this
@@ -22,12 +23,29 @@ export const SCORING_CONFIG = {
   // An hour counts toward the best window when cloud cover (%) is below this
   bestWindow: { maxCloud: 30 },
   // Minimum score for each label (anything lower is "Poor")
-  labels: { excellent: 80, good: 60, fair: 40 },
+  labels: { ...LABEL_THRESHOLDS },
 };
 
 const FIFTEEN_MINUTES = 15 * 60 * 1000;
 const HOUR = 60 * 60 * 1000;
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
+
+/** Custom weights are scaled to sum to 1. Bad or missing values fall back to the defaults. */
+function normalizeWeights(custom?: Partial<ScoreWeights>): ScoreWeights {
+  const base = SCORING_CONFIG.weights;
+  if (!custom) return base;
+  const pick = (v: number | undefined, fallback: number) =>
+      typeof v === 'number' && Number.isFinite(v) && v >= 0 ? v : fallback;
+  const raw = {
+    clouds: pick(custom.clouds, base.clouds),
+    darkness: pick(custom.darkness, base.darkness),
+    moon: pick(custom.moon, base.moon),
+  };
+  const sum = raw.clouds + raw.darkness + raw.moon;
+  if (sum <= 0) return base;
+  return { clouds: raw.clouds / sum, darkness: raw.darkness / sum, moon: raw.moon / sum };
+}
+
 const darknessScore = (bortle: number) =>
   clamp((SCORING_CONFIG.darkness.worstBortle - bortle) / SCORING_CONFIG.darkness.range);
 
@@ -54,7 +72,7 @@ function gateResult(spot: Spot, date: string, reason: string, factors: SpotRatin
     factors, darkWindow, bestWindow: null, moon, hourly };
 }
 
-export const rateSpot: RateSpot = (spot, date, forecast) => {
+export const rateSpot: RateSpot = (spot, date, forecast, customWeights) => {
   const defaultMoon = { illumination: 0, rise: null, set: null };
   const defaultFactors = { clouds: 0, darkness: darknessScore(spot.bortle), moon: 0 };
   const offset = offsetFromForecast(forecast);
@@ -142,7 +160,7 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
   const bestWindow = bestStart === null || bestEnd === null ? null : {
     start: offsetISO(new Date(bestStart), offset), end: offsetISO(new Date(bestEnd), offset),
   };
-  const { weights } = SCORING_CONFIG;
+  const weights = normalizeWeights(customWeights);
   const score = Math.round(100 * (weights.clouds * factors.clouds +
     weights.darkness * factors.darkness + weights.moon * factors.moon));
   const { excellent, good, fair } = SCORING_CONFIG.labels;

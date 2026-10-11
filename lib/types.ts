@@ -56,4 +56,12 @@ export type SpotRating = {
   comfort?: Comfort;       // only on rated nights, and only if the forecast has weather data
   cloudLayers?: CloudLayers;  // only on rated nights, and only if the forecast has layer data
 };
-export type RateSpot = (spot: Spot, date: string, hourly: HourlyForecast[]) => SpotRating;
+
+export type ScoreWeights = { clouds: number; darkness: number; moon: number };
+
+export type RateSpot = (
+    spot: Spot,
+    date: string,
+    hourly: HourlyForecast[],
+    weights?: Partial<ScoreWeights>,   // custom weights; missing ones fall back to the defaults
+) => SpotRating;
