@@ -5,6 +5,11 @@ import type { Spot } from '@/lib/types';
 export function getSpots(): Spot[] {
   return storedSpots as Spot[];
 }
+// One state's spots (e.g. "FL"), or every spot when state is null.
+export function getSpotsInState(state: string | null): Spot[] {
+  const spots = getSpots();
+  return state === null ? spots : spots.filter((spot) => spot.state === state);
+}
 export function findSpot(id: string): Spot | undefined {
   return getSpots().find((spot) => spot.id === id);
 }

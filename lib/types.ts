@@ -7,6 +7,7 @@ export type Spot = {
   openAtNight: boolean;
   notes?: string;
   region?: string;            // shown as a chip on the detail page
+  state?: string;             // two-letter code; groups spots for the forecast request
   darkSkyCertified?: boolean; // shown as a "DarkSky certified" chip
   seasonalNote?: string;      // shown as "Season" in the About section
   elevationM?: number;        // metres above sea level

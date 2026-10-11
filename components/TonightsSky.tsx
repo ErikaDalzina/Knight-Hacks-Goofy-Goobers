@@ -1,7 +1,7 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
+import controls from "./controls.module.css";
 
 type Constellation = {
     id: string;
@@ -41,26 +41,16 @@ export default function TonightsSky() {
             className="panel"
             style={{
                 padding: 24,
-                color: "#f3f2fc",
+                color: "var(--text)",
             }}
         >
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: 20,
-                    gap: 12,
-                }}
-            >
-        <span style={{ fontSize: 12, letterSpacing: 2, color: "#a6a7be" }}>
-          ✦ TONIGHT'S SKY
-        </span>
-            </div>
+            <h2 className="kicker" style={{ margin: "0 0 20px" }}>
+                ✦ Tonight&apos;s sky
+            </h2>
 
-            {error && <p>Unable to load the sky guide.</p>}
+            {error && <p style={{ color: "var(--muted)" }}>Unable to load the sky guide.</p>}
 
-            {!error && !current && <p>Loading constellations...</p>}
+            {!error && !current && <p style={{ color: "var(--muted)" }}>Loading constellations…</p>}
 
             {current && (
                 <>
@@ -111,31 +101,23 @@ export default function TonightsSky() {
                         </div>
 
                         <div style={{ flex: 1, minWidth: 200 }}>
-                            <h2 style={{ fontSize: 28, margin: "0 0 12px" }}>
+                            <h3 style={{ fontSize: 28, fontWeight: 500, letterSpacing: "-.02em", margin: "0 0 12px" }}>
                                 {current.name}
-                            </h2>
+                            </h3>
 
                             <p
                                 style={{
-                                    color: "#c5c5d7",
+                                    color: "#c4c5d6",
                                     lineHeight: 1.6,
-                                    marginBottom: 18,
+                                    margin: "0 0 18px",
                                 }}
                             >
                                 {current.tip}
                             </p>
 
-                            <span
-                                style={{
-                                    background: "#24283c",
-                                    color: "#c8d5ff",
-                                    borderRadius: 8,
-                                    padding: "8px 12px",
-                                    fontSize: 13,
-                                }}
-                            >
-                ✦ {current.equipment}
-              </span>
+                            <span className={controls.pill} style={{ color: "var(--link)" }}>
+                                ✦ {current.equipment}
+                            </span>
                         </div>
                     </div>
 
@@ -146,32 +128,32 @@ export default function TonightsSky() {
                             justifyContent: "space-between",
                             marginTop: 24,
                             paddingTop: 16,
-                            borderTop: "1px solid #303345",
+                            borderTop: "1px solid var(--line)",
                         }}
                     >
-                        <button onClick={previous} aria-label="Previous constellation">
+                        <button type="button" className={controls.chip} onClick={previous} aria-label="Previous constellation">
                             ← Previous
                         </button>
 
-                        <span style={{ color: "#a6a7be", fontSize: 13 }}>
-              {index + 1} / {constellations.length}
-            </span>
+                        <span style={{ color: "var(--muted)", fontSize: 13, fontFamily: "var(--font-mono, monospace)" }}>
+                            {index + 1} / {constellations.length}
+                        </span>
 
-                        <button onClick={next} aria-label="Next constellation">
+                        <button type="button" className={controls.chip} onClick={next} aria-label="Next constellation">
                             Next →
                         </button>
                     </div>
 
                     <p
                         style={{
-                            color: "#a6a7be",
-                            fontSize: 13,
-                            marginTop: 20,
+                            color: "var(--muted)",
+                            fontSize: 12,
+                            marginTop: 16,
                             marginBottom: 0,
                         }}
                     >
-                        ☁ Seasonal sky guide for Central Florida. Actual viewing
-                        depends on weather, time, and location.
+                        Seasonal sky guide for Central Florida. Actual viewing
+                        depends on weather, time and location.
                     </p>
                 </>
             )}

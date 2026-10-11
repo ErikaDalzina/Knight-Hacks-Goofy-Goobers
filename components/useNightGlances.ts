@@ -24,30 +24,33 @@ export function bestOfNight(ratings: SpotRating[]): NightGlance {
 }
 
 /**
- * Fetches each night's ratings so the strip can show its best score. Nights arrive
- * independently, so tiles fill in as their forecasts load. A night that isn't in the map yet
- * is still loading.
+ * Fetches each night's ratings for one state so the strip can show its best score. Nights
+ * arrive independently, so tiles fill in as their forecasts load. A night that isn't in the map
+ * yet is still loading. Tiles loaded for another state are dropped, so switching state shows
+ * loading tiles rather than the old state's scores.
  */
-export function useNightGlances(nights: string[], reloadKey: number): Glances {
-  const [glances, setGlances] = useState<Glances>({});
+export function useNightGlances(nights: string[], state: string, reloadKey: number): Glances {
+  const [loaded, setLoaded] = useState<{ state: string; glances: Glances }>({ state, glances: {} });
   const key = nights.join(',');
 
   useEffect(() => {
     if (!key) return;
     let cancelled = false;
+    const store = (night: string, glance: NightGlance | 'error') => {
+      if (cancelled) return;
+      setLoaded((l) => ({ state, glances: { ...(l.state === state ? l.glances : {}), [night]: glance } }));
+    };
     for (const night of key.split(',')) {
-      getRatings(night)
-        .then((ratings) => {
-          if (!cancelled) setGlances((g) => ({ ...g, [night]: bestOfNight(ratings) }));
-        })
-        .catch(() => {
-          if (!cancelled) setGlances((g) => ({ ...g, [night]: 'error' }));
-        });
+      getRatings(night, state)
+        .then((ratings) => store(night, bestOfNight(ratings)))
+        .catch(() => store(night, 'error'));
     }
     return () => {
       cancelled = true;
     };
-  }, [key, reloadKey]);
+  }, [key, state, reloadKey]);
 
-  return glances;
+  return loaded.state === state ? loaded.glances : NO_GLANCES;
 }
+
+const NO_GLANCES: Glances = {};
