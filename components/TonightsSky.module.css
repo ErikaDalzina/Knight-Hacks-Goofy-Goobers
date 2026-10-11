@@ -1,0 +1,78 @@
+/* Tonight's Sky (frame 1b of the Umbra Current Site mockup): arrows either side of the diagram
+   and the constellation's name, tip and equipment tag. */
+.panel { padding: 22px 24px 18px; display: flex; flex-direction: column; gap: 16px; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.count { font: 400 11.5px var(--font-mono, ui-monospace, monospace); color: var(--muted); }
+
+.body {
+  display: grid;
+  grid-template-columns: 32px 220px minmax(0, 1fr) 32px;
+  grid-template-areas: "prev diagram text next";
+  gap: 22px;
+  align-items: center;
+}
+.prev { grid-area: prev; }
+.next { grid-area: next; }
+
+.arrow {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(190, 195, 235, .14);
+  background: transparent;
+  color: #c4c5d6;
+  cursor: pointer;
+}
+.arrow:hover { background: rgba(255, 255, 255, .06); color: #fff; }
+.arrow:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.arrow:disabled { opacity: .4; cursor: default; background: transparent; }
+
+.diagram {
+  grid-area: diagram;
+  height: 150px;
+  padding: 14px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 1px solid rgba(190, 195, 235, .08);
+  background: #141729;
+}
+/* The bloom copy sits exactly on the diagram; isolation keeps its blend inside the box. */
+.art { position: relative; width: 100%; height: 100%; isolation: isolate; }
+.art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.bloom {
+  position: absolute;
+  inset: 0;
+  filter: contrast(3) blur(5px);
+  mix-blend-mode: screen;
+  opacity: .9;
+  pointer-events: none;
+}
+
+.text { grid-area: text; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.name { margin: 0; font-size: 20px; font-weight: 600; }
+.tip { margin: 0; font-size: 14px; line-height: 1.5; color: #c4c5d6; text-wrap: pretty; }
+.tag {
+  margin-top: 4px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(190, 195, 235, .16);
+  font: 500 11px var(--font-mono, ui-monospace, monospace);
+  color: var(--link);
+}
+
+.status { margin: 0; font-size: 13px; color: var(--muted); }
+.note { margin: 0; font-size: 11.5px; color: var(--faint); }
+
+/* Phones: arrows either side of the diagram, the text full width underneath. */
+@media (max-width: 600px) {
+  .panel { padding: 16px; }
+  .body {
+    grid-template-columns: 32px minmax(0, 1fr) 32px;
+    grid-template-areas: "prev diagram next" "text text text";
+    gap: 14px;
+  }
+}

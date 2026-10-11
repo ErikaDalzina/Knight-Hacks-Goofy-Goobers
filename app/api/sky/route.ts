@@ -52,7 +52,6 @@ function makeSvg(id: string): string {
 
     return `<svg xmlns="http://www.w3.org/2000/svg"
     width="360" height="270" viewBox="0 0 360 270">
-    <rect width="360" height="270" rx="16" fill="#15182b"/>
     ${lines}
     ${stars}
   </svg>`;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import controls from "./controls.module.css";
+import styles from "./TonightsSky.module.css";
 
 type Constellation = {
     id: string;
@@ -10,6 +10,13 @@ type Constellation = {
     equipment: string;
     imageUrl: string;
 };
+
+const Chevron = ({ back }: { back?: boolean }) => (
+    <svg width="9" height="12" viewBox="0 0 9 12" fill="none" stroke="currentColor" strokeWidth="1.6"
+         strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d={back ? "M6.5 1.5L2 6l4.5 4.5" : "M2.5 1.5L7 6l-4.5 4.5"} />
+    </svg>
+);
 
 export default function TonightsSky() {
     const [constellations, setConstellations] = useState<Constellation[]>([]);
@@ -27,6 +34,7 @@ export default function TonightsSky() {
     }, []);
 
     const current = constellations[index];
+    const canCycle = constellations.length > 1;
 
     function next() {
         setIndex((i) => (i + 1) % constellations.length);
@@ -37,123 +45,46 @@ export default function TonightsSky() {
     }
 
     return (
-        <section
-            className="panel"
-            style={{
-                padding: 24,
-                color: "var(--text)",
-            }}
-        >
-            <h2 className="kicker" style={{ margin: "0 0 20px" }}>
-                ✦ Tonight&apos;s sky
-            </h2>
+        <section className={`panel ${styles.panel}`}>
+            <div className={styles.head}>
+                <h2 className="kicker" style={{ margin: 0 }}>Tonight&apos;s sky</h2>
+                {current && <span className={styles.count}>{index + 1} / {constellations.length}</span>}
+            </div>
 
-            {error && <p style={{ color: "var(--muted)" }}>Unable to load the sky guide.</p>}
+            {error && <p className={styles.status}>Unable to load the sky guide.</p>}
 
-            {!error && !current && <p style={{ color: "var(--muted)" }}>Loading constellations…</p>}
+            {!error && !current && <p className={styles.status}>Loading constellations…</p>}
 
             {current && (
                 <>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: 24,
-                            alignItems: "center",
-                        }}
-                    >
-                        <div
-                            style={{
-                                position: "relative",
-                                width: "100%",
-                                maxWidth: 320,
-                                borderRadius: 14,
-                                border: "1px solid #30334d",
-                                overflow: "hidden",
-                                isolation: "isolate",
-                            }}
-                        >
-                            <img
-                                src={current.imageUrl}
-                                alt={`${current.name} constellation diagram`}
-                                width={360}
-                                height={270}
-                                style={{ display: "block", width: "100%", height: "auto" }}
-                            />
-                            {/* A blurred, contrast-boosted copy on top makes the bright stars bloom. */}
-                            <img
-                                src={current.imageUrl}
-                                alt=""
-                                aria-hidden="true"
-                                width={360}
-                                height={270}
-                                style={{
-                                    position: "absolute",
-                                    inset: 0,
-                                    width: "100%",
-                                    height: "100%",
-                                    filter: "contrast(3) blur(5px)",
-                                    mixBlendMode: "screen",
-                                    opacity: 0.9,
-                                    pointerEvents: "none",
-                                }}
-                            />
-                        </div>
-
-                        <div style={{ flex: 1, minWidth: 200 }}>
-                            <h3 style={{ fontSize: 28, fontWeight: 500, letterSpacing: "-.02em", margin: "0 0 12px" }}>
-                                {current.name}
-                            </h3>
-
-                            <p
-                                style={{
-                                    color: "#c4c5d6",
-                                    lineHeight: 1.6,
-                                    margin: "0 0 18px",
-                                }}
-                            >
-                                {current.tip}
-                            </p>
-
-                            <span className={controls.pill} style={{ color: "var(--link)" }}>
-                                ✦ {current.equipment}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            marginTop: 24,
-                            paddingTop: 16,
-                            borderTop: "1px solid var(--line)",
-                        }}
-                    >
-                        <button type="button" className={controls.chip} onClick={previous} aria-label="Previous constellation">
-                            ← Previous
+                    <div className={styles.body}>
+                        <button type="button" className={`${styles.arrow} ${styles.prev}`} onClick={previous}
+                                disabled={!canCycle} aria-label="Previous constellation" title="Previous">
+                            <Chevron back />
                         </button>
 
-                        <span style={{ color: "var(--muted)", fontSize: 13, fontFamily: "var(--font-mono, monospace)" }}>
-                            {index + 1} / {constellations.length}
-                        </span>
+                        <div className={styles.diagram}>
+                            <div className={styles.art}>
+                                <img src={current.imageUrl} alt={`${current.name} constellation diagram`} width={360} height={270} />
+                                {/* A blurred, contrast-boosted copy on top makes the bright stars bloom. */}
+                                <img src={current.imageUrl} alt="" aria-hidden="true" width={360} height={270} className={styles.bloom} />
+                            </div>
+                        </div>
 
-                        <button type="button" className={controls.chip} onClick={next} aria-label="Next constellation">
-                            Next →
+                        <div className={styles.text} aria-live="polite">
+                            <h3 className={styles.name}>{current.name}</h3>
+                            <p className={styles.tip}>{current.tip}</p>
+                            <span className={styles.tag}>{current.equipment}</span>
+                        </div>
+
+                        <button type="button" className={`${styles.arrow} ${styles.next}`} onClick={next}
+                                disabled={!canCycle} aria-label="Next constellation" title="Next">
+                            <Chevron />
                         </button>
                     </div>
 
-                    <p
-                        style={{
-                            color: "var(--muted)",
-                            fontSize: 12,
-                            marginTop: 16,
-                            marginBottom: 0,
-                        }}
-                    >
-                        Seasonal sky guide for Central Florida. Actual viewing
-                        depends on weather, time and location.
+                    <p className={styles.note}>
+                        Seasonal sky guide for Central Florida. Actual viewing depends on weather, time and location.
                     </p>
                 </>
             )}
