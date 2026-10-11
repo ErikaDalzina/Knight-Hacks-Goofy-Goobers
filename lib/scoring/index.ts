@@ -1,10 +1,16 @@
 /**
- * TEMPORARY integration-friendly rating engine.
- * Person 2 owns this entire folder: replace or improve this file during the
- * hackathon, keeping `rateSpot(spot, date, hourly)` and the shared output type.
- * This baseline implements the documented weights and uses SunCalc for darkness
- * and moon; no network requests here. Moonrise/set fields mean events during
- * the dark window, not necessarily the complete calendar day.
+ * The rating engine: `rateSpot(spot, date, hourly)` turns one spot's hourly forecast into a
+ * SpotRating. A pure function with no network requests, so it is tested from fixtures alone.
+ *
+ * 1. Dark window: astronomical dusk to dawn (sun 18° below) from SunCalc.
+ * 2. Factors: clouds (average cover over the dark hours), darkness (Bortle class) and moon
+ *    (illumination × share of dark hours it is up, sampled every 15 minutes).
+ * 3. Gate: no true darkness, closed at night, average cloud above 75% or rain means "Not tonight".
+ * 4. Score: 100 × (0.40 clouds + 0.35 darkness + 0.25 moon), then a label.
+ * 5. Best window: the longest run of 15-minute slots under 30% cloud with the moon down.
+ * 6. Comfort and cloud layers, on rated nights only. Neither changes the score.
+ *
+ * Moonrise/set fields mean events during the dark window, not the whole calendar day.
  */
 import SunCalc from 'suncalc';
 import type { HourlyForecast, RateSpot, ScoreWeights, Spot, SpotRating } from '@/lib/types';
