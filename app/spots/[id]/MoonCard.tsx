@@ -42,7 +42,7 @@ export default function MoonCard({ rating }: { rating: SpotRating }) {
           </p>
         </>
       ) : (
-        <p className={styles.notice}>Not measured, no true darkness tonight.</p>
+        <p className={styles.notice}>Not measured, no true darkness.</p>
       )}
     </section>
   );

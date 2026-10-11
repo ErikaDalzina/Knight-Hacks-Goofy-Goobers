@@ -28,6 +28,16 @@ export function nightLabels(date: string) {
   };
 }
 
+export type NightName = { isTonight: boolean; label: string };
+
+/**
+ * How text names a night: pages say "tonight" when `date` is tonight, otherwise its short
+ * label ("Tue · Oct 13"), since the night picker can show any upcoming night.
+ */
+export function nightName(date: string, tonight: string): NightName {
+  return { isTonight: date === tonight, label: nightLabels(date).short };
+}
+
 /** Moonset and moonrise during the dark hours, in order, or whether it's up or down throughout. */
 function moonNote({ moon, hourly }: SpotRating): string {
   const events: { at: string; text: string }[] = [];
@@ -39,9 +49,10 @@ function moonNote({ moon, hourly }: SpotRating): string {
   return note[0].toUpperCase() + note.slice(1);
 }
 
+// Worded to fit any night, since the night picker can show nights other than tonight.
 function headlines(top: SpotRating | null): [string, string] {
-  if (!top) return ['Clouds win tonight. Try again tomorrow.', 'Clouded out tonight.'];
-  if (top.factors.clouds < CLEAR) return ['Patchy clouds. Pick your spot and time.', 'Patchy clouds tonight.'];
+  if (!top) return ['Clouds win. Try another night.', 'Clouded out.'];
+  if (top.factors.clouds < CLEAR) return ['Patchy clouds. Pick your spot and time.', 'Patchy clouds. Pick a spot.'];
   if (top.factors.moon >= MOONLESS) return ['A clear, moonless night. Go dark.', 'Clear and moonless. Go dark.'];
   const { rise, set } = top.moon;
   // Up at dusk and sets (maybe rising again later): the dark starts at moonset.
@@ -53,7 +64,7 @@ function headlines(top: SpotRating | null): [string, string] {
     const at = formatLocalTime(rise);
     return [`Clear skies. Go early, before moonrise at ${at}.`, `Clear. Go before ${at}.`];
   }
-  return ['Clear, but the moon is bright. Planets and the Moon tonight.', 'Clear, bright moon.'];
+  return ['Clear, but the moon is bright. Good for planets and the Moon.', 'Clear, bright moon.'];
 }
 
 export function summarizeNight(ratings: SpotRating[], home: LatLon): NightSummary {

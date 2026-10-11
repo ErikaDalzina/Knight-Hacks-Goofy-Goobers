@@ -8,7 +8,7 @@ const toMph = (kmh: number) => Math.round(kmh * 0.621371);
 function stats(comfort: Comfort): { kind: ComfortWarning['kind']; value: string; label: string }[] {
   const { minTempF, maxWindKmh, minDewSpreadF } = comfort;
   return [
-    { kind: 'cold', value: minTempF === null ? '—' : `${Math.round(minTempF)}°F`, label: 'low tonight' },
+    { kind: 'cold', value: minTempF === null ? '—' : `${Math.round(minTempF)}°F`, label: 'overnight low' },
     { kind: 'wind', value: maxWindKmh === null ? '—' : `${toMph(maxWindKmh)} mph`, label: 'max wind' },
     { kind: 'dew', value: minDewSpreadF === null ? '—' : `${Math.round(minDewSpreadF)}°F`, label: 'dew spread' },
   ];
@@ -35,13 +35,13 @@ export default function ComfortCard({ rating }: { rating: SpotRating }) {
           {comfort.advice ? (
             <p className={styles.advice}>{comfort.advice}</p>
           ) : (
-            <p className={styles.reason}>No cold, wind or dew worries tonight.</p>
+            <p className={styles.reason}>No cold, wind or dew worries.</p>
           )}
         </>
       ) : (
         // The engine only checks comfort on rated nights, and only when the forecast has weather.
         <p className={styles.notice}>
-          {rating.score === null ? 'Only checked on nights worth going out.' : 'No temperature or wind forecast for tonight.'}
+          {rating.score === null ? 'Only checked on nights worth going out.' : 'No temperature or wind forecast for this night.'}
         </p>
       )}
     </section>

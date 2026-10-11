@@ -18,7 +18,7 @@ export default function SpotCard({ item, date, active, onHover }: {
   const color = LABEL_COLORS[label];
   const best = formatWindow(item.bestWindow);
   const gated = item.score === null;
-  const meta = gated ? item.gateReason ?? 'Not tonight' : best ? `Best ${best}` : 'No clear window tonight';
+  const meta = gated ? item.gateReason ?? 'Not tonight' : best ? `Best ${best}` : 'No clear window';
   const miles = `${Math.round(item.distanceMi)} mi`;
 
   return (

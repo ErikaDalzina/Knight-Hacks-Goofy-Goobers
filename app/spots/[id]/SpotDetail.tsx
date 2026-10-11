@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ScoreBadge, { labelColor } from '@/components/ScoreBadge';
 import { tonightDate } from '@/components/time';
+import { nightName } from '@/components/tonight';
 import { getRating } from '@/lib/apiClient';
 import type { Spot, SpotRating } from '@/lib/types';
 import AboutSpot from './AboutSpot';
@@ -71,9 +72,15 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
     setAttempt((n) => n + 1);
   };
 
+  // "Tonight" depends on the viewer's clock, so `night` is only used in the ready and error
+  // states, which render in the browser, never in the server-rendered loading state.
+  const night = nightName(date ?? tonightDate(), tonightDate());
+  // Back to the list on the same night; the home page reads ?date= on load.
+  const listHref = date ? `/?date=${date}` : '/';
+
   return (
     <main className={styles.page}>
-      <Link href="/" className={styles.back}>← All spots</Link>
+      <Link href={listHref} className={styles.back}>← All spots</Link>
       <header className={styles.header}>
         <div className={styles.headerText}>
           <h1 className={styles.name}>{spot.name}</h1>
@@ -103,14 +110,16 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
         <div className={styles.column}>
           <section className={`panel ${styles.scorePanel} ${styles.orderScore}`} aria-live="polite">
             {state.status === 'loading' && (
-              <div className={styles.skeleton} role="status" aria-label="Loading tonight's rating">
+              <div className={styles.skeleton} role="status" aria-label="Loading the rating">
                 <div className={styles.skeletonRing} />
               </div>
             )}
 
             {state.status === 'error' && (
               <div role="alert" className={styles.stack}>
-                <span className="kicker">Couldn&apos;t load tonight&apos;s rating</span>
+                <span className="kicker">
+                  {night.isTonight ? "Couldn't load tonight's rating" : `Couldn't load the rating for ${night.label}`}
+                </span>
                 <p className={styles.reason}>{state.message}</p>
                 <button type="button" className={styles.button} onClick={retry}>Retry</button>
               </div>
@@ -122,8 +131,10 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
                 <span className={styles.label} style={{ color: labelColor(state.rating.label) }}>{state.rating.label}</span>
                 {state.rating.score === null ? (
                   <>
-                    <p className={styles.reason}>{state.rating.gateReason ?? 'Conditions rule this spot out tonight.'}</p>
-                    <Link href="/" className={styles.link}>See the best spots tonight →</Link>
+                    <p className={styles.reason}>{state.rating.gateReason ?? 'Conditions rule this spot out.'}</p>
+                    <Link href={listHref} className={styles.link}>
+                      {night.isTonight ? 'See the best spots tonight →' : `See the best spots for ${night.label} →`}
+                    </Link>
                   </>
                 ) : (
                   <p className={styles.reason}>Weighted for naked-eye viewing · clouds count most</p>
@@ -155,7 +166,7 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
           )}
           {state.status === 'ready' && (
             <>
-              <BestTime rating={state.rating} />
+              <BestTime rating={state.rating} night={night} />
               <div className={styles.infoRow}>
                 <MoonCard rating={state.rating} />
                 <ComfortCard rating={state.rating} />
