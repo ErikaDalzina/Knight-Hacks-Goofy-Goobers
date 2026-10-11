@@ -1,3 +1,4 @@
+
 'use client';
 
 import TonightsSky from '@/components/TonightsSky';
@@ -15,17 +16,19 @@ import FactorBreakdown from './FactorBreakdown';
 import MoonCard from './MoonCard';
 import styles from './spot.module.css';
 
-// Person 2's mocks/ratings.json rates every spot with made-up weather; take the first rating in a given state.
+// Person 2's mocks/ratings.json rates every spot with made-up weather;
+// take the first rating in a given state.
 const fromList = (matches: (r: SpotRating) => boolean) => () =>
-  import('@/mocks/ratings.json').then((m) => {
-    const rating = (m.default as unknown as SpotRating[]).find(matches);
-    if (!rating) throw new Error('No mock rating in that state.');
-    return { default: rating };
-  });
+    import('@/mocks/ratings.json').then((m) => {
+      const rating = (m.default as unknown as SpotRating[]).find(matches);
+      if (!rating) throw new Error('No mock rating in that state.');
+      return { default: rating };
+    });
 
-// Development only (see page.tsx): ?mock=closed and friends load a mock rating to check each
-// page state. The header still shows this spot; the mock keeps its own spot so its factor
-// numbers and explanations stay consistent.
+// Development only (see page.tsx): ?mock=closed and friends load
+// a mock rating to check each page state.
+// The header still shows this spot; the mock keeps its own spot
+// so its factor numbers and explanations stay consistent.
 const MOCKS: Record<string, () => Promise<{ default: unknown }>> = {
   excellent: fromList((r) => r.label === 'Excellent'),
   fair: fromList((r) => r.label === 'Fair'),
@@ -42,15 +45,23 @@ const MOCKS: Record<string, () => Promise<{ default: unknown }>> = {
 };
 
 type State =
-  | { status: 'loading' }
-  | { status: 'error'; message: string }
-  | { status: 'ready'; rating: SpotRating };
+    | { status: 'loading' }
+    | { status: 'error'; message: string }
+    | { status: 'ready'; rating: SpotRating };
 
 function formatCoords({ lat, lon }: Spot) {
   return `${Math.abs(lat).toFixed(3)}° ${lat >= 0 ? 'N' : 'S'}, ${Math.abs(lon).toFixed(3)}° ${lon >= 0 ? 'E' : 'W'}`;
 }
 
-export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: string; mock?: string }) {
+export default function SpotDetail({
+                                     spot,
+                                     date,
+                                     mock,
+                                   }: {
+  spot: Spot;
+  date?: string;
+  mock?: string;
+}) {
   const [state, setState] = useState<State>({ status: 'loading' });
   const [attempt, setAttempt] = useState(0);
 
@@ -58,14 +69,25 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
     let cancelled = false;
     const loadMock = mock ? MOCKS[mock] : undefined;
     const request = loadMock
-      ? loadMock().then((m) => m.default as SpotRating)
-      : getRating(spot.id, date ?? tonightDate());
+        ? loadMock().then((m) => m.default as SpotRating)
+        : getRating(spot.id, date ?? tonightDate());
+
     request
-      .then((rating) => { if (!cancelled) setState({ status: 'ready', rating }); })
-      .catch((e: unknown) => {
-        if (!cancelled) setState({ status: 'error', message: e instanceof Error ? e.message : 'Something went wrong.' });
-      });
-    return () => { cancelled = true; };
+        .then((rating) => {
+          if (!cancelled) setState({ status: 'ready', rating });
+        })
+        .catch((e: unknown) => {
+          if (!cancelled) {
+            setState({
+              status: 'error',
+              message: e instanceof Error ? e.message : 'Something went wrong.',
+            });
+          }
+        });
+
+    return () => {
+      cancelled = true;
+    };
   }, [spot, date, mock, attempt]);
 
   const retry = () => {
@@ -73,114 +95,198 @@ export default function SpotDetail({ spot, date, mock }: { spot: Spot; date?: st
     setAttempt((n) => n + 1);
   };
 
-  // "Tonight" depends on the viewer's clock, so `night` is only used in the ready and error
-  // states, which render in the browser, never in the server-rendered loading state.
+  // "Tonight" depends on the viewer's clock, so `night` is only used
+  // in the ready and error states, which render in the browser,
+  // never in the server-rendered loading state.
   const night = nightName(date ?? tonightDate(), tonightDate());
+
   // Back to the list on the same night; the home page reads ?date= on load.
   const listHref = date ? `/?date=${date}` : '/';
 
   return (
-    <main className={styles.page}>
-      <Link href={listHref} className={styles.back}>← All spots</Link>
-      <header className={styles.header}>
-        <div className={styles.headerText}>
-          <h1 className={styles.name}>{spot.name}</h1>
-          <div className={styles.chips}>
-            {spot.region && <span className={styles.chip}>{spot.region}</span>}
-            <span className={`${styles.chip} ${styles.mono}`}>{formatCoords(spot)}</span>
-            <span className={styles.chip}>Bortle {spot.bortle}</span>
-            <span className={styles.chip} style={{ color: labelColor(spot.openAtNight ? 'Excellent' : 'Poor') }}>
+      <main className={styles.page}>
+        <Link href={listHref} className={styles.back}>
+          ← All spots
+        </Link>
+
+        <header className={styles.header}>
+          <div className={styles.headerText}>
+            <h1 className={styles.name}>{spot.name}</h1>
+
+            <div className={styles.chips}>
+              {spot.region && (
+                  <span className={styles.chip}>{spot.region}</span>
+              )}
+
+              <span className={`${styles.chip} ${styles.mono}`}>
+              {formatCoords(spot)}
+            </span>
+
+              <span className={styles.chip}>Bortle {spot.bortle}</span>
+
+              <span
+                  className={styles.chip}
+                  style={{
+                    color: labelColor(spot.openAtNight ? 'Excellent' : 'Poor'),
+                  }}
+              >
               ● {spot.openAtNight ? 'Open at night' : 'Closed at night'}
             </span>
-            {spot.darkSkyCertified && <span className={styles.chip}>DarkSky certified</span>}
+
+              {spot.darkSkyCertified && (
+                  <span className={styles.chip}>DarkSky certified</span>
+              )}
+            </div>
           </div>
-        </div>
-        {/* In the header so it works even when the ratings API is down. On phones it becomes a sticky bottom bar. */}
-        <a
-          className={`${styles.button} ${styles.directions}`}
-          href={`https://www.google.com/maps/dir/?api=1&destination=${spot.lat},${spot.lon}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Directions to ${spot.name} in Google Maps (opens in a new tab)`}
-        >
-          Directions ↗
-        </a>
-      </header>
 
-      <div className={styles.grid}>
-        <div className={styles.column}>
-          <section className={`panel ${styles.scorePanel} ${styles.orderScore}`} aria-live="polite">
-            {state.status === 'loading' && (
-              <div className={styles.skeleton} role="status" aria-label="Loading the rating">
-                <div className={styles.skeletonRing} />
-              </div>
-            )}
+          {/* In the header so it works even when the ratings API is down.
+            On phones it becomes a sticky bottom bar. */}
+          <a
+              className={`${styles.button} ${styles.directions}`}
+              href={`https://www.google.com/maps/dir/?api=1&destination=${spot.lat},${spot.lon}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Directions to ${spot.name} in Google Maps (opens in a new tab)`}
+          >
+            Directions ↗
+          </a>
+        </header>
 
-            {state.status === 'error' && (
-              <div role="alert" className={styles.stack}>
+        <div className={styles.grid}>
+          <div className={styles.column}>
+            <section
+                className={`panel ${styles.scorePanel} ${styles.orderScore}`}
+                aria-live="polite"
+            >
+              {state.status === 'loading' && (
+                  <div
+                      className={styles.skeleton}
+                      role="status"
+                      aria-label="Loading the rating"
+                  >
+                    <div className={styles.skeletonRing} />
+                  </div>
+              )}
+
+              {state.status === 'error' && (
+                  <div role="alert" className={styles.stack}>
                 <span className="kicker">
-                  {night.isTonight ? "Couldn't load tonight's rating" : `Couldn't load the rating for ${night.label}`}
+                  {night.isTonight
+                      ? "Couldn't load tonight's rating"
+                      : `Couldn't load the rating for ${night.label}`}
                 </span>
-                <p className={styles.reason}>{state.message}</p>
-                <button type="button" className={styles.button} onClick={retry}>Retry</button>
-              </div>
+
+                    <p className={styles.reason}>{state.message}</p>
+
+                    <button
+                        type="button"
+                        className={styles.button}
+                        onClick={retry}
+                    >
+                      Retry
+                    </button>
+                  </div>
+              )}
+
+              {state.status === 'ready' && (
+                  <>
+                    <ScoreBadge
+                        score={state.rating.score}
+                        label={state.rating.label}
+                        size="xl"
+                    />
+
+                    <span
+                        className={styles.label}
+                        style={{ color: labelColor(state.rating.label) }}
+                    >
+                  {state.rating.label}
+                </span>
+
+                    {state.rating.score === null ? (
+                        <>
+                          <p className={styles.reason}>
+                            {state.rating.gateReason ??
+                                'Conditions rule this spot out.'}
+                          </p>
+
+                          <Link href={listHref} className={styles.link}>
+                            {night.isTonight
+                                ? 'See the best spots tonight →'
+                                : `See the best spots for ${night.label} →`}
+                          </Link>
+                        </>
+                    ) : (
+                        <p className={styles.reason}>
+                          Weighted for naked-eye viewing · clouds count most
+                        </p>
+                    )}
+                  </>
+              )}
+            </section>
+
+            {state.status === 'loading' && (
+                <section
+                    className={`panel ${styles.factorPanel} ${styles.orderFactors}`}
+                    aria-hidden="true"
+                >
+                  <div className={styles.skeleton}>
+                    <div
+                        className={styles.skeletonBar}
+                        style={{ width: '70%' }}
+                    />
+                    <div
+                        className={styles.skeletonBar}
+                        style={{ width: '55%' }}
+                    />
+                    <div
+                        className={styles.skeletonBar}
+                        style={{ width: '62%' }}
+                    />
+                  </div>
+                </section>
             )}
 
             {state.status === 'ready' && (
-              <>
-                <ScoreBadge score={state.rating.score} label={state.rating.label} size="xl" />
-                <span className={styles.label} style={{ color: labelColor(state.rating.label) }}>{state.rating.label}</span>
-                {state.rating.score === null ? (
-                  <>
-                    <p className={styles.reason}>{state.rating.gateReason ?? 'Conditions rule this spot out.'}</p>
-                    <Link href={listHref} className={styles.link}>
-                      {night.isTonight ? 'See the best spots tonight →' : `See the best spots for ${night.label} →`}
-                    </Link>
-                  </>
-                ) : (
-                  <p className={styles.reason}>Weighted for naked-eye viewing · clouds count most</p>
-                )}
-              </>
+                <FactorBreakdown rating={state.rating} />
             )}
-          </section>
+          </div>
 
-          {state.status === 'loading' && (
-            <section className={`panel ${styles.factorPanel} ${styles.orderFactors}`} aria-hidden="true">
-              <div className={styles.skeleton}>
-                <div className={styles.skeletonBar} style={{ width: '70%' }} />
-                <div className={styles.skeletonBar} style={{ width: '55%' }} />
-                <div className={styles.skeletonBar} style={{ width: '62%' }} />
-              </div>
-            </section>
-          )}
-          {state.status === 'ready' && <FactorBreakdown rating={state.rating} />}
+          <div className={styles.column}>
+            {state.status === 'loading' && (
+                <section
+                    className={`panel ${styles.bestPanel} ${styles.orderBest}`}
+                    aria-hidden="true"
+                >
+                  <div className={styles.skeleton}>
+                    <div
+                        className={styles.skeletonBar}
+                        style={{ width: '40%' }}
+                    />
+                    <div className={styles.skeletonChart} />
+                  </div>
+                </section>
+            )}
+
+            {state.status === 'ready' && (
+                <>
+                  {/* Best Time Tonight — render only once */}
+                  <BestTime rating={state.rating} night={night} />
+
+                  {/* Moon and Comfort cards */}
+                  <div className={styles.infoRow}>
+                    <MoonCard rating={state.rating} />
+                    <ComfortCard rating={state.rating} />
+                  </div>
+
+                  {/* Tonight's Sky constellation widget */}
+                  <TonightsSky />
+                </>
+            )}
+
+            <AboutSpot spot={spot} />
+          </div>
         </div>
-
-        <div className={styles.column}>
-          {state.status === 'loading' && (
-            <section className={`panel ${styles.bestPanel} ${styles.orderBest}`} aria-hidden="true">
-              <div className={styles.skeleton}>
-                <div className={styles.skeletonBar} style={{ width: '40%' }} />
-                <div className={styles.skeletonChart} />
-              </div>
-            </section>
-          )}
-          {state.status === 'ready' && (
-            <>
-              <BestTime rating={state.rating} night={night} />
-              <BestTime rating={state.rating} night={night} />
-
-              <div className={styles.infoRow}>
-                <MoonCard rating={state.rating} />
-                <ComfortCard rating={state.rating} />
-              </div>
-
-              <TonightsSky />
-            </>
-          )}
-          <AboutSpot spot={spot} />
-        </div>
-      </div>
-    </main>
+      </main>
   );
 }
