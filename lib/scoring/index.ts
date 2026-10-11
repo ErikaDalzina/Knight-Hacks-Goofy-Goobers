@@ -9,6 +9,7 @@
 import SunCalc from 'suncalc';
 import type { HourlyForecast, RateSpot, Spot, SpotRating } from '@/lib/types';
 import { assessComfort } from './comfort';
+import { assessCloudLayers } from './cloudLayers';
 
 /** Every tunable number lives here, so scoring can change without touching the logic. */
 export const SCORING_CONFIG = {
@@ -150,6 +151,8 @@ export const rateSpot: RateSpot = (spot, date, forecast) => {
 
   // Only rated nights get comfort, and only the dark-window hours are looked at.
   const comfort = assessComfort(sampledHours);
+  const cloudLayers = assessCloudLayers(sampledHours);
   return { spot, date, score, label, factors, darkWindow, bestWindow, moon, hourly,
-    ...(comfort ? { comfort } : {}) };
+    ...(comfort ? { comfort } : {}),
+    ...(cloudLayers ? { cloudLayers } : {}) };
 };

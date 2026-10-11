@@ -370,6 +370,33 @@ describe('comfort warnings', () => {
   });
 });
 
+// ---------------------------------------------------------------------------
+describe('cloud layers', () => {
+  type Layers = { cloudCoverLow: number; cloudCoverMid: number; cloudCoverHigh: number };
+  const withLayers = (base: HourlyForecast[], at: (i: number) => Layers): HourlyForecast[] =>
+    base.map((h, i) => ({ ...h, ...at(i) }));
+
+  it('leaves cloudLayers out when the forecast has no layer fields', () => {
+    expect('cloudLayers' in rateSpot(spot(), DATE, forecast(5))).toBe(false);
+  });
+
+  it('averages each layer over the dark-window hours only', () => {
+    // 90% everywhere outside the window (6-8pm, 6-8am) must be ignored
+    const r = rateSpot(spot(), DATE, withLayers(forecast(5), i =>
+      i < 3 || i > 11
+        ? { cloudCoverLow: 90, cloudCoverMid: 90, cloudCoverHigh: 90 }
+        : { cloudCoverLow: 2, cloudCoverMid: 4, cloudCoverHigh: i % 2 ? 10 : 30 }));
+    // window hours 3..11: high is 10 at odd indexes (5 of them), 30 at even ones (4) -> 18.9
+    expect(r.cloudLayers).toEqual({ low: 2, mid: 4, high: 19 });
+  });
+
+  it('leaves cloudLayers out of gated results', () => {
+    const some = () => ({ cloudCoverLow: 10, cloudCoverMid: 10, cloudCoverHigh: 10 });
+    expect('cloudLayers' in rateSpot(spot({ openAtNight: false }), DATE, withLayers(forecast(5), some))).toBe(false);
+    expect('cloudLayers' in rateSpot(spot(), DATE, withLayers(forecast(90), some))).toBe(false);
+  });
+});
+
 describe('output shape', () => {
   it('returns the spot and date unchanged', () => {
     const s = spot({ notes: 'Bring bug spray' });

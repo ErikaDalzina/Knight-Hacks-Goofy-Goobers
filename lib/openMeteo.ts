@@ -16,6 +16,9 @@ type ApiLocation = {
     temperature_2m?: Array<number | null>;
     dew_point_2m?: Array<number | null>;
     wind_speed_10m?: Array<number | null>;
+    cloud_cover_low?: Array<number | null>;
+    cloud_cover_mid?: Array<number | null>;
+    cloud_cover_high?: Array<number | null>;
   };
 };
 
@@ -60,20 +63,23 @@ function transformHourly(location: ApiLocation): HourlyForecast[] {
     );
   }
 
-  // Validate optional comfort arrays when Open-Meteo provides them.
-  const comfortArrays = [
+  // Validate optional comfort and cloud layer arrays when Open-Meteo provides them.
+  const optionalArrays = [
     data.temperature_2m,
     data.dew_point_2m,
     data.wind_speed_10m,
+    data.cloud_cover_low,
+    data.cloud_cover_mid,
+    data.cloud_cover_high,
   ];
 
-  for (const values of comfortArrays) {
+  for (const values of optionalArrays) {
     if (
         values !== undefined &&
         (!Array.isArray(values) || values.length !== data.time.length)
     ) {
       throw new WeatherServiceError(
-          'The weather service returned mismatched comfort data.'
+          'The weather service returned mismatched optional data.'
       );
     }
   }
@@ -107,6 +113,18 @@ function transformHourly(location: ApiLocation): HourlyForecast[] {
         data.wind_speed_10m?.[i]
     );
 
+    const cloudCoverLow = optionalNumber(
+        data.cloud_cover_low?.[i]
+    );
+
+    const cloudCoverMid = optionalNumber(
+        data.cloud_cover_mid?.[i]
+    );
+
+    const cloudCoverHigh = optionalNumber(
+        data.cloud_cover_high?.[i]
+    );
+
     return {
       time: `${time}${suffix}`,
       cloudCover,
@@ -123,6 +141,18 @@ function transformHourly(location: ApiLocation): HourlyForecast[] {
       ...(windSpeedKmh === undefined
           ? {}
           : { windSpeedKmh }),
+
+      ...(cloudCoverLow === undefined
+          ? {}
+          : { cloudCoverLow }),
+
+      ...(cloudCoverMid === undefined
+          ? {}
+          : { cloudCoverMid }),
+
+      ...(cloudCoverHigh === undefined
+          ? {}
+          : { cloudCoverHigh }),
     };
   });
 }
@@ -157,7 +187,7 @@ export async function getHourlyForecasts(
       spots.map(spot => spot.lon).join(',')
   );
 
-  // Existing scoring data + new comfort data.
+  // Scoring data + comfort data + cloud layers.
   url.searchParams.set(
       'hourly',
       [
@@ -166,6 +196,9 @@ export async function getHourlyForecasts(
         'temperature_2m',
         'dew_point_2m',
         'wind_speed_10m',
+        'cloud_cover_low',
+        'cloud_cover_mid',
+        'cloud_cover_high',
       ].join(',')
   );
 

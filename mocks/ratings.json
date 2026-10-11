@@ -95,6 +95,11 @@
       "minDewSpreadF": 10.6,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 3,
+      "high": 6
     }
   },
   {
@@ -201,6 +206,11 @@
         }
       ],
       "advice": "Cold and dewy: pack warm layers and a dew shield."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 3,
+      "high": 5
     }
   },
   {
@@ -312,6 +322,11 @@
         }
       ],
       "advice": "Cold, windy and dewy: pack warm layers, a windbreak and a dew shield."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 3,
+      "high": 6
     }
   },
   {
@@ -409,6 +424,11 @@
       "minDewSpreadF": 8.5,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 4,
+      "high": 19
     }
   },
   {
@@ -505,6 +525,11 @@
       "minDewSpreadF": 10.7,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 4,
+      "high": 18
     }
   },
   {
@@ -607,6 +632,11 @@
         }
       ],
       "advice": "Windy: pack a windbreak."
+    },
+    "cloudLayers": {
+      "low": 1,
+      "mid": 2,
+      "high": 4
     }
   },
   {
@@ -704,6 +734,11 @@
       "minDewSpreadF": 8.6,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 1,
+      "mid": 2,
+      "high": 4
     }
   },
   {
@@ -806,6 +841,11 @@
         }
       ],
       "advice": "Windy: pack a windbreak."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 3,
+      "high": 5
     }
   },
   {
@@ -908,6 +948,11 @@
         }
       ],
       "advice": "Cold: pack warm layers."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 4,
+      "high": 18
     }
   },
   {
@@ -1011,6 +1056,11 @@
         }
       ],
       "advice": "Cold: pack warm layers."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 4,
+      "high": 21
     }
   },
   {
@@ -1113,6 +1163,11 @@
         }
       ],
       "advice": "Dewy: pack a dew shield."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 3,
+      "high": 5
     }
   },
   {
@@ -1214,6 +1269,11 @@
         }
       ],
       "advice": "Cold: pack warm layers."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 3,
+      "high": 6
     }
   },
   {
@@ -1324,6 +1384,11 @@
         }
       ],
       "advice": "Cold, windy and dewy: pack warm layers, a windbreak and a dew shield."
+    },
+    "cloudLayers": {
+      "low": 2,
+      "mid": 4,
+      "high": 22
     }
   },
   {
@@ -1420,6 +1485,11 @@
       "minDewSpreadF": 10.5,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 1,
+      "mid": 2,
+      "high": 3
     }
   },
   {
@@ -1519,6 +1589,11 @@
         }
       ],
       "advice": "Cold: pack warm layers."
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 30,
+      "high": 26
     }
   },
   {
@@ -1620,6 +1695,11 @@
         }
       ],
       "advice": "Windy: pack a windbreak."
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 31,
+      "high": 26
     }
   },
   {
@@ -1728,6 +1808,11 @@
         }
       ],
       "advice": "Cold, windy and dewy: pack warm layers, a windbreak and a dew shield."
+    },
+    "cloudLayers": {
+      "low": 23,
+      "mid": 32,
+      "high": 27
     }
   },
   {
@@ -1831,6 +1916,11 @@
         }
       ],
       "advice": "Cold and dewy: pack warm layers and a dew shield."
+    },
+    "cloudLayers": {
+      "low": 23,
+      "mid": 31,
+      "high": 27
     }
   },
   {
@@ -1924,6 +2014,11 @@
       "minDewSpreadF": 8.6,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 30,
+      "high": 26
     }
   },
   {
@@ -2022,6 +2117,11 @@
         }
       ],
       "advice": "Windy: pack a windbreak."
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 30,
+      "high": 26
     }
   },
   {
@@ -2116,6 +2216,11 @@
       "minDewSpreadF": 8.6,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 31,
+      "high": 27
     }
   },
   {
@@ -2215,6 +2320,11 @@
         }
       ],
       "advice": "Windy: pack a windbreak."
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 31,
+      "high": 26
     }
   },
   {
@@ -2309,6 +2419,11 @@
       "minDewSpreadF": 8.6,
       "warnings": [],
       "advice": null
+    },
+    "cloudLayers": {
+      "low": 22,
+      "mid": 30,
+      "high": 26
     }
   },
   {
