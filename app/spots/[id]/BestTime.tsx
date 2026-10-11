@@ -1,8 +1,8 @@
-import { formatHourShort, formatLocalTime } from '@/components/time';
+import { formatDuration, formatHourShort, formatLocalTime } from '@/components/time';
 import { LABEL_STYLES } from '@/lib/constants';
 import type { SpotRating } from '@/lib/types';
 import styles from './spot.module.css';
-import { bestSpan, cloudBars, formatDuration, moonUpSpans } from './timeline';
+import { bestSpan, cloudBars, moonUpSpans } from './timeline';
 
 const pos = (s: { left: number; width: number }) => ({ left: `${s.left}%`, width: `${s.width}%` });
 
