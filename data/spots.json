@@ -3,6 +3,7 @@
     "id": "kissimmee-prairie",
     "name": "Kissimmee Prairie Preserve",
     "region": "Okeechobee County",
+    "state": "FL",
     "lat": 27.582,
     "lon": -81.0436,
     "bortle": 3,
@@ -19,6 +20,7 @@
     "id": "hopkins-prairie",
     "name": "Hopkins Prairie",
     "region": "Ocala National Forest",
+    "state": "FL",
     "lat": 29.2755,
     "lon": -81.6931,
     "bortle": 4,
@@ -35,6 +37,7 @@
     "id": "lake-louisa",
     "name": "Lake Louisa State Park",
     "region": "Clermont · Lake County",
+    "state": "FL",
     "lat": 28.4535,
     "lon": -81.7389,
     "bortle": 5,
@@ -49,6 +52,7 @@
     "id": "merritt-island-black-point",
     "name": "Black Point Wildlife Drive",
     "region": "Merritt Island National Wildlife Refuge",
+    "state": "FL",
     "lat": 28.6769,
     "lon": -80.7695,
     "bortle": 4,
@@ -63,6 +67,7 @@
     "id": "lake-eola",
     "name": "Lake Eola Park",
     "region": "Downtown Orlando",
+    "state": "FL",
     "lat": 28.544,
     "lon": -81.3704,
     "bortle": 9,
@@ -77,6 +82,7 @@
     "id": "alexander-springs",
     "name": "Alexander Springs Recreation Area",
     "region": "Ocala National Forest",
+    "state": "FL",
     "lat": 29.0789,
     "lon": -81.5801,
     "bortle": 4,
@@ -92,6 +98,7 @@
     "id": "juniper-springs",
     "name": "Juniper Springs Recreation Area",
     "region": "Ocala National Forest",
+    "state": "FL",
     "lat": 29.1822,
     "lon": -81.7103,
     "bortle": 4,
@@ -107,6 +114,7 @@
     "id": "silver-springs",
     "name": "Silver Springs State Park",
     "region": "Ocala · Marion County",
+    "state": "FL",
     "lat": 29.201,
     "lon": -82.0508,
     "bortle": 5,
@@ -123,6 +131,7 @@
     "id": "wekiwa-springs",
     "name": "Wekiwa Springs State Park",
     "region": "Apopka · Orange County",
+    "state": "FL",
     "lat": 28.7088,
     "lon": -81.4745,
     "bortle": 6,
@@ -137,6 +146,7 @@
     "id": "ucf-reflecting-pond",
     "name": "UCF Reflecting Pond",
     "region": "UCF · East Orlando",
+    "state": "FL",
     "lat": 28.5996,
     "lon": -81.202,
     "bortle": 7,
@@ -152,6 +162,7 @@
     "id": "moss-park",
     "name": "Moss Park",
     "region": "Orange County · near Lake Nona",
+    "state": "FL",
     "lat": 28.3722,
     "lon": -81.1885,
     "bortle": 5,
@@ -167,6 +178,7 @@
     "id": "lake-apopka-wildlife-drive",
     "name": "Lake Apopka Wildlife Drive",
     "region": "Lake Apopka North Shore",
+    "state": "FL",
     "lat": 28.6692,
     "lon": -81.5611,
     "bortle": 5,
@@ -181,6 +193,7 @@
     "id": "blue-spring",
     "name": "Blue Spring State Park",
     "region": "Orange City · Volusia County",
+    "state": "FL",
     "lat": 28.9457,
     "lon": -81.3346,
     "bortle": 5,
@@ -195,6 +208,7 @@
     "id": "playalinda-beach",
     "name": "Playalinda Beach",
     "region": "Canaveral National Seashore",
+    "state": "FL",
     "lat": 28.6773,
     "lon": -80.6472,
     "bortle": 4,
@@ -210,6 +224,7 @@
     "id": "jetty-park",
     "name": "Jetty Park",
     "region": "Port Canaveral · Brevard County",
+    "state": "FL",
     "lat": 28.407,
     "lon": -80.5939,
     "bortle": 5,
@@ -225,6 +240,7 @@
     "id": "sebastian-inlet",
     "name": "Sebastian Inlet State Park",
     "region": "Melbourne Beach · Brevard County",
+    "state": "FL",
     "lat": 27.8634,
     "lon": -80.4494,
     "bortle": 4,
@@ -240,6 +256,7 @@
     "id": "three-lakes-prairie-lakes",
     "name": "Three Lakes WMA, Prairie Lakes Unit",
     "region": "Osceola County",
+    "state": "FL",
     "lat": 27.9103,
     "lon": -81.1498,
     "bortle": 4,
@@ -257,6 +274,7 @@
     "id": "colt-creek",
     "name": "Colt Creek State Park",
     "region": "Lakeland · Polk County",
+    "state": "FL",
     "lat": 28.2901,
     "lon": -82.0426,
     "bortle": 4,
@@ -272,6 +290,7 @@
     "id": "withlacoochee-river-park",
     "name": "Withlacoochee River Park",
     "region": "Dade City · Pasco County",
+    "state": "FL",
     "lat": 28.3516,
     "lon": -82.1277,
     "bortle": 4,
@@ -288,6 +307,7 @@
     "id": "hillsborough-river",
     "name": "Hillsborough River State Park",
     "region": "Thonotosassa · Hillsborough County",
+    "state": "FL",
     "lat": 28.1448,
     "lon": -82.2392,
     "bortle": 5,
@@ -303,6 +323,7 @@
     "id": "salt-springs",
     "name": "Salt Springs Recreation Area",
     "region": "Ocala National Forest",
+    "state": "FL",
     "lat": 29.3566,
     "lon": -81.7328,
     "bortle": 4,
@@ -318,6 +339,7 @@
     "id": "clearwater-lake",
     "name": "Clearwater Lake Campground",
     "region": "Paisley · Ocala National Forest",
+    "state": "FL",
     "lat": 28.9799,
     "lon": -81.5548,
     "bortle": 4,
@@ -332,6 +354,7 @@
     "id": "holder-mine",
     "name": "Holder Mine Campground",
     "region": "Withlacoochee State Forest · Citrus Tract",
+    "state": "FL",
     "lat": 28.8007,
     "lon": -82.3824,
     "bortle": 4,
@@ -347,6 +370,7 @@
     "id": "lake-griffin",
     "name": "Lake Griffin State Park",
     "region": "Fruitland Park · Lake County",
+    "state": "FL",
     "lat": 28.8598,
     "lon": -81.9017,
     "bortle": 5,
@@ -362,6 +386,7 @@
     "id": "kelly-park",
     "name": "Kelly Park / Rock Springs",
     "region": "Apopka · Orange County",
+    "state": "FL",
     "lat": 28.7574,
     "lon": -81.5028,
     "bortle": 5,
@@ -376,6 +401,7 @@
     "id": "trimble-park",
     "name": "Trimble Park",
     "region": "Mount Dora · Orange County",
+    "state": "FL",
     "lat": 28.767,
     "lon": -81.6553,
     "bortle": 5,
@@ -391,6 +417,7 @@
     "id": "bill-frederick-park",
     "name": "Bill Frederick Park at Turkey Lake",
     "region": "Southwest Orlando",
+    "state": "FL",
     "lat": 28.5046,
     "lon": -81.4784,
     "bortle": 8,
@@ -406,6 +433,7 @@
     "id": "cranes-roost",
     "name": "Cranes Roost Park",
     "region": "Altamonte Springs · Seminole County",
+    "state": "FL",
     "lat": 28.6666,
     "lon": -81.3851,
     "bortle": 8,
@@ -420,6 +448,7 @@
     "id": "daytona-beach",
     "name": "Daytona Beach at Main Street",
     "region": "Daytona Beach · Volusia County",
+    "state": "FL",
     "lat": 29.2277,
     "lon": -81.0082,
     "bortle": 7,
@@ -434,6 +463,7 @@
     "id": "lighthouse-point-park",
     "name": "Lighthouse Point Park",
     "region": "Ponce Inlet · Volusia County",
+    "state": "FL",
     "lat": 29.0795,
     "lon": -80.9226,
     "bortle": 4,
@@ -448,6 +478,7 @@
     "id": "manatee-hammock",
     "name": "Manatee Hammock Campground",
     "region": "Titusville · Brevard County",
+    "state": "FL",
     "lat": 28.504,
     "lon": -80.7817,
     "bortle": 5,
@@ -463,6 +494,7 @@
     "id": "lake-kissimmee",
     "name": "Lake Kissimmee State Park",
     "region": "Lake Wales · Polk County",
+    "state": "FL",
     "lat": 27.9416,
     "lon": -81.3636,
     "bortle": 4,
@@ -479,6 +511,7 @@
     "id": "fisheating-creek",
     "name": "Fisheating Creek Campground",
     "region": "Palmdale · Glades County",
+    "state": "FL",
     "lat": 26.9373,
     "lon": -81.3175,
     "bortle": 4,
@@ -495,6 +528,7 @@
     "id": "little-manatee-river",
     "name": "Little Manatee River State Park",
     "region": "Wimauma · Hillsborough County",
+    "state": "FL",
     "lat": 27.6716,
     "lon": -82.3835,
     "bortle": 5,
@@ -510,6 +544,7 @@
     "id": "fort-de-soto",
     "name": "Fort De Soto Park Campground",
     "region": "Tierra Verde · Pinellas County",
+    "state": "FL",
     "lat": 27.6339,
     "lon": -82.721,
     "bortle": 5,
@@ -519,6 +554,1328 @@
       "https://pinellas.gov/camping-information/",
       "https://pinellas.gov/county-parks-know-before-you-go/",
       "https://clearoutside.com/forecast/27.63/-82.72"
+    ]
+  },
+  {
+    "id": "railroad-park-birmingham",
+    "name": "Railroad Park",
+    "region": "Birmingham, AL",
+    "state": "AL",
+    "lat": 33.5087,
+    "lon": -86.8113,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Downtown green space that stays open late. Fine for the Moon and planets, but city glow hides faint stars.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.51/-86.81"
+    ]
+  },
+  {
+    "id": "oak-mountain",
+    "name": "Oak Mountain State Park",
+    "region": "Near Birmingham, AL",
+    "state": "AL",
+    "lat": 33.326,
+    "lon": -86.755,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Alabama's largest state park, just south of the city. After dark it's campers only, so book a site.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.33/-86.75"
+    ]
+  },
+  {
+    "id": "papago-park",
+    "name": "Papago Park",
+    "region": "Phoenix, AZ",
+    "state": "AZ",
+    "lat": 33.454,
+    "lon": -111.948,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Red sandstone buttes between Phoenix and Tempe. Good for the Moon and planets over the desert.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.45/-111.95"
+    ]
+  },
+  {
+    "id": "lost-dutchman",
+    "name": "Lost Dutchman State Park",
+    "region": "Near Phoenix, AZ",
+    "state": "AZ",
+    "lat": 33.4617,
+    "lon": -111.4797,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Campground at the foot of the Superstition Mountains, with a dark eastern sky. Campers only after the park closes.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.46/-111.48"
+    ]
+  },
+  {
+    "id": "big-dam-bridge",
+    "name": "Big Dam Bridge",
+    "region": "Little Rock, AR",
+    "state": "AR",
+    "lat": 34.792,
+    "lon": -92.358,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Pedestrian bridge over the Arkansas River, open 24 hours. Wide views, but strong city glow.",
+    "sources": [
+      "https://clearoutside.com/forecast/34.79/-92.36"
+    ]
+  },
+  {
+    "id": "pinnacle-mountain",
+    "name": "Pinnacle Mountain State Park",
+    "region": "Near Little Rock, AR",
+    "state": "AR",
+    "lat": 34.841,
+    "lon": -92.479,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Park west of town where the open lots by the Arkansas River give a clear western horizon.",
+    "sources": [
+      "https://clearoutside.com/forecast/34.84/-92.48"
+    ]
+  },
+  {
+    "id": "griffith-observatory",
+    "name": "Griffith Observatory",
+    "region": "Los Angeles, CA",
+    "state": "CA",
+    "lat": 34.1184,
+    "lon": -118.3004,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Free public telescopes on most clear evenings. Too bright for the Milky Way, great for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/34.12/-118.30"
+    ]
+  },
+  {
+    "id": "mount-pinos",
+    "name": "Mount Pinos",
+    "region": "Near Los Angeles, CA",
+    "state": "CA",
+    "lat": 34.813,
+    "lon": -119.119,
+    "bortle": 3,
+    "openAtNight": true,
+    "seasonalNote": "Road can close for snow in winter",
+    "notes": "Southern California's classic astronomy site at 8,300 ft. Park at the Chula Vista lot and bring layers; it's cold at night.",
+    "sources": [
+      "https://clearoutside.com/forecast/34.81/-119.12"
+    ]
+  },
+  {
+    "id": "sloans-lake",
+    "name": "Sloan's Lake",
+    "region": "Denver, CO",
+    "state": "CO",
+    "lat": 39.748,
+    "lon": -105.047,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "City park on the west side of Denver. Bright, but good for the Moon and planets over the lake.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.75/-105.05"
+    ]
+  },
+  {
+    "id": "echo-lake",
+    "name": "Echo Lake",
+    "region": "Near Denver, CO",
+    "state": "CO",
+    "lat": 39.6566,
+    "lon": -105.6037,
+    "bortle": 3,
+    "openAtNight": true,
+    "seasonalNote": "Mount Blue Sky Road above the lake closes for winter",
+    "notes": "High lake at 10,600 ft on the Mount Blue Sky Scenic Byway, a short drive up from Idaho Springs.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.66/-105.60"
+    ]
+  },
+  {
+    "id": "elizabeth-park",
+    "name": "Elizabeth Park",
+    "region": "Hartford, CT",
+    "state": "CT",
+    "lat": 41.77,
+    "lon": -72.718,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Rose garden park on the Hartford and West Hartford line. Fine for the Moon and bright planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.77/-72.72"
+    ]
+  },
+  {
+    "id": "natchaug-forest",
+    "name": "Natchaug State Forest",
+    "region": "Near Hartford, CT",
+    "state": "CT",
+    "lat": 41.841,
+    "lon": -72.073,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Quiet forest in Connecticut's darkest corner. The open fields near the horse camp give the widest sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.84/-72.07"
+    ]
+  },
+  {
+    "id": "brandywine-creek",
+    "name": "Brandywine Creek State Park",
+    "region": "Wilmington, DE",
+    "state": "DE",
+    "lat": 39.81,
+    "lon": -75.58,
+    "bortle": 6,
+    "openAtNight": true,
+    "notes": "Rolling meadows just north of Wilmington. The hilltop fields give the widest sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.81/-75.58"
+    ]
+  },
+  {
+    "id": "trap-pond",
+    "name": "Trap Pond State Park",
+    "region": "Near Wilmington, DE",
+    "state": "DE",
+    "lat": 38.525,
+    "lon": -75.481,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Bald cypress pond in rural southern Delaware with a campground, under some of the darkest skies in the state.",
+    "sources": [
+      "https://clearoutside.com/forecast/38.52/-75.48"
+    ]
+  },
+  {
+    "id": "piedmont-park",
+    "name": "Piedmont Park",
+    "region": "Atlanta, GA",
+    "state": "GA",
+    "lat": 33.7851,
+    "lon": -84.3738,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Midtown park with the skyline as a backdrop. Good for the Moon and planets only.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.79/-84.37"
+    ]
+  },
+  {
+    "id": "hard-labor-creek",
+    "name": "Hard Labor Creek State Park",
+    "region": "Near Atlanta, GA",
+    "state": "GA",
+    "lat": 33.665,
+    "lon": -83.605,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Georgia State University's observatory sits inside the park, and campers can stay after dark.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.66/-83.61"
+    ]
+  },
+  {
+    "id": "table-rock-boise",
+    "name": "Table Rock",
+    "region": "Boise, ID",
+    "state": "ID",
+    "lat": 43.602,
+    "lon": -116.16,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Mesa above Boise with big city views and a decent sky to the east.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.60/-116.16"
+    ]
+  },
+  {
+    "id": "bruneau-dunes",
+    "name": "Bruneau Dunes State Park",
+    "region": "Near Boise, ID",
+    "state": "ID",
+    "lat": 42.903,
+    "lon": -115.699,
+    "bortle": 2,
+    "openAtNight": true,
+    "notes": "The tallest single sand dune in North America, with a public observatory and weekend star programs in season.",
+    "sources": [
+      "https://clearoutside.com/forecast/42.90/-115.70"
+    ]
+  },
+  {
+    "id": "adler-lakefront",
+    "name": "Adler Planetarium Lakefront",
+    "region": "Chicago, IL",
+    "state": "IL",
+    "lat": 41.8663,
+    "lon": -87.6068,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Lakefront next to the planetarium: dark water to the east, skyline glow everywhere else.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.87/-87.61"
+    ]
+  },
+  {
+    "id": "starved-rock",
+    "name": "Starved Rock State Park",
+    "region": "Near Chicago, IL",
+    "state": "IL",
+    "lat": 41.319,
+    "lon": -88.994,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Sandstone canyons on the Illinois River. Campers can stay after the park closes.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.32/-88.99"
+    ]
+  },
+  {
+    "id": "holcomb-observatory",
+    "name": "Holcomb Observatory",
+    "region": "Indianapolis, IN",
+    "state": "IN",
+    "lat": 39.841,
+    "lon": -86.17,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Butler University's observatory, which holds public nights with its 38-inch telescope.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.84/-86.17"
+    ]
+  },
+  {
+    "id": "brown-county",
+    "name": "Brown County State Park",
+    "region": "Near Indianapolis, IN",
+    "state": "IN",
+    "lat": 39.16,
+    "lon": -86.247,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Indiana's largest state park. Open ridgetop fields along the main road give big skies.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.16/-86.25"
+    ]
+  },
+  {
+    "id": "grays-lake",
+    "name": "Gray's Lake Park",
+    "region": "Des Moines, IA",
+    "state": "IA",
+    "lat": 41.57,
+    "lon": -93.639,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Downtown lake with a lit pedestrian bridge. The Moon over the water is the draw.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.57/-93.64"
+    ]
+  },
+  {
+    "id": "ledges",
+    "name": "Ledges State Park",
+    "region": "Near Des Moines, IA",
+    "state": "IA",
+    "lat": 41.997,
+    "lon": -93.88,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Sandstone bluffs on the Des Moines River with a campground. The upper lots have the best sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/42.00/-93.88"
+    ]
+  },
+  {
+    "id": "riverside-park-wichita",
+    "name": "Riverside Park",
+    "region": "Wichita, KS",
+    "state": "KS",
+    "lat": 37.7,
+    "lon": -97.355,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "City park along the Little Arkansas River. Good for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/37.70/-97.36"
+    ]
+  },
+  {
+    "id": "lake-afton-observatory",
+    "name": "Lake Afton Public Observatory",
+    "region": "Near Wichita, KS",
+    "state": "KS",
+    "lat": 37.623,
+    "lon": -97.628,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Public observatory west of Wichita with weekend viewing nights.",
+    "sources": [
+      "https://clearoutside.com/forecast/37.62/-97.63"
+    ]
+  },
+  {
+    "id": "waterfront-park-louisville",
+    "name": "Waterfront Park",
+    "region": "Louisville, KY",
+    "state": "KY",
+    "lat": 38.26,
+    "lon": -85.738,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Riverfront lawns by the Big Four Bridge, with open views over the Ohio River.",
+    "sources": [
+      "https://clearoutside.com/forecast/38.26/-85.74"
+    ]
+  },
+  {
+    "id": "bernheim-forest",
+    "name": "Bernheim Forest",
+    "region": "Near Louisville, KY",
+    "state": "KY",
+    "lat": 37.918,
+    "lon": -85.662,
+    "bortle": 5,
+    "openAtNight": false,
+    "notes": "Arboretum and forest south of town that closes at sunset, so there is no night access outside scheduled star events.",
+    "sources": [
+      "https://clearoutside.com/forecast/37.92/-85.66"
+    ]
+  },
+  {
+    "id": "lakeshore-drive",
+    "name": "Lakeshore Drive",
+    "region": "New Orleans, LA",
+    "state": "LA",
+    "lat": 30.03,
+    "lon": -90.07,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Seawall steps along Lake Pontchartrain. The darkest sky is out over the lake to the north.",
+    "sources": [
+      "https://clearoutside.com/forecast/30.03/-90.07"
+    ]
+  },
+  {
+    "id": "fontainebleau",
+    "name": "Fontainebleau State Park",
+    "region": "Near New Orleans, LA",
+    "state": "LA",
+    "lat": 30.337,
+    "lon": -90.04,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Lakefront park across the causeway in Mandeville. Campers can stay after the gate closes.",
+    "sources": [
+      "https://clearoutside.com/forecast/30.34/-90.04"
+    ]
+  },
+  {
+    "id": "fort-williams",
+    "name": "Fort Williams Park",
+    "region": "Portland, ME",
+    "state": "ME",
+    "lat": 43.623,
+    "lon": -70.208,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Next to Portland Head Light, with an ocean horizon to the east that is good for moonrise.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.62/-70.21"
+    ]
+  },
+  {
+    "id": "sebago-lake",
+    "name": "Sebago Lake State Park",
+    "region": "Near Portland, ME",
+    "state": "ME",
+    "lat": 43.918,
+    "lon": -70.57,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Big lake northwest of Portland with a campground and wide beach views.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.92/-70.57"
+    ]
+  },
+  {
+    "id": "federal-hill",
+    "name": "Federal Hill Park",
+    "region": "Baltimore, MD",
+    "state": "MD",
+    "lat": 39.28,
+    "lon": -76.608,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Hilltop over the Inner Harbor. Skyline views and the Moon, little else.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.28/-76.61"
+    ]
+  },
+  {
+    "id": "patapsco-valley",
+    "name": "Patapsco Valley State Park",
+    "region": "Near Baltimore, MD",
+    "state": "MD",
+    "lat": 39.29,
+    "lon": -76.78,
+    "bortle": 6,
+    "openAtNight": true,
+    "notes": "River valley park west of the city. The Hilltop area campground gives the best sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.29/-76.78"
+    ]
+  },
+  {
+    "id": "castle-island",
+    "name": "Castle Island",
+    "region": "Boston, MA",
+    "state": "MA",
+    "lat": 42.337,
+    "lon": -71.012,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Harbor point in South Boston with a low eastern horizon over the water.",
+    "sources": [
+      "https://clearoutside.com/forecast/42.34/-71.01"
+    ]
+  },
+  {
+    "id": "wompatuck",
+    "name": "Wompatuck State Park",
+    "region": "Near Boston, MA",
+    "state": "MA",
+    "lat": 42.21,
+    "lon": -70.854,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Wooded park south of Boston with a campground, and the darkest sky this close to the city.",
+    "sources": [
+      "https://clearoutside.com/forecast/42.21/-70.85"
+    ]
+  },
+  {
+    "id": "belle-isle-detroit",
+    "name": "Belle Isle Park",
+    "region": "Detroit, MI",
+    "state": "MI",
+    "lat": 42.341,
+    "lon": -82.98,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Island park in the Detroit River. The open fields at the east end are the darkest.",
+    "sources": [
+      "https://clearoutside.com/forecast/42.34/-82.98"
+    ]
+  },
+  {
+    "id": "lake-hudson",
+    "name": "Lake Hudson Recreation Area",
+    "region": "Near Detroit, MI",
+    "state": "MI",
+    "lat": 41.832,
+    "lon": -84.255,
+    "bortle": 3,
+    "openAtNight": true,
+    "notes": "Michigan's first state dark sky preserve, open 24 hours with a lakeside field for telescopes.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.83/-84.25"
+    ]
+  },
+  {
+    "id": "lake-harriet",
+    "name": "Lake Harriet",
+    "region": "Minneapolis, MN",
+    "state": "MN",
+    "lat": 44.922,
+    "lon": -93.305,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "City lake with a bandshell and a walking path. Good for the Moon over the water.",
+    "sources": [
+      "https://clearoutside.com/forecast/44.92/-93.31"
+    ]
+  },
+  {
+    "id": "afton-sp",
+    "name": "Afton State Park",
+    "region": "Near Minneapolis, MN",
+    "state": "MN",
+    "lat": 44.856,
+    "lon": -92.78,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Bluffs over the St. Croix River with hike-in campsites. The prairie hilltops give an open sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/44.86/-92.78"
+    ]
+  },
+  {
+    "id": "lefleurs-bluff",
+    "name": "LeFleur's Bluff State Park",
+    "region": "Jackson, MS",
+    "state": "MS",
+    "lat": 32.329,
+    "lon": -90.16,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "In-city state park with a campground along the Pearl River.",
+    "sources": [
+      "https://clearoutside.com/forecast/32.33/-90.16"
+    ]
+  },
+  {
+    "id": "roosevelt-sp",
+    "name": "Roosevelt State Park",
+    "region": "Near Jackson, MS",
+    "state": "MS",
+    "lat": 32.324,
+    "lon": -89.667,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Lakeside park east of Jackson near Morton, with a campground and cabins.",
+    "sources": [
+      "https://clearoutside.com/forecast/32.32/-89.67"
+    ]
+  },
+  {
+    "id": "art-hill",
+    "name": "Art Hill, Forest Park",
+    "region": "St. Louis, MO",
+    "state": "MO",
+    "lat": 38.639,
+    "lon": -90.295,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Grand lawn below the Art Museum, where the local astronomy society holds free public nights.",
+    "sources": [
+      "https://clearoutside.com/forecast/38.64/-90.30"
+    ]
+  },
+  {
+    "id": "cuivre-river",
+    "name": "Cuivre River State Park",
+    "region": "Near St. Louis, MO",
+    "state": "MO",
+    "lat": 39.03,
+    "lon": -90.93,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Rugged wooded park north of the city. Campers can stay after dark.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.03/-90.93"
+    ]
+  },
+  {
+    "id": "zimmerman-park",
+    "name": "Zimmerman Park",
+    "region": "Billings, MT",
+    "state": "MT",
+    "lat": 45.8,
+    "lon": -108.58,
+    "bortle": 6,
+    "openAtNight": true,
+    "notes": "Clifftop park on the Rimrocks above Billings: city lights below, dark sky above.",
+    "sources": [
+      "https://clearoutside.com/forecast/45.80/-108.58"
+    ]
+  },
+  {
+    "id": "bighorn-canyon",
+    "name": "Bighorn Canyon NRA",
+    "region": "Near Billings, MT",
+    "state": "MT",
+    "lat": 45.1,
+    "lon": -108.21,
+    "bortle": 2,
+    "openAtNight": true,
+    "notes": "Remote canyon country south of Billings. The Barry's Landing area has near-pristine skies.",
+    "sources": [
+      "https://clearoutside.com/forecast/45.10/-108.21"
+    ]
+  },
+  {
+    "id": "chalco-hills",
+    "name": "Chalco Hills Recreation Area",
+    "region": "Omaha, NE",
+    "state": "NE",
+    "lat": 41.183,
+    "lon": -96.16,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Reservoir park on Omaha's southwest edge with an open view over the water.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.18/-96.16"
+    ]
+  },
+  {
+    "id": "platte-river-sp",
+    "name": "Platte River State Park",
+    "region": "Near Omaha, NE",
+    "state": "NE",
+    "lat": 40.99,
+    "lon": -96.22,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Wooded park between Omaha and Lincoln with cabins and a lookout tower.",
+    "sources": [
+      "https://clearoutside.com/forecast/40.99/-96.22"
+    ]
+  },
+  {
+    "id": "red-rock-canyon",
+    "name": "Red Rock Canyon",
+    "region": "Near Las Vegas, NV",
+    "state": "NV",
+    "lat": 36.135,
+    "lon": -115.427,
+    "bortle": 5,
+    "openAtNight": false,
+    "notes": "The scenic loop closes in the evening, so there is no night access.",
+    "sources": [
+      "https://clearoutside.com/forecast/36.13/-115.43"
+    ]
+  },
+  {
+    "id": "lee-canyon",
+    "name": "Lee Canyon",
+    "region": "Near Las Vegas, NV",
+    "state": "NV",
+    "lat": 36.304,
+    "lon": -115.679,
+    "bortle": 3,
+    "openAtNight": true,
+    "seasonalNote": "Ski traffic and snow in winter",
+    "notes": "High in the Spring Mountains at 8,500 ft, an hour from the Strip. The Las Vegas glow sits low in the southeast.",
+    "sources": [
+      "https://clearoutside.com/forecast/36.30/-115.68"
+    ]
+  },
+  {
+    "id": "rock-rimmon",
+    "name": "Rock Rimmon Park",
+    "region": "Manchester, NH",
+    "state": "NH",
+    "lat": 43.005,
+    "lon": -71.49,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Rock ledge park in west Manchester with a view over the city.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.01/-71.49"
+    ]
+  },
+  {
+    "id": "bear-brook",
+    "name": "Bear Brook State Park",
+    "region": "Near Manchester, NH",
+    "state": "NH",
+    "lat": 43.135,
+    "lon": -71.373,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Big forest park east of Manchester with a campground and open fields.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.13/-71.37"
+    ]
+  },
+  {
+    "id": "liberty-sp",
+    "name": "Liberty State Park",
+    "region": "Newark, NJ",
+    "state": "NJ",
+    "lat": 40.704,
+    "lon": -74.054,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Hudson River waterfront facing Lower Manhattan. The Moon and planets with a skyline view.",
+    "sources": [
+      "https://clearoutside.com/forecast/40.70/-74.05"
+    ]
+  },
+  {
+    "id": "jenny-jump",
+    "name": "Jenny Jump State Forest",
+    "region": "Near Newark, NJ",
+    "state": "NJ",
+    "lat": 40.912,
+    "lon": -74.924,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Home of an amateur astronomy club's observatory, with public programs on Saturdays from spring to fall.",
+    "sources": [
+      "https://clearoutside.com/forecast/40.91/-74.92"
+    ]
+  },
+  {
+    "id": "petroglyph-nm",
+    "name": "Petroglyph National Monument",
+    "region": "Albuquerque, NM",
+    "state": "NM",
+    "lat": 35.158,
+    "lon": -106.757,
+    "bortle": 6,
+    "openAtNight": false,
+    "notes": "Trails close in the late afternoon, so there is no night access.",
+    "sources": [
+      "https://clearoutside.com/forecast/35.16/-106.76"
+    ]
+  },
+  {
+    "id": "sandia-crest",
+    "name": "Sandia Crest",
+    "region": "Near Albuquerque, NM",
+    "state": "NM",
+    "lat": 35.21,
+    "lon": -106.449,
+    "bortle": 4,
+    "openAtNight": true,
+    "seasonalNote": "Crest Highway can close for snow",
+    "notes": "A 10,678 ft summit overlooking Albuquerque. The lot is at the end of NM 536.",
+    "sources": [
+      "https://clearoutside.com/forecast/35.21/-106.45"
+    ]
+  },
+  {
+    "id": "central-park-great-lawn",
+    "name": "Central Park Great Lawn",
+    "region": "New York City, NY",
+    "state": "NY",
+    "lat": 40.7812,
+    "lon": -73.9665,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Local astronomers set up telescopes here on clear nights. The park is open until 1 AM.",
+    "sources": [
+      "https://clearoutside.com/forecast/40.78/-73.97"
+    ]
+  },
+  {
+    "id": "harriman-sp",
+    "name": "Harriman State Park",
+    "region": "Near New York City, NY",
+    "state": "NY",
+    "lat": 41.23,
+    "lon": -74.1,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Big forested park an hour north of the city. The lakeside lots have the most open sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.23/-74.10"
+    ]
+  },
+  {
+    "id": "freedom-park",
+    "name": "Freedom Park",
+    "region": "Charlotte, NC",
+    "state": "NC",
+    "lat": 35.195,
+    "lon": -80.843,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Lakeside city park in Myers Park. Fine for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/35.20/-80.84"
+    ]
+  },
+  {
+    "id": "morrow-mountain",
+    "name": "Morrow Mountain State Park",
+    "region": "Near Charlotte, NC",
+    "state": "NC",
+    "lat": 35.372,
+    "lon": -80.075,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Campground and overlooks in the Uwharrie Mountains, about an hour east of Charlotte.",
+    "sources": [
+      "https://clearoutside.com/forecast/35.37/-80.08"
+    ]
+  },
+  {
+    "id": "lindenwood-park",
+    "name": "Lindenwood Park",
+    "region": "Fargo, ND",
+    "state": "ND",
+    "lat": 46.854,
+    "lon": -96.779,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Riverside park with campsites on Fargo's south side.",
+    "sources": [
+      "https://clearoutside.com/forecast/46.85/-96.78"
+    ]
+  },
+  {
+    "id": "sheyenne-grassland",
+    "name": "Sheyenne National Grassland",
+    "region": "Near Fargo, ND",
+    "state": "ND",
+    "lat": 46.42,
+    "lon": -97.28,
+    "bortle": 2,
+    "openAtNight": true,
+    "notes": "Open tallgrass prairie southwest of Fargo with no lights to the horizon. Dispersed camping is allowed.",
+    "sources": [
+      "https://clearoutside.com/forecast/46.42/-97.28"
+    ]
+  },
+  {
+    "id": "scioto-mile",
+    "name": "Scioto Mile",
+    "region": "Columbus, OH",
+    "state": "OH",
+    "lat": 39.959,
+    "lon": -83.004,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Downtown riverfront promenade. The Moon over the river and the skyline.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.96/-83.00"
+    ]
+  },
+  {
+    "id": "john-glenn-astronomy-park",
+    "name": "John Glenn Astronomy Park",
+    "region": "Near Columbus, OH",
+    "state": "OH",
+    "lat": 39.435,
+    "lon": -82.54,
+    "bortle": 3,
+    "openAtNight": true,
+    "notes": "Observatory plaza in Hocking Hills State Park with free public programs on clear weekend nights.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.44/-82.54"
+    ]
+  },
+  {
+    "id": "scissortail-park",
+    "name": "Scissortail Park",
+    "region": "Oklahoma City, OK",
+    "state": "OK",
+    "lat": 35.461,
+    "lon": -97.518,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Downtown park with a lake and wide lawns. Good for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/35.46/-97.52"
+    ]
+  },
+  {
+    "id": "lake-thunderbird",
+    "name": "Lake Thunderbird State Park",
+    "region": "Near Oklahoma City, OK",
+    "state": "OK",
+    "lat": 35.23,
+    "lon": -97.24,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Reservoir park east of Norman with campgrounds and open lakefront views.",
+    "sources": [
+      "https://clearoutside.com/forecast/35.23/-97.24"
+    ]
+  },
+  {
+    "id": "mount-tabor",
+    "name": "Mount Tabor Park",
+    "region": "Portland, OR",
+    "state": "OR",
+    "lat": 45.512,
+    "lon": -122.594,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Volcanic cinder cone park in southeast Portland. The summit looks out over the whole city.",
+    "sources": [
+      "https://clearoutside.com/forecast/45.51/-122.59"
+    ]
+  },
+  {
+    "id": "milo-mciver",
+    "name": "Milo McIver State Park",
+    "region": "Near Portland, OR",
+    "state": "OR",
+    "lat": 45.305,
+    "lon": -122.37,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Riverside park where local astronomers hold star parties. Campers can stay after dark.",
+    "sources": [
+      "https://clearoutside.com/forecast/45.30/-122.37"
+    ]
+  },
+  {
+    "id": "belmont-plateau",
+    "name": "Belmont Plateau",
+    "region": "Philadelphia, PA",
+    "state": "PA",
+    "lat": 39.993,
+    "lon": -75.212,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Fairmount Park hilltop with a famous skyline view.",
+    "sources": [
+      "https://clearoutside.com/forecast/39.99/-75.21"
+    ]
+  },
+  {
+    "id": "french-creek",
+    "name": "French Creek State Park",
+    "region": "Near Philadelphia, PA",
+    "state": "PA",
+    "lat": 40.198,
+    "lon": -75.79,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Wooded park near Hopewell Furnace with two lakes and a campground.",
+    "sources": [
+      "https://clearoutside.com/forecast/40.20/-75.79"
+    ]
+  },
+  {
+    "id": "prospect-terrace",
+    "name": "Prospect Terrace Park",
+    "region": "Providence, RI",
+    "state": "RI",
+    "lat": 41.83,
+    "lon": -71.407,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Small College Hill overlook with a view west over downtown.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.83/-71.41"
+    ]
+  },
+  {
+    "id": "frosty-drew",
+    "name": "Frosty Drew Observatory",
+    "region": "Near Providence, RI",
+    "state": "RI",
+    "lat": 41.375,
+    "lon": -71.653,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Public observatory in Ninigret Park, Charlestown, open on clear Friday nights.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.38/-71.65"
+    ]
+  },
+  {
+    "id": "riverfront-park-columbia",
+    "name": "Riverfront Park",
+    "region": "Columbia, SC",
+    "state": "SC",
+    "lat": 34.006,
+    "lon": -81.048,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Canal-side trail along the Congaree River downtown.",
+    "sources": [
+      "https://clearoutside.com/forecast/34.01/-81.05"
+    ]
+  },
+  {
+    "id": "congaree-np",
+    "name": "Congaree National Park",
+    "region": "Near Columbia, SC",
+    "state": "SC",
+    "lat": 33.83,
+    "lon": -80.823,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Old-growth floodplain forest southeast of Columbia. The park is open 24 hours and runs night sky programs.",
+    "sources": [
+      "https://clearoutside.com/forecast/33.83/-80.82"
+    ]
+  },
+  {
+    "id": "falls-park",
+    "name": "Falls Park",
+    "region": "Sioux Falls, SD",
+    "state": "SD",
+    "lat": 43.558,
+    "lon": -96.724,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Lit waterfalls downtown. Good for the Moon and planets only.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.56/-96.72"
+    ]
+  },
+  {
+    "id": "newton-hills",
+    "name": "Newton Hills State Park",
+    "region": "Near Sioux Falls, SD",
+    "state": "SD",
+    "lat": 43.22,
+    "lon": -96.57,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Wooded hills south of Sioux Falls with a campground and open hilltop meadows.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.22/-96.57"
+    ]
+  },
+  {
+    "id": "centennial-park",
+    "name": "Centennial Park",
+    "region": "Nashville, TN",
+    "state": "TN",
+    "lat": 36.149,
+    "lon": -86.813,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Home of the Parthenon replica. The Moon over the lawn makes a good photo.",
+    "sources": [
+      "https://clearoutside.com/forecast/36.15/-86.81"
+    ]
+  },
+  {
+    "id": "long-hunter",
+    "name": "Long Hunter State Park",
+    "region": "Near Nashville, TN",
+    "state": "TN",
+    "lat": 36.095,
+    "lon": -86.545,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Park on Percy Priest Lake east of Nashville with open lakefront fields.",
+    "sources": [
+      "https://clearoutside.com/forecast/36.09/-86.55"
+    ]
+  },
+  {
+    "id": "buffalo-bayou",
+    "name": "Buffalo Bayou Park",
+    "region": "Houston, TX",
+    "state": "TX",
+    "lat": 29.762,
+    "lon": -95.388,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Downtown bayou park with skyline views. Good for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/29.76/-95.39"
+    ]
+  },
+  {
+    "id": "george-observatory",
+    "name": "George Observatory",
+    "region": "Near Houston, TX",
+    "state": "TX",
+    "lat": 29.377,
+    "lon": -95.592,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Observatory in Brazos Bend State Park with public Saturday nights and a 36-inch telescope.",
+    "sources": [
+      "https://clearoutside.com/forecast/29.38/-95.59"
+    ]
+  },
+  {
+    "id": "liberty-park-slc",
+    "name": "Liberty Park",
+    "region": "Salt Lake City, UT",
+    "state": "UT",
+    "lat": 40.745,
+    "lon": -111.874,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Central city park. Bright, but fine for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/40.74/-111.87"
+    ]
+  },
+  {
+    "id": "antelope-island",
+    "name": "Antelope Island State Park",
+    "region": "Near Salt Lake City, UT",
+    "state": "UT",
+    "lat": 41.04,
+    "lon": -112.25,
+    "bortle": 3,
+    "openAtNight": true,
+    "darkSkyCertified": true,
+    "notes": "Island in the Great Salt Lake and a DarkSky park. Buffalo Point and the campgrounds have an open western sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.04/-112.25"
+    ]
+  },
+  {
+    "id": "waterfront-park-burlington",
+    "name": "Waterfront Park",
+    "region": "Burlington, VT",
+    "state": "VT",
+    "lat": 44.477,
+    "lon": -73.221,
+    "bortle": 6,
+    "openAtNight": true,
+    "notes": "Lake Champlain shoreline. The darkest sky is west over the lake toward the Adirondacks.",
+    "sources": [
+      "https://clearoutside.com/forecast/44.48/-73.22"
+    ]
+  },
+  {
+    "id": "little-river-sp",
+    "name": "Little River State Park",
+    "region": "Near Burlington, VT",
+    "state": "VT",
+    "lat": 44.39,
+    "lon": -72.77,
+    "bortle": 3,
+    "openAtNight": true,
+    "seasonalNote": "Campground closes in late October",
+    "notes": "Campground by Waterbury Reservoir in the Green Mountains.",
+    "sources": [
+      "https://clearoutside.com/forecast/44.39/-72.77"
+    ]
+  },
+  {
+    "id": "belle-isle-richmond",
+    "name": "Belle Isle",
+    "region": "Richmond, VA",
+    "state": "VA",
+    "lat": 37.529,
+    "lon": -77.452,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "James River island reached by a footbridge. The river gives a low, open horizon.",
+    "sources": [
+      "https://clearoutside.com/forecast/37.53/-77.45"
+    ]
+  },
+  {
+    "id": "pocahontas-sp",
+    "name": "Pocahontas State Park",
+    "region": "Near Richmond, VA",
+    "state": "VA",
+    "lat": 37.368,
+    "lon": -77.58,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Virginia's largest state park, south of Richmond, with a campground and open lakeside fields.",
+    "sources": [
+      "https://clearoutside.com/forecast/37.37/-77.58"
+    ]
+  },
+  {
+    "id": "kerry-park",
+    "name": "Kerry Park",
+    "region": "Seattle, WA",
+    "state": "WA",
+    "lat": 47.6295,
+    "lon": -122.36,
+    "bortle": 9,
+    "openAtNight": true,
+    "notes": "Queen Anne viewpoint over the skyline and Mount Rainier. Good for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/47.63/-122.36"
+    ]
+  },
+  {
+    "id": "rattlesnake-lake",
+    "name": "Rattlesnake Lake",
+    "region": "Near Seattle, WA",
+    "state": "WA",
+    "lat": 47.433,
+    "lon": -121.77,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Lake below Rattlesnake Ledge, 45 minutes east of Seattle. The lot has an open view east.",
+    "sources": [
+      "https://clearoutside.com/forecast/47.43/-121.77"
+    ]
+  },
+  {
+    "id": "haddad-riverfront",
+    "name": "Haddad Riverfront Park",
+    "region": "Charleston, WV",
+    "state": "WV",
+    "lat": 38.35,
+    "lon": -81.635,
+    "bortle": 7,
+    "openAtNight": true,
+    "notes": "Kanawha River amphitheater downtown. Good for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/38.35/-81.64"
+    ]
+  },
+  {
+    "id": "kanawha-forest",
+    "name": "Kanawha State Forest",
+    "region": "Near Charleston, WV",
+    "state": "WV",
+    "lat": 38.26,
+    "lon": -81.66,
+    "bortle": 5,
+    "openAtNight": true,
+    "notes": "Forested hollows just south of Charleston with a campground.",
+    "sources": [
+      "https://clearoutside.com/forecast/38.26/-81.66"
+    ]
+  },
+  {
+    "id": "lakeshore-sp",
+    "name": "Lakeshore State Park",
+    "region": "Milwaukee, WI",
+    "state": "WI",
+    "lat": 43.036,
+    "lon": -87.895,
+    "bortle": 8,
+    "openAtNight": true,
+    "notes": "Urban park on Lake Michigan with a dark eastern horizon over the water.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.04/-87.89"
+    ]
+  },
+  {
+    "id": "kettle-moraine-north",
+    "name": "Kettle Moraine Northern Unit",
+    "region": "Near Milwaukee, WI",
+    "state": "WI",
+    "lat": 43.64,
+    "lon": -88.17,
+    "bortle": 4,
+    "openAtNight": true,
+    "notes": "Glacial hills an hour north of Milwaukee. The Mauthe Lake campground has an open sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/43.64/-88.17"
+    ]
+  },
+  {
+    "id": "lions-park-cheyenne",
+    "name": "Lions Park",
+    "region": "Cheyenne, WY",
+    "state": "WY",
+    "lat": 41.156,
+    "lon": -104.832,
+    "bortle": 6,
+    "openAtNight": true,
+    "notes": "City park with a lake and the botanic gardens. Good for the Moon and planets.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.16/-104.83"
+    ]
+  },
+  {
+    "id": "curt-gowdy",
+    "name": "Curt Gowdy State Park",
+    "region": "Near Cheyenne, WY",
+    "state": "WY",
+    "lat": 41.18,
+    "lon": -105.24,
+    "bortle": 3,
+    "openAtNight": true,
+    "notes": "Granite hills and reservoirs halfway to Laramie, with campgrounds and a wide sky.",
+    "sources": [
+      "https://clearoutside.com/forecast/41.18/-105.24"
     ]
   }
 ]

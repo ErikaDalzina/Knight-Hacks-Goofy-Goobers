@@ -5,6 +5,8 @@ import { nextDate } from '@/lib/date';
 const FORECAST_API = 'https://api.open-meteo.com/v1/forecast';
 const CACHE_SECONDS = 30 * 60;
 const REQUEST_TIMEOUT_MS = 8000;
+// Open-Meteo's limit on locations per request.
+const MAX_LOCATIONS = 40;
 
 type ApiLocation = {
   utc_offset_seconds: number;
@@ -158,23 +160,33 @@ function transformHourly(location: ApiLocation): HourlyForecast[] {
 }
 
 /**
- * One Open-Meteo request for all supplied locations.
- * Maximum 40 spots per request.
+ * Hourly forecasts for all supplied spots, in requests of at most
+ * MAX_LOCATIONS each. Each batch URL is cached separately.
  */
 export async function getHourlyForecasts(
     spots: Spot[],
     date: string,
 ): Promise<Map<string, HourlyForecast[]>> {
-  if (spots.length === 0) {
-    return new Map();
+  const batches: Spot[][] = [];
+
+  for (let i = 0; i < spots.length; i += MAX_LOCATIONS) {
+    batches.push(spots.slice(i, i + MAX_LOCATIONS));
   }
 
-  if (spots.length > 40) {
-    throw new WeatherServiceError(
-        'More than 40 spots: split locations into batches.'
-    );
-  }
+  const results = await Promise.all(
+      batches.map(batch => fetchBatch(batch, date))
+  );
 
+  return new Map(results.flatMap(result => [...result]));
+}
+
+/**
+ * One Open-Meteo request for up to MAX_LOCATIONS locations.
+ */
+async function fetchBatch(
+    spots: Spot[],
+    date: string,
+): Promise<Map<string, HourlyForecast[]>> {
   const url = new URL(FORECAST_API);
 
   url.searchParams.set(

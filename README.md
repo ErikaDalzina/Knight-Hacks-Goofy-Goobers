@@ -86,7 +86,7 @@ npm run dev          # http://localhost:3000
 | `npm test` | Unit tests for the rating engine, comfort, cloud layers and the home page summary |
 | `npm run typecheck` | TypeScript check |
 | `npm run build` | Production build |
-| `node data/validate-spots.mjs` | Checks `data/spots.json`: ids, coordinates, Bortle range, notes, sources and the 40-spot limit |
+| `node data/validate-spots.mjs` | Checks `data/spots.json`: ids, coordinates, state codes, Bortle range, notes and sources |
 
 **Offline fallback:** set `USE_MOCKS = true` in `lib/apiClient.ts` to read `mocks/ratings.json` instead of the live API.
 
@@ -98,7 +98,7 @@ npm run dev          # http://localhost:3000
 | --- | --- |
 | `GET /api/health` | `{ ok: true }` |
 | `GET /api/spots` | Every spot (`Spot[]`) |
-| `GET /api/ratings?date=YYYY-MM-DD` | Every spot rated for that night (`SpotRating[]`), best first |
+| `GET /api/ratings?date=YYYY-MM-DD&state=FL` | Spots rated for that night (`SpotRating[]`), best first. `state` is optional and limits the list to one state; without it, every spot is rated |
 | `GET /api/ratings/[spotId]?date=YYYY-MM-DD` | One spot's rating (`SpotRating`) |
 | `GET /api/sky` | The seasonal constellation guide |
 

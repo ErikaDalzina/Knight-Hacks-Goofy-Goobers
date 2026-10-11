@@ -29,6 +29,7 @@ type Sort = 'score' | 'distance';
 const DISTANCES: (number | null)[] = [25, 50, 75, 100, null]; // miles; null means any
 const distanceText = (miles: number | null) => (miles === null ? 'Any distance' : `Within ${miles} mi`);
 const spotsText = (n: number) => `${n} ${n === 1 ? 'spot' : 'spots'}`;
+const NO_RATINGS: SpotRating[] = [];
 
 const LEGEND: { label: RatingLabel; range: string }[] = [
   { label: 'Excellent', range: `${LABEL_THRESHOLDS.excellent}–100` },
@@ -112,8 +113,9 @@ function DistanceFilter({ value, counts, onChange }: {
 
 export default function SpotsExplorer() {
   const home = useUserLocation();
-  const [ratings, setRatings] = useState<SpotRating[]>([]);
-  const [status, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
+  // Ratings are fetched for one state at a time, so each list remembers which state it's for.
+  const [loaded, setLoaded] = useState<{ state: string; ratings: SpotRating[] }>({ state: '', ratings: [] });
+  const [fetchStatus, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
   const [tonight, setTonight] = useState<string | null>(null);
@@ -133,18 +135,20 @@ export default function SpotsExplorer() {
     setDate(asked && nightOptions(today, STRIP_NIGHTS).includes(asked) ? asked : today);
   }, []);
 
+  const state = home.state;
   useEffect(() => {
     if (!date) return;
     let cancelled = false;
-    getRatings(date)
+    getRatings(date, state)
         .then((data) => {
           if (cancelled) return;
-          setRatings(data);
+          setLoaded({ state, ratings: data });
           setErrorMessage(null);
           setStatus('ready');
         })
         .catch((err) => {
           if (cancelled) return;
+          setLoaded({ state, ratings: [] });
           // fetch() rejects with a TypeError when the network is down. Keep the generic text for that.
           setErrorMessage(err instanceof Error && !(err instanceof TypeError) ? err.message : null);
           setStatus('error');
@@ -152,7 +156,13 @@ export default function SpotsExplorer() {
     return () => {
       cancelled = true;
     };
-  }, [reloadKey, date]);
+  }, [reloadKey, date, state]);
+
+  // After a switch to another state, show loading (and no pins, so the map fits the new state's
+  // spots when they arrive) until that state's list is in.
+  const current = loaded.state === state;
+  const status = current ? fetchStatus : 'loading';
+  const ratings = current ? loaded.ratings : NO_RATINGS;
 
   const retry = () => {
     setStatus('loading');
@@ -160,7 +170,7 @@ export default function SpotsExplorer() {
   };
 
   const nights = useMemo(() => (tonight ? nightOptions(tonight, STRIP_NIGHTS) : []), [tonight]);
-  const glances = useNightGlances(nights, reloadKey);
+  const glances = useNightGlances(nights, state, reloadKey);
 
   const selectNight = (next: string) => {
     if (next === date) return;
