@@ -6,6 +6,13 @@ export type Spot = {
   bortle: number;
   openAtNight: boolean;
   notes?: string;
+  // Optional details for the spot detail page. Leave a field out when it isn't verified.
+  region?: string;
+  elevationM?: number;
+  road?: string;
+  seasonalNote?: string;
+  darkSkyCertified?: boolean;
+  sources?: string[];
 };
 
 export type RatingLabel = 'Excellent' | 'Good' | 'Fair' | 'Poor' | 'Not tonight';

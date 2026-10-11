@@ -1,0 +1,3098 @@
+[
+  {
+    "spot": {
+      "id": "kissimmee-prairie",
+      "name": "Kissimmee Prairie Preserve",
+      "region": "Okeechobee County",
+      "lat": 27.582,
+      "lon": -81.0436,
+      "bortle": 3,
+      "openAtNight": true,
+      "darkSkyCertified": true,
+      "notes": "Florida's first DarkSky park. The gate closes 15 minutes after sunset, so reserve a campsite or astronomy pad and check in with the ranger before dark; red lights only on the pads.",
+      "sources": [
+        "https://www.floridastateparks.org/learn/dark-sky-designation",
+        "https://www.floridastateparks.org/parks-and-trails/kissimmee-prairie-preserve-state-park/experiences-amenities",
+        "https://clearoutside.com/forecast/27.58/-81.04"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 83,
+    "label": "Excellent",
+    "factors": {
+      "clouds": 0.903,
+      "darkness": 0.75,
+      "moon": 0.8147935814053333
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:12:50-04:00",
+      "end": "2026-10-18T06:09:01-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:09:01-04:00"
+    },
+    "moon": {
+      "illumination": 0.46301604648666683,
+      "rise": null,
+      "set": "2026-10-18T00:12:50-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 4,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 2,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "salt-springs",
+      "name": "Salt Springs Recreation Area",
+      "region": "Ocala National Forest",
+      "lat": 29.3566,
+      "lon": -81.7328,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "The largest campground in the Ocala National Forest, and the only one with full RV hookups. Gates close in the evening (8 PM in summer), so check in early; there's no cell service.",
+      "sources": [
+        "https://www.fs.usda.gov/r08/florida/recreation/salt-springs-recreation-area",
+        "https://www.recreation.gov/camping/campgrounds/233920",
+        "https://clearoutside.com/forecast/29.36/-81.73"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 79,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.915,
+      "darkness": 0.625,
+      "moon": 0.8147207812450193
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:15:27-04:00",
+      "end": "2026-10-18T06:11:58-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:11:58-04:00"
+    },
+    "moon": {
+      "illumination": 0.46319804688745153,
+      "rise": null,
+      "set": "2026-10-18T00:15:27-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 3,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "withlacoochee-river-park",
+      "name": "Withlacoochee River Park",
+      "region": "Dade City · Pasco County",
+      "lat": 28.3516,
+      "lon": -82.1277,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "The St. Petersburg Astronomy Club's dark-sky site: astronomers camp on the open activity field on new-moon weekends, since the campground is shaded by oaks. The park is open dawn to dusk, so stay with a campsite.",
+      "sources": [
+        "https://www.pascocountyfl.gov/_T22_R84.php",
+        "https://www.floridarambler.com/florida-camping/withlacoochee-river-park/",
+        "https://nightsky.jpl.nasa.gov/clubs/spac/",
+        "https://clearoutside.com/forecast/28.35/-82.13"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 79,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.908,
+      "darkness": 0.625,
+      "moon": 0.8146799723441407
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:17:06-04:00",
+      "end": "2026-10-18T06:13:27-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:13:27-04:00"
+    },
+    "moon": {
+      "illumination": 0.46330006913964816,
+      "rise": null,
+      "set": "2026-10-18T00:17:06-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 9,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 2,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 9,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "alexander-springs",
+      "name": "Alexander Springs Recreation Area",
+      "region": "Ocala National Forest",
+      "lat": 29.0789,
+      "lon": -81.5801,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "Forest Service campground beside the spring. Campers get 24-hour gate access with a code; day-use hours vary by season.",
+      "sources": [
+        "https://www.fs.usda.gov/r08/florida/recreation/alexander-springs-recreation-area",
+        "https://www.recreation.gov/camping/campgrounds/234032",
+        "https://clearoutside.com/forecast/29.08/-81.58"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 75,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.812,
+      "darkness": 0.625,
+      "moon": 0.814736861545305
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:52-04:00",
+      "end": "2026-10-18T06:11:20-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:11:20-04:00"
+    },
+    "moon": {
+      "illumination": 0.46315784613673733,
+      "rise": null,
+      "set": "2026-10-18T00:14:52-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 27,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 28,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 27,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "clearwater-lake",
+      "name": "Clearwater Lake Campground",
+      "region": "Paisley · Ocala National Forest",
+      "lat": 28.9799,
+      "lon": -81.5548,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "42-site Forest Service campground with lakefront sites. Campers get 24-hour gate access with a code; day use ends at 4 PM.",
+      "sources": [
+        "https://www.fs.usda.gov/r08/florida/recreation/clearwater-lake-campground",
+        "https://clearoutside.com/forecast/28.98/-81.55"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 75,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.8200000000000001,
+      "darkness": 0.625,
+      "moon": 0.8147395496952499
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:46-04:00",
+      "end": "2026-10-18T06:11:13-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:11:13-04:00"
+    },
+    "moon": {
+      "illumination": 0.4631511257618753,
+      "rise": null,
+      "set": "2026-10-18T00:14:46-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 19,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 23,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "lake-griffin",
+      "name": "Lake Griffin State Park",
+      "region": "Fruitland Park · Lake County",
+      "lat": 28.8598,
+      "lon": -81.9017,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset must call before 5 PM for the gate combination.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/lake-griffin-state-park/hours-fees",
+        "https://www.floridastateparks.org/reservation-information",
+        "https://clearoutside.com/forecast/28.86/-81.90"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 75,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.935,
+      "darkness": 0.5,
+      "moon": 0.8147033583954034
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:16:10-04:00",
+      "end": "2026-10-18T06:12:36-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:12:36-04:00"
+    },
+    "moon": {
+      "illumination": 0.46324160401149145,
+      "rise": null,
+      "set": "2026-10-18T00:16:10-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 2,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 4,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "little-manatee-river",
+      "name": "Little Manatee River State Park",
+      "region": "Wimauma · Hillsborough County",
+      "lat": 27.6716,
+      "lon": -82.3835,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset must call before 5 PM for the gate combination.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/little-manatee-river-state-park/hours-fees",
+        "https://www.floridastateparks.org/reservation-information",
+        "https://clearoutside.com/forecast/27.67/-82.38"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 75,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.9319999999999999,
+      "darkness": 0.5,
+      "moon": 0.8146535462351032
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:18:11-04:00",
+      "end": "2026-10-18T06:14:23-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:30:00-04:00",
+      "end": "2026-10-18T06:14:23-04:00"
+    },
+    "moon": {
+      "illumination": 0.4633661344122419,
+      "rise": null,
+      "set": "2026-10-18T00:18:11-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 2,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 3,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 0,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "manatee-hammock",
+      "name": "Manatee Hammock Campground",
+      "region": "Titusville · Brevard County",
+      "lat": 28.504,
+      "lon": -80.7817,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "County campground on the Indian River facing the Kennedy Space Center launch pads. The park is open dawn to dusk, and anyone who isn't a registered camper must leave by 10 PM.",
+      "sources": [
+        "http://www.brevardfl.gov/ParksAndRecreation/Campgrounds/ManateeHammockPark",
+        "https://www.floridarambler.com/florida-camping/manatee-hammock-campground/",
+        "https://clearoutside.com/forecast/28.50/-80.79"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 75,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.92,
+      "darkness": 0.5,
+      "moon": 0.8148205353814062
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:11:42-04:00",
+      "end": "2026-10-18T06:08:05-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:08:05-04:00"
+    },
+    "moon": {
+      "illumination": 0.4629486615464846,
+      "rise": null,
+      "set": "2026-10-18T00:11:42-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 11,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 9,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "sebastian-inlet",
+      "name": "Sebastian Inlet State Park",
+      "region": "Melbourne Beach · Brevard County",
+      "lat": 27.8634,
+      "lon": -80.4494,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "Open 24 hours with a staffed north ranger station, so no campsite is needed. Use the north-side lots; south-side beach access is closed during bridge construction.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/sebastian-inlet-state-park/hours-fees",
+        "https://www.floridastateparks.org/parks-and-trails/sebastian-inlet-state-park",
+        "https://clearoutside.com/forecast/27.86/-80.45"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 75,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.817,
+      "darkness": 0.625,
+      "moon": 0.8148555370859222
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:10:26-04:00",
+      "end": "2026-10-18T06:06:40-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:06:40-04:00"
+    },
+    "moon": {
+      "illumination": 0.4628611572851945,
+      "rise": null,
+      "set": "2026-10-18T00:10:26-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 17,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 27,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 20,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 27,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 19,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "hopkins-prairie",
+      "name": "Hopkins Prairie",
+      "region": "Ocala National Forest",
+      "lat": 29.2755,
+      "lon": -81.6931,
+      "bortle": 4,
+      "openAtNight": true,
+      "seasonalNote": "Campground open October through June",
+      "notes": "Small Forest Service campground overlooking an open prairie, with vault toilets and no electricity. Come in from SR 19 via FR 86 and FR 111, since Google Maps' northern route doesn't work.",
+      "sources": [
+        "https://www.floridarambler.com/florida-camping/florida-dark-skies-campgrounds-for-stargazing/",
+        "https://campendium.com/hopkins-prairie-campground",
+        "https://clearoutside.com/forecast/29.28/-81.69"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 74,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.795,
+      "darkness": 0.625,
+      "moon": 0.8147249659056277
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:15:18-04:00",
+      "end": "2026-10-18T06:11:48-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:11:48-04:00"
+    },
+    "moon": {
+      "illumination": 0.46318758523593084,
+      "rise": null,
+      "set": "2026-10-18T00:15:18-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 22,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 20,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 19,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "moss-park",
+      "name": "Moss Park",
+      "region": "Orange County · near Lake Nona",
+      "lat": 28.3722,
+      "lon": -81.1885,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "County campground between Lake Hart and Lake Mary Jane. The park closes at 6 PM in winter and 8 PM in summer, so after dark it's campers only.",
+      "sources": [
+        "https://www.ocfl.net/CultureParks/Parks.aspx?m=dtlvw&d=29",
+        "https://www.floridarambler.com/florida-camping/moss-park/",
+        "https://clearoutside.com/forecast/28.37/-81.19"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 74,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.914,
+      "darkness": 0.5,
+      "moon": 0.8147780929751837
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:13:21-04:00",
+      "end": "2026-10-18T06:09:41-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:09:41-04:00"
+    },
+    "moon": {
+      "illumination": 0.4630547675620408,
+      "rise": null,
+      "set": "2026-10-18T00:13:21-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 9,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 9,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "wekiwa-springs",
+      "name": "Wekiwa Springs State Park",
+      "region": "Apopka · Orange County",
+      "lat": 28.7088,
+      "lon": -81.4745,
+      "bortle": 6,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset call 407-553-4383 for the gate combination. Day visitors need an entry reservation.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/wekiwa-springs-state-park/hours-fees",
+        "https://clearoutside.com/forecast/28.71/-81.47"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 70,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.908,
+      "darkness": 0.375,
+      "moon": 0.8147480613010878
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:28-04:00",
+      "end": "2026-10-18T06:10:52-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:10:52-04:00"
+    },
+    "moon": {
+      "illumination": 0.46312984674728036,
+      "rise": null,
+      "set": "2026-10-18T00:14:28-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 11,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 4,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 2,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 11,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 9,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "trimble-park",
+      "name": "Trimble Park",
+      "region": "Mount Dora · Orange County",
+      "lat": 28.767,
+      "lon": -81.6553,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Small county campground on a point between Lake Carlton and Lake Beauclair. The park closes at 6 PM in winter and 8 PM in summer, so after dark it's campers only.",
+      "sources": [
+        "https://www.ocfl.net/CultureParks/Parks.aspx?d=40&m=dtlvw",
+        "https://www.floridarambler.com/florida-camping/best-camping-near-mount-dora/",
+        "https://clearoutside.com/forecast/28.77/-81.66"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 69,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.784,
+      "darkness": 0.5,
+      "moon": 0.8147291449142872
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:15:11-04:00",
+      "end": "2026-10-18T06:11:36-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:11:36-04:00"
+    },
+    "moon": {
+      "illumination": 0.46317713771428204,
+      "rise": null,
+      "set": "2026-10-18T00:15:11-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 28,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 13,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "daytona-beach",
+      "name": "Daytona Beach at Main Street",
+      "region": "Daytona Beach · Volusia County",
+      "lat": 29.2277,
+      "lon": -81.0082,
+      "bortle": 7,
+      "openAtNight": true,
+      "notes": "The beach is open to pedestrians 24 hours, tides permitting, but cars are allowed only by day, so park off the beach near the Main Street Pier. Keep lights off the sand, which confuse nesting sea turtles.",
+      "sources": [
+        "https://daytonabeach.gov/103/Beach-Information",
+        "https://clearoutside.com/forecast/29.23/-81.02"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 67,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.948,
+      "darkness": 0.25,
+      "moon": 0.8147965459410149
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:12:34-04:00",
+      "end": "2026-10-18T06:09:03-04:00"
+    },
+    "bestWindow": {
+      "start": "2026-10-18T00:15:00-04:00",
+      "end": "2026-10-18T06:09:03-04:00"
+    },
+    "moon": {
+      "illumination": 0.46300863514746277,
+      "rise": null,
+      "set": "2026-10-18T00:12:34-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 4,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 5,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 4,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 0,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "holder-mine",
+      "name": "Holder Mine Campground",
+      "region": "Withlacoochee State Forest · Citrus Tract",
+      "lat": 28.8007,
+      "lon": -82.3824,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "Improved state forest campground with electric sites, reserved through ReserveAmerica. Busy with hunters during archery and small-game seasons.",
+      "sources": [
+        "https://www.fdacs.gov/Forest-Wildfire/Our-Forests/State-Forests/Withlacoochee-State-Forest/Recreation-at-Withlacoochee-State-Forest/Withlacoochee-Camping-Sites",
+        "https://www.fdacs.gov/Forest-Wildfire/Our-Forests/State-Forests/Withlacoochee-State-Forest/Recreation-at-Withlacoochee-State-Forest",
+        "https://clearoutside.com/forecast/28.80/-82.38"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 65,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.5660000000000001,
+      "darkness": 0.625,
+      "moon": 0.81465315914656
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:18:05-04:00",
+      "end": "2026-10-18T06:14:31-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4633671021336001,
+      "rise": null,
+      "set": "2026-10-18T00:18:05-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 52,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 37,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 48,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "three-lakes-prairie-lakes",
+      "name": "Three Lakes WMA, Prairie Lakes Unit",
+      "region": "Osceola County",
+      "lat": 27.9103,
+      "lon": -81.1498,
+      "bortle": 4,
+      "openAtNight": true,
+      "seasonalNote": "No camping during Prairie Lakes quota hunts",
+      "notes": "Primitive campsites by Lake Jackson need a free FWC camping permit, plus a daily-use permit to enter. Come in from CR 523 via Prairie Lakes Rd, since the route from SR 60 doesn't go through.",
+      "sources": [
+        "https://myfwc.com/recreation/lead/three-lakes/things-to-do/",
+        "https://myfwc.com/recreation/lead/three-lakes/three-lakes-wma/",
+        "https://www.campendium.com/lake-jackson-campsites",
+        "https://clearoutside.com/forecast/27.91/-81.15"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 65,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.563,
+      "darkness": 0.625,
+      "moon": 0.8147823414854457
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:13:14-04:00",
+      "end": "2026-10-18T06:09:29-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4630441462863856,
+      "rise": null,
+      "set": "2026-10-18T00:13:14-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 49,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 46,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 48,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "fisheating-creek",
+      "name": "Fisheating Creek Campground",
+      "region": "Palmdale · Glades County",
+      "lat": 26.9373,
+      "lon": -81.3175,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "Concession-run campground in the Fisheating Creek WMA with RV and primitive sites; camping permits come from Fisheating Creek Outpost. Busiest on weekends and in the cooler months.",
+      "sources": [
+        "https://myfwc.com/recreation/lead/fisheating-creek/things-to-do/",
+        "https://floridabirdingtrail.com/site/fisheating-creek-wildlife-management-area/palmdale-campground/",
+        "https://maps.campendium.com/us/palmdale-fl/camping-rv/fisheating-creek-outpost-palmdale-fl",
+        "https://clearoutside.com/forecast/26.94/-81.32"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 64,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.547,
+      "darkness": 0.625,
+      "moon": 0.803188074229731
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:00-04:00",
+      "end": "2026-10-18T06:10:01-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4630868841653388,
+      "rise": null,
+      "set": "2026-10-18T00:29:00-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 37,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 46,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 52,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "juniper-springs",
+      "name": "Juniper Springs Recreation Area",
+      "region": "Ocala National Forest",
+      "lat": 29.1822,
+      "lon": -81.7103,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "Forest Service campground around the spring. Campers get 24-hour gate access with a code; the boardwalk is closed for renovation.",
+      "sources": [
+        "https://www.fs.usda.gov/r08/florida/recreation/juniper-springs-recreation-area",
+        "https://www.recreation.gov/camping/campgrounds/234031",
+        "https://clearoutside.com/forecast/29.18/-81.71"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 64,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.5549999999999999,
+      "darkness": 0.625,
+      "moon": 0.8147232112301828
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:15:22-04:00",
+      "end": "2026-10-18T06:11:52-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4631919719245432,
+      "rise": null,
+      "set": "2026-10-18T00:15:22-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 48,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 43,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 46,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 49,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 39,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 49,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "blue-spring",
+      "name": "Blue Spring State Park",
+      "region": "Orange City · Volusia County",
+      "lat": 28.9457,
+      "lon": -81.3346,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset call 386-775-3663 for the gate combination. A camping reservation doubles as the entry reservation.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/blue-spring-state-park/hours-fees",
+        "https://clearoutside.com/forecast/28.95/-81.33"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 61,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.571,
+      "darkness": 0.5,
+      "moon": 0.814762571717441
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:13:53-04:00",
+      "end": "2026-10-18T06:10:20-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4630935707063974,
+      "rise": null,
+      "set": "2026-10-18T00:13:53-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 37,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 43,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 46,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 51,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 47,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 49,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "lake-louisa",
+      "name": "Lake Louisa State Park",
+      "region": "Clermont · Lake County",
+      "lat": 28.4535,
+      "lon": -81.7389,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving late must call 352-394-3969 for the gate code before closing.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/lake-louisa-state-park/hours-fees",
+        "https://clearoutside.com/forecast/28.45/-81.74"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 61,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.5700000000000001,
+      "darkness": 0.5,
+      "moon": 0.8147205504665977
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:15:32-04:00",
+      "end": "2026-10-18T06:11:54-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46319862383350546,
+      "rise": null,
+      "set": "2026-10-18T00:15:32-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 49,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 46,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 48,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "hillsborough-river",
+      "name": "Hillsborough River State Park",
+      "region": "Thonotosassa · Hillsborough County",
+      "lat": 28.1448,
+      "lon": -82.2392,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset must call before 5 PM for the gate combination.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/hillsborough-river-state-park/hours-fees",
+        "https://www.floridastateparks.org/reservation-information",
+        "https://clearoutside.com/forecast/28.14/-82.24"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 60,
+    "label": "Good",
+    "factors": {
+      "clouds": 0.556,
+      "darkness": 0.5,
+      "moon": 0.8146684141714624
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:17:34-04:00",
+      "end": "2026-10-18T06:13:52-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.463328964571344,
+      "rise": null,
+      "set": "2026-10-18T00:17:34-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 42,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 49,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 51,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 52,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "ucf-reflecting-pond",
+      "name": "UCF Reflecting Pond",
+      "region": "UCF · East Orlando",
+      "lat": 28.5996,
+      "lon": -81.202,
+      "bortle": 7,
+      "openAtNight": true,
+      "notes": "Campus lawn by Millican Hall where UCF's Planetary Sciences Group has set up telescopes for Moon viewing; good for the Moon and planets, not the Milky Way. Visitors need an $8 virtual daily parking permit.",
+      "sources": [
+        "https://www.ucf.edu/news/ucf-host-moon-viewing-thursday-reflecting-pond/",
+        "https://parking.ucf.edu/resources/faqs/",
+        "https://clearoutside.com/forecast/28.60/-81.20"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 51,
+    "label": "Fair",
+    "factors": {
+      "clouds": 0.5589999999999999,
+      "darkness": 0.25,
+      "moon": 0.814776580867209
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:13:23-04:00",
+      "end": "2026-10-18T06:09:46-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46305854783197736,
+      "rise": null,
+      "set": "2026-10-18T00:13:23-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 53,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 52,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 39,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 43,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "bill-frederick-park",
+      "name": "Bill Frederick Park at Turkey Lake",
+      "region": "Southwest Orlando",
+      "lat": 28.5046,
+      "lon": -81.4784,
+      "bortle": 8,
+      "openAtNight": true,
+      "notes": "City park with RV sites and cabins on Turkey Lake. It closes at 5 PM from November to March and 7 PM from April to October, so after dark it's overnight guests only; best for the Moon and planets.",
+      "sources": [
+        "https://www.orlando.gov/Parks-the-Environment/Directory/Bill-Frederick-Park-At-Turkey-Lake",
+        "https://www.orlando.gov/Parks-the-Environment/Directory/Bill-Frederick-Park-At-Turkey-Lake/Make-a-Reservation-in-Bill-Frederick-Park",
+        "https://clearoutside.com/forecast/28.50/-81.48"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": 47,
+    "label": "Fair",
+    "factors": {
+      "clouds": 0.568,
+      "darkness": 0.125,
+      "moon": 0.8147477451995574
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:30-04:00",
+      "end": "2026-10-18T06:10:52-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46313063700110646,
+      "rise": null,
+      "set": "2026-10-18T00:14:30-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 41,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 38,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 43,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 45,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "merritt-island-black-point",
+      "name": "Black Point Wildlife Drive",
+      "region": "Merritt Island National Wildlife Refuge",
+      "lat": 28.6769,
+      "lon": -80.7695,
+      "bortle": 4,
+      "openAtNight": false,
+      "notes": "Wide marsh views over the Indian River, but refuge roads are open sunrise to sunset only, so there is no night access.",
+      "sources": [
+        "https://www.fws.gov/refuge/merritt-island/visit-us",
+        "https://clearoutside.com/forecast/28.68/-80.77"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Spot is closed at night",
+    "factors": {
+      "clouds": 0.919,
+      "darkness": 0.625,
+      "moon": 0.8148217330935659
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:11:39-04:00",
+      "end": "2026-10-18T06:08:03-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46294566726608527,
+      "rise": null,
+      "set": "2026-10-18T00:11:39-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 4,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 8,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 16,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 10,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 11,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "colt-creek",
+      "name": "Colt Creek State Park",
+      "region": "Lakeland · Polk County",
+      "lat": 28.2901,
+      "lon": -82.0426,
+      "bortle": 4,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and campers arriving after sunset must call before 5 PM for the gate combination.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/colt-creek-state-park/hours-fees",
+        "https://www.floridastateparks.org/reservation-information",
+        "https://clearoutside.com/forecast/28.29/-82.04"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Precipitation forecast during dark hours",
+    "factors": {
+      "clouds": 0.763,
+      "darkness": 0.625,
+      "moon": 0.8146888918408526
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:16:46-04:00",
+      "end": "2026-10-18T06:13:06-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4632777703978684,
+      "rise": null,
+      "set": "2026-10-18T00:16:46-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 20,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 30,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 28,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 20,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 19,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 23,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 20,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "cranes-roost",
+      "name": "Cranes Roost Park",
+      "region": "Altamonte Springs · Seminole County",
+      "lat": 28.6666,
+      "lon": -81.3851,
+      "bortle": 8,
+      "openAtNight": true,
+      "notes": "City lakefront park open until 11 PM (midnight on Friday and Saturday). It's brightly lit, so come for the Moon, planets and the brightest stars.",
+      "sources": [
+        "https://www.altamonte.org/367/Cranes-Roost-Park",
+        "https://clearoutside.com/forecast/28.67/-81.39"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Precipitation forecast during dark hours",
+    "factors": {
+      "clouds": 0.737,
+      "darkness": 0.125,
+      "moon": 0.8147574205737038
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:06-04:00",
+      "end": "2026-10-18T06:10:31-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4631064485657405,
+      "rise": null,
+      "set": "2026-10-18T00:14:06-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 29,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 22,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 32,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 32,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 30,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 31,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "fort-de-soto",
+      "name": "Fort De Soto Park Campground",
+      "region": "Tierra Verde · Pinellas County",
+      "lat": 27.6339,
+      "lon": -82.721,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "County campground near the mouth of Tampa Bay. The front gate is locked from 9 PM to 5:30 AM, and registered campers get the gate combination at check-in.",
+      "sources": [
+        "https://pinellas.gov/camping-information/",
+        "https://pinellas.gov/county-parks-know-before-you-go/",
+        "https://clearoutside.com/forecast/27.63/-82.72"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Cloud cover above 75%",
+    "factors": {
+      "clouds": 0.10699999999999998,
+      "darkness": 0.5,
+      "moon": 0.8146182977942674
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:19:32-04:00",
+      "end": "2026-10-18T06:15:44-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4634542555143315,
+      "rise": null,
+      "set": "2026-10-18T00:19:32-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 94,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 86,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 85,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 86,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 92,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 94,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 83,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 90,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 94,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 89,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "jetty-park",
+      "name": "Jetty Park",
+      "region": "Port Canaveral · Brevard County",
+      "lat": 28.407,
+      "lon": -80.5939,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "The park closes at 9 PM except to campground guests, who keep beach access and 24-hour pier access. Campers can stay overnight to watch launches from the beach or pier.",
+      "sources": [
+        "https://www.portcanaveral.com/park-services/jetty-park/rules-regulations",
+        "https://www.portcanaveral.com/park-services/jetty-park/beach-and-pier/what-time-does-the-beach--park--and-pier-close",
+        "https://clearoutside.com/forecast/28.41/-80.59"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Cloud cover above 75%",
+    "factors": {
+      "clouds": 0.14,
+      "darkness": 0.5,
+      "moon": 0.814840199472491
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:10:58-04:00",
+      "end": "2026-10-18T06:07:19-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46289950131877244,
+      "rise": null,
+      "set": "2026-10-18T00:10:58-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 87,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 84,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 91,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 95,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 85,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 81,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 86,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 86,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 85,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 80,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "kelly-park",
+      "name": "Kelly Park / Rock Springs",
+      "region": "Apopka · Orange County",
+      "lat": 28.7574,
+      "lon": -81.5028,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "County park that closes at 6 PM in winter and 8 PM in summer. After hours the waterfront is closed and campers must stay in the campground.",
+      "sources": [
+        "https://www.ocfl.net/cultureparks/parks.aspx?d=22&m=dtlvw",
+        "https://clearoutside.com/forecast/28.76/-81.50"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Cloud cover above 75%",
+    "factors": {
+      "clouds": 0.1459999999999999,
+      "darkness": 0.5,
+      "moon": 0.8147450827445016
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:34-04:00",
+      "end": "2026-10-18T06:10:59-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46313729313874585,
+      "rise": null,
+      "set": "2026-10-18T00:14:34-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 92,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 84,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 82,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 87,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 87,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 85,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 84,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 84,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 81,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 88,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "lake-apopka-wildlife-drive",
+      "name": "Lake Apopka Wildlife Drive",
+      "region": "Lake Apopka North Shore",
+      "lat": 28.6692,
+      "lon": -81.5611,
+      "bortle": 5,
+      "openAtNight": false,
+      "notes": "One-way 11-mile drive open to cars Friday to Sunday and federal holidays. The gate takes vehicles 7 AM to 3 PM and everyone must be out by 5 PM, so there is no night access.",
+      "sources": [
+        "https://www.sjrwmd.com/lands/recreation/lake-apopka/",
+        "https://clearoutside.com/forecast/28.67/-81.56"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Spot is closed at night",
+    "factors": {
+      "clouds": 0.801,
+      "darkness": 0.5,
+      "moon": 0.8147390311422664
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:49-04:00",
+      "end": "2026-10-18T06:11:13-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46315242214433405,
+      "rise": null,
+      "set": "2026-10-18T00:14:49-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 27,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 23,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 22,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 27,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 17,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "lake-eola",
+      "name": "Lake Eola Park",
+      "region": "Downtown Orlando",
+      "lat": 28.544,
+      "lon": -81.3704,
+      "bortle": 9,
+      "openAtNight": true,
+      "notes": "City park that stays open until midnight. Good for the Moon, planets and bright satellite passes; the Milky Way is washed out.",
+      "sources": [
+        "https://ww2.aaa.com/tripcanvas/attraction/lake-eola-park-VA16894",
+        "https://clearoutside.com/forecast/28.54/-81.37"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Cloud cover above 75%",
+    "factors": {
+      "clouds": 0.10799999999999998,
+      "darkness": 0,
+      "moon": 0.8147590115108598
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:03-04:00",
+      "end": "2026-10-18T06:10:26-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4631024712228504,
+      "rise": null,
+      "set": "2026-10-18T00:14:03-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 90,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 81,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 89,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 92,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 87,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 94,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 84,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 92,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 92,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 91,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "lake-kissimmee",
+      "name": "Lake Kissimmee State Park",
+      "region": "Lake Wales · Polk County",
+      "lat": 27.9416,
+      "lon": -81.3636,
+      "bortle": 4,
+      "openAtNight": false,
+      "seasonalNote": "Campgrounds closed for renovation since February 2026",
+      "notes": "The park closes at sundown, and its campgrounds are closed for renovation with no reopening date, so there is no night access for now.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/lake-kissimmee-state-park",
+        "https://www.floridastateparks.org/parks-and-trails/lake-kissimmee-state-park/hours-fees",
+        "https://clearoutside.com/forecast/27.94/-81.36"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Spot is closed at night",
+    "factors": {
+      "clouds": 0.8049999999999999,
+      "darkness": 0.625,
+      "moon": 0.8147599898327766
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:14:05-04:00",
+      "end": "2026-10-18T06:10:20-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.4631000254180583,
+      "rise": null,
+      "set": "2026-10-18T00:14:05-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 19,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 17,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "lighthouse-point-park",
+      "name": "Lighthouse Point Park",
+      "region": "Ponce Inlet · Volusia County",
+      "lat": 29.0795,
+      "lon": -80.9226,
+      "bortle": 4,
+      "openAtNight": false,
+      "notes": "County inlet park that closes at 7:30 PM in October and November, 6 PM in winter and 9 PM in summer, always before true darkness, so there is no night access.",
+      "sources": [
+        "https://www.volusia.org/services/public-works/coastal-division/coastal-parks/lighthouse-point-park.stml",
+        "https://clearoutside.com/forecast/29.08/-80.92"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Spot is closed at night",
+    "factors": {
+      "clouds": 0.541,
+      "darkness": 0.625,
+      "moon": 0.8148055566126226
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:12:14-04:00",
+      "end": "2026-10-18T06:08:42-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46298610846844357,
+      "rise": null,
+      "set": "2026-10-18T00:12:14-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 40,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 51,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 52,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 43,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 50,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 44,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 51,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "playalinda-beach",
+      "name": "Playalinda Beach",
+      "region": "Canaveral National Seashore",
+      "lat": 28.6773,
+      "lon": -80.6472,
+      "bortle": 4,
+      "openAtNight": false,
+      "notes": "The seashore is open 6 AM to 6 PM under normal hours and closes for some rocket launches, so there is no night access.",
+      "sources": [
+        "https://www.nps.gov/cana/learn/news/playalinda-district-hours-change-for-artemis-ii-launch.htm",
+        "https://www.nps.gov/cana/learn/news/launch-closure.htm",
+        "https://clearoutside.com/forecast/28.68/-80.65"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Spot is closed at night",
+    "factors": {
+      "clouds": 0.925,
+      "darkness": 0.625,
+      "moon": 0.814834510032622
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:11:09-04:00",
+      "end": "2026-10-18T06:07:33-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46291372491844507,
+      "rise": null,
+      "set": "2026-10-18T00:11:09-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 3,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 7,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 11,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 0,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 15,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 14,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 6,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 1,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 12,
+        "moonUp": false
+      }
+    ]
+  },
+  {
+    "spot": {
+      "id": "silver-springs",
+      "name": "Silver Springs State Park",
+      "region": "Ocala · Marion County",
+      "lat": 29.201,
+      "lon": -82.0508,
+      "bortle": 5,
+      "openAtNight": true,
+      "notes": "Campers only after dark: the park closes at sundown, and the campground has its own entrance at 1425 NE 58th Ave. Campers arriving after sunset must call before 5 PM for the gate combination.",
+      "sources": [
+        "https://www.floridastateparks.org/parks-and-trails/silver-springs-state-park/hours-fees",
+        "https://www.floridastateparks.org/parks-and-trails/silver-springs-state-park/entrances",
+        "https://www.floridastateparks.org/reservation-information",
+        "https://clearoutside.com/forecast/29.20/-82.05"
+      ]
+    },
+    "date": "2026-10-17",
+    "score": null,
+    "label": "Not tonight",
+    "gateReason": "Precipitation forecast during dark hours",
+    "factors": {
+      "clouds": 0.759,
+      "darkness": 0.5,
+      "moon": 0.8146876260888829
+    },
+    "darkWindow": {
+      "start": "2026-10-17T20:16:44-04:00",
+      "end": "2026-10-18T06:13:14-04:00"
+    },
+    "bestWindow": null,
+    "moon": {
+      "illumination": 0.46328093477779264,
+      "rise": null,
+      "set": "2026-10-18T00:16:44-04:00"
+    },
+    "hourly": [
+      {
+        "time": "2026-10-17T21:00:00-04:00",
+        "cloudCover": 28,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T22:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-17T23:00:00-04:00",
+        "cloudCover": 24,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T00:00:00-04:00",
+        "cloudCover": 30,
+        "moonUp": true
+      },
+      {
+        "time": "2026-10-18T01:00:00-04:00",
+        "cloudCover": 21,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T02:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T03:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T04:00:00-04:00",
+        "cloudCover": 25,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T05:00:00-04:00",
+        "cloudCover": 18,
+        "moonUp": false
+      },
+      {
+        "time": "2026-10-18T06:00:00-04:00",
+        "cloudCover": 26,
+        "moonUp": false
+      }
+    ]
+  }
+]
